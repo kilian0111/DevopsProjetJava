@@ -7,7 +7,7 @@ public class MainClient {
     public static void main(String[] args) {
         try {
 
-                String address = args[0];
+                String address = "127.0.0.1";
                 int port = 1111;
                 Client c = new Client(port, address);
 
