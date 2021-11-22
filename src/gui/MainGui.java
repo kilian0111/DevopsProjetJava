@@ -14,8 +14,9 @@ public class MainGui extends Application{
     @Override
     public void start(Stage stage) throws IOException {
         ClientPanel clientPanel = new ClientPanel();
+        ConnectionPanel connectionPanel = new ConnectionPanel();
         Group root = new Group();
-        root.getChildren().add(clientPanel);
+        root.getChildren().add(connectionPanel);
         Scene scene = new Scene(root, 450, 500);
         stage.setTitle("Mon application");
         stage.setScene(scene);
