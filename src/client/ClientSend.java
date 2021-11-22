@@ -1,11 +1,10 @@
-package Client;
+package client;
 
-import Common.Message;
+import common.Message;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class ClientSend implements Runnable {
@@ -46,7 +45,7 @@ public class ClientSend implements Runnable {
         while(true){
             System.out.print("Votre message >> ");
             String m = sc.nextLine();
-            Message mess = new Message("Client",m);
+            Message mess = new Message("client",m);
             try {
                 if("exit".equals(m.toLowerCase())){
                     client.disconnectedServer();

@@ -1,12 +1,11 @@
-package Interface;
+package gui;
 
-import Client.Client;
-import Common.Message;
+import client.Client;
+import common.Message;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 
 import javafx.scene.Parent;
 import javafx.scene.control.Button;

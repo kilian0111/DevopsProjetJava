@@ -1,13 +1,12 @@
-package Client;
+package client;
 
-import Common.Message;
-import Interface.ClientPanel;
+import common.Message;
+import gui.ClientPanel;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.util.Locale;
 
 public class Client {
 

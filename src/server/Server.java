@@ -1,6 +1,6 @@
-package Server;
+package server;
 
-import Common.Message;
+import common.Message;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class Server {
     }
 
     public ConnectedClient addClient(ConnectedClient newClient) throws IOException {
-        Message mess = new Message("Server",newClient.getId() + " vient de se connecter");
+        Message mess = new Message("server",newClient.getId() + " vient de se connecter");
         for(ConnectedClient client : clients){
                 client.sendMessage(mess);
         }

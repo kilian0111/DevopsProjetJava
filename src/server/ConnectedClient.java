@@ -1,6 +1,6 @@
-package Server;
+package server;
 
-import Common.Message;
+import common.Message;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
