@@ -1,7 +1,7 @@
 package client;
 
 import common.Message;
-import gui.ClientPanel;
+import gui.application.ClientPanel;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
