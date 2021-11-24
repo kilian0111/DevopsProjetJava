@@ -1,37 +1,42 @@
 package gui;
 
 import client.Client;
+import gui.connection.ConnectionPanel;
+import gui.register.RegisterPanel;
 import javafx.application.Application;
 
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import server.Connection;
 
 import java.io.IOException;
 
 public class MainGui extends Application{
 
+    private static ConnectionPanel connectionPanel;
+    private static RegisterPanel registerPanel;
+
     @Override
     public void start(Stage stage) throws IOException {
-        ClientPanel clientPanel = new ClientPanel();
-        ConnectionPanel connectionPanel = new ConnectionPanel();
+        connectionPanel = new ConnectionPanel();
+        registerPanel = new RegisterPanel();
         Group root = new Group();
         root.getChildren().add(connectionPanel);
+        root.getChildren().add(registerPanel);
+        registerPanel.setVisible(false);
         Scene scene = new Scene(root, 450, 500);
-        stage.setTitle("Mon application");
+        stage.setTitle("Kijoki");
         stage.setScene(scene);
         stage.show();
-        try {
+    }
 
-            String address = "127.0.0.1";
-            int port = 1111;
-            Client c = new Client(port, address);
-            clientPanel.setClient(c);
-            c.setView(clientPanel);
+    public static ConnectionPanel getConnectionPanel() {
+        return connectionPanel;
+    }
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static RegisterPanel getRegisterPanel() {
+        return registerPanel;
     }
 
     public static void main(String[] args) {
