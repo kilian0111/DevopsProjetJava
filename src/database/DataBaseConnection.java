@@ -1,6 +1,7 @@
 package database;
 
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.sql.Driver;
@@ -16,7 +17,8 @@ public class DataBaseConnection {
     public DataBaseConnection() {
 
         Properties props = new Properties();
-        try(FileInputStream conf = new FileInputStream("conf.properties")){
+
+        try(FileInputStream conf = new FileInputStream("src/conf.properties")){
             props.load(conf);
             Class.forName(props.getProperty("jdbc.driver.class"));
 
@@ -34,5 +36,9 @@ public class DataBaseConnection {
             e.printStackTrace();
             this.connection = null;
         }
+    }
+
+    public Connection getConnection() {
+        return connection;
     }
 }
