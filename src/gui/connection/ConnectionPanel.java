@@ -6,11 +6,13 @@ import gui.MainGui;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Pos;
 
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.text.TextFlow;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.web.WebView;
 
 public class ConnectionPanel extends Parent {
 
@@ -21,6 +23,7 @@ public class ConnectionPanel extends Parent {
     private PasswordField password;
     private Label usernameTxt;
     private Label passwordTxt;
+    private WebView logo;
 
     public ConnectionPanel()
     {
@@ -31,6 +34,23 @@ public class ConnectionPanel extends Parent {
         this.passwordTxt = new Label("Mot de passe : ");
         this.username = new TextField();
         this.password = new PasswordField();
+
+        //instanciation du logo
+        try
+        {
+            this.logo = new WebView();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        //mise en place du logo
+        logo.setLayoutX(10);
+        logo.setLayoutY(500);
+        logo.setPrefHeight(200);
+        logo.setPrefWidth(200);
+        logo.setVisible(true);
 
         this.connectionBtn.setLayoutX(180);
         this.connectionBtn.setLayoutY(375);
@@ -65,6 +85,9 @@ public class ConnectionPanel extends Parent {
         this.username.setLayoutX(130);
         this.username.setLayoutY(130);
         this.username.setVisible(true);
+
+        this.getChildren().add(logo);
+        this.logo.getEngine().load("ressource/img/logo.svg");
 
         this.getChildren().add(registerBtn);
         this.getChildren().add(connectionBtn);
