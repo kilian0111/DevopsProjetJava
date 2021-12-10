@@ -1,10 +1,6 @@
 package database;
-
-
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.sql.Driver;
+
 import java.sql.DriverManager;
 import java.util.Properties;
 import java.sql.Connection;
