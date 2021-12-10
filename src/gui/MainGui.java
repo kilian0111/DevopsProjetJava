@@ -7,6 +7,7 @@ import javafx.application.Application;
 
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import server.Connection;
 
@@ -25,8 +26,10 @@ public class MainGui extends Application{
         root.getChildren().add(connectionPanel);
         root.getChildren().add(registerPanel);
         registerPanel.setVisible(false);
-        Scene scene = new Scene(root, 450, 500);
+        Scene scene = new Scene(root, 450, 600);
         stage.setTitle("Kijoki");
+        stage.getIcons().add(new Image("file:ressources/img/favicon.png"));
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }

@@ -12,7 +12,13 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.shape.SVGPath;
 import javafx.scene.web.WebView;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class ConnectionPanel extends Parent {
 
@@ -23,7 +29,7 @@ public class ConnectionPanel extends Parent {
     private PasswordField password;
     private Label usernameTxt;
     private Label passwordTxt;
-    private WebView logo;
+    private Image logoIcon;
 
     public ConnectionPanel()
     {
@@ -34,32 +40,29 @@ public class ConnectionPanel extends Parent {
         this.passwordTxt = new Label("Mot de passe : ");
         this.username = new TextField();
         this.password = new PasswordField();
-
         //instanciation du logo
-        try
-        {
-            this.logo = new WebView();
-        }
-        catch(Exception e)
-        {
+        try {
+            this.logoIcon = new Image(new FileInputStream("ressources/img/logo.PNG"));
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        ImageView logoView = new ImageView(logoIcon);
 
         //mise en place du logo
-        logo.setLayoutX(10);
-        logo.setLayoutY(500);
-        logo.setPrefHeight(200);
-        logo.setPrefWidth(200);
-        logo.setVisible(true);
+        logoView.setX(20);
+        logoView.setY(20);
+        logoView.setFitHeight(175);
+        logoView.setFitWidth(400);
+        logoView.setVisible(true);
 
         this.connectionBtn.setLayoutX(180);
-        this.connectionBtn.setLayoutY(375);
+        this.connectionBtn.setLayoutY(425);
         this.connectionBtn.setPrefWidth(100);
         this.connectionBtn.setPrefHeight(20);
         this.connectionBtn.setVisible(true);
 
         this.registerBtn.setLayoutX(180);
-        this.registerBtn.setLayoutY(425);
+        this.registerBtn.setLayoutY(475);
         this.registerBtn.setPrefWidth(100);
         this.registerBtn.setPrefHeight(20);
         this.registerBtn.setVisible(true);
@@ -67,28 +70,26 @@ public class ConnectionPanel extends Parent {
         this.usernameTxt.setPrefHeight(30);
         this.usernameTxt.setPrefWidth(150);
         this.usernameTxt.setLayoutX(130);
-        this.usernameTxt.setLayoutY(100);
+        this.usernameTxt.setLayoutY(200);
         this.usernameTxt.setVisible(true);
 
         this.passwordTxt.setPrefHeight(30);
         this.passwordTxt.setPrefWidth(100);
         this.passwordTxt.setLayoutX(130);
-        this.passwordTxt.setLayoutY(200);
+        this.passwordTxt.setLayoutY(280);
         this.passwordTxt.setVisible(true);
 
         this.password.setPrefWidth(200);
         this.password.setLayoutX(130);
-        this.password.setLayoutY(230);
+        this.password.setLayoutY(310);
         this.password.setVisible(true);
 
         this.username.setPrefWidth(200);
         this.username.setLayoutX(130);
-        this.username.setLayoutY(130);
+        this.username.setLayoutY(230);
         this.username.setVisible(true);
 
-        this.getChildren().add(logo);
-        this.logo.getEngine().load("ressource/img/logo.svg");
-
+        this.getChildren().add(logoView);
         this.getChildren().add(registerBtn);
         this.getChildren().add(connectionBtn);
         this.getChildren().add(usernameTxt);
