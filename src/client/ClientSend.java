@@ -45,7 +45,7 @@ public class ClientSend implements Runnable {
         while(true){
             System.out.print("Votre message >> ");
             String m = sc.nextLine();
-            Message mess = new Message("client",m);
+            Message mess = new Message(0, m);
             try {
                 if("exit".equals(m.toLowerCase())){
                     client.disconnectedServer();

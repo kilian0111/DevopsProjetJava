@@ -1,34 +1,33 @@
 package gui;
 
 import client.Client;
+import gui.application.ClientPanel;
 import javafx.application.Application;
-
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MainGui extends Application{
+public class MainGui extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
         ClientPanel clientPanel = new ClientPanel();
-        ConnectionPanel connectionPanel = new ConnectionPanel();
         Group root = new Group();
-        root.getChildren().add(connectionPanel);
-        Scene scene = new Scene(root, 450, 500);
-        stage.setTitle("Mon application");
+        root.getChildren().add(clientPanel);
+        root.getStylesheets().add("/gui/style/style.css");
+        Scene scene = new Scene(root, 1000, 500);
+        stage.setTitle("KiJoKi");
         stage.setScene(scene);
         stage.show();
-        try {
 
+        try {
             String address = "127.0.0.1";
             int port = 1111;
-            Client c = new Client(port, address);
-            clientPanel.setClient(c);
-            c.setView(clientPanel);
-
+            Client client = new Client(port, address);
+            clientPanel.setClient(client);
+            client.setView(clientPanel);
         } catch (IOException e) {
             e.printStackTrace();
         }

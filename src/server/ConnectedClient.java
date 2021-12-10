@@ -50,7 +50,7 @@ public class ConnectedClient implements Runnable {
             while(isActive){
                 Message mess = (Message) this.in.readObject();
                 if(mess != null && !"exit".equals(mess.getContent())){
-                    mess.setSender(String.valueOf(this.id));
+                    mess.setSender(this.id);
                     this.server.broadcastMessage(mess,this.id);
                 }else{
                     server.disconnectedClient(this);
