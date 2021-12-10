@@ -58,9 +58,9 @@ public class ClientPanel extends Parent {
         this.receivedText.setPrefHeight(325);
         this.receivedText.setVisible(true);
 
-        this.sendBtn.setLayoutX(930);
+        this.sendBtn.setLayoutX(940);
         this.sendBtn.setLayoutY(400);
-        this.sendBtn.setPrefWidth(60);
+        this.sendBtn.setPrefWidth(50);
         this.sendBtn.setPrefHeight(75);
         this.sendBtn.getStyleClass().add("send-btn");
         this.sendBtn.setVisible(true);
@@ -84,7 +84,7 @@ public class ClientPanel extends Parent {
         this.sendBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Message m = new Message("moi", textToSend.getText());
+                Message m = new Message(0, textToSend.getText());
                 printNewMessage(m);
                 textToSend.setText("");
                 client.sendMessage(m);

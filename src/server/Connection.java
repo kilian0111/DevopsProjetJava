@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Connection implements Runnable{
+public class Connection implements Runnable {
 
     private Server server;
     private ServerSocket serverSocket;

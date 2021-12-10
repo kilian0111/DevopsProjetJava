@@ -29,7 +29,7 @@ public class Server {
     }
 
     public ConnectedClient addClient(ConnectedClient newClient) throws IOException {
-        Message mess = new Message("server",newClient.getId() + " vient de se connecter");
+        Message mess = new Message(0,newClient.getId() + " vient de se connecter");
         for(ConnectedClient client : clients){
                 client.sendMessage(mess);
         }
@@ -51,7 +51,7 @@ public class Server {
             discClient.closeClient();
         this.clients.remove(discClient);
         for(ConnectedClient client : clients){
-            client.sendMessage(new Message("server","Le client "+ discClient.getId() + " nous a quitté"));
+            client.sendMessage(new Message(0, "Le client "+ discClient.getId() + " nous a quitté"));
         }
         } catch (IOException e) {
             e.printStackTrace();
