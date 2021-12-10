@@ -9,8 +9,9 @@ import java.sql.DriverManager;
 import java.util.Properties;
 import java.sql.Connection;
 
-public class DataBaseConnection {
+public  class DataBaseConnection {
 
+    private static DataBaseConnection dataBaseConnection;
     private Connection connection;
 
 
@@ -40,5 +41,12 @@ public class DataBaseConnection {
 
     public Connection getConnection() {
         return connection;
+    }
+
+    public static DataBaseConnection getDataBaseConnection() {
+        if(dataBaseConnection == null){
+            dataBaseConnection = new DataBaseConnection();
+        }
+        return dataBaseConnection;
     }
 }
