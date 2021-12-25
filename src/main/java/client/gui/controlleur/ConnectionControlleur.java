@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import main.java.database.DataBaseConnectionRequest;
+import main.java.user.User;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,10 +27,10 @@ public class ConnectionControlleur implements Initializable {
     public void connectionAction(ActionEvent e){
         if(!identifiant.getText().isBlank() && !mdp.getText().isBlank()){
             labelErreur.setVisible(false);
-           /* if(sqlRequest.seConnecter(identifiant.getText(),mdp.getText())){
-
-            }*/
-
+            User userConnecter = sqlRequest.seConnecter(identifiant.getText(),mdp.getText());
+            if(userConnecter != null){
+                System.out.println("nop");
+            }
         }else{
             labelErreur.setText("Erreur ! Veuillez remplir tout les champs");
             labelErreur.setVisible(true);
@@ -37,8 +38,6 @@ public class ConnectionControlleur implements Initializable {
         }
         identifiant.setStyle(identifiant.getText().isBlank() ? "-fx-border-color: red" : "-fx-border-color: transparent");
         mdp.setStyle(mdp.getText().isBlank() ? "-fx-border-color: red" : "-fx-border-color: transparent");
-
-
     }
 
     @FXML

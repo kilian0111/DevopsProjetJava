@@ -38,7 +38,7 @@ public class ConnectionPanel extends Parent {
         this.password = new PasswordField();
         //instanciation du logo
         try {
-            this.logoIcon = new Image(new FileInputStream("src/main/resources/img/logo.png"));
+            this.logoIcon = new Image(new FileInputStream("java/main/resources/img/logo.png"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
