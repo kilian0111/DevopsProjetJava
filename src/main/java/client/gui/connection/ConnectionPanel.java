@@ -11,7 +11,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import main.java.client.gui.MainGui;
+import main.java.client.MainGui;
+import main.java.common.Utils;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -38,7 +39,7 @@ public class ConnectionPanel extends Parent {
         this.password = new PasswordField();
         //instanciation du logo
         try {
-            this.logoIcon = new Image(new FileInputStream("java/main/resources/img/logo.png"));
+            this.logoIcon = new Image(new FileInputStream(Utils.getResourcesPath()+"img/logo.png"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -104,7 +105,7 @@ public class ConnectionPanel extends Parent {
             @Override
             public void handle(ActionEvent actionEvent) {
                 ConnectionPanel.this.setVisible(false);
-                MainGui.getRegisterPanel().setVisible(true);
+                //MainGui.getRegisterPanel().setVisible(true);
             }
         });
     }

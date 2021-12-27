@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.TextFlow;
+
 import main.java.client.Client;
 import main.java.common.Message;
 
@@ -86,7 +87,7 @@ public class ClientPanel extends Parent {
                 Message m = new Message(0, textToSend.getText());
                 printNewMessage(m);
                 textToSend.setText("");
-                client.sendMessage(m);
+                //client.sendMessage(m);
             }
         });
 

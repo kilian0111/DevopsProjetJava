@@ -3,6 +3,8 @@ package main.java.server;
 
 
 import main.java.common.Message;
+import main.java.common.User;
+import main.java.database.DataBaseConnectionRequest;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -16,8 +18,11 @@ public class ConnectedClient implements Runnable {
     private ObjectOutputStream out;
     private ObjectInputStream in;
     private Server server;
+    private DataBaseConnectionRequest dataBaseConnectionRequest;
+    private User user;
 
     public ConnectedClient(Socket socket, Server server) throws IOException {
+        dataBaseConnectionRequest = new DataBaseConnectionRequest();
         this.socket = socket;
         this.server = server;
         this.out = new ObjectOutputStream(this.socket.getOutputStream());
@@ -46,19 +51,20 @@ public class ConnectedClient implements Runnable {
 
     @Override
     public void run() {
-        try {
+       try {
             this.in = new ObjectInputStream(this.socket.getInputStream());
             boolean isActive = true;
             while(isActive){
-                Message mess = (Message) this.in.readObject();
-                if(mess != null && !"exit".equals(mess.getContent())){
-                    mess.setSender(this.id);
-                    this.server.broadcastMessage(mess,this.id);
+                Object object =  this.in.readObject();
+                if(object != null ){
+                   if(object instanceof User){
+                       User user = connexionClient((User) object);
+                       this.user = user;
+                   }
                 }else{
                     server.disconnectedClient(this);
                     isActive = false;
                 }
-
             }
         } catch (IOException e) {
             server.disconnectedClient(this);
@@ -74,10 +80,19 @@ public class ConnectedClient implements Runnable {
 
     }
 
+    public User connexionClient(User user) throws IOException {
+        User userReturn = this.dataBaseConnectionRequest.seConnecter(user.getPseudo(), user.getMdp());
+        this.out.writeObject(userReturn);
+        this.out.flush();
+        return user;
+    }
+
     public Message sendMessage(Message mess) throws IOException {
         this.out.writeObject(mess);
         this.out.flush();
         return mess;
     }
+
+
 
 }

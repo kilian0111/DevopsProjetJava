@@ -1,7 +1,7 @@
 package main.java.database;
 
 import main.java.common.Utils;
-import main.java.user.User;
+import main.java.common.User;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +16,7 @@ public class DataBaseConnectionRequest {
        ArrayList<String> getdata = new ArrayList<String>();
         PreparedStatement stmt = null;
         try {
-            String requeteSql = "select UT_ID,UT_PSEUDO,UT_MAIL,UT_PRENOM,UT_NOM,UT_DT_NAISSANCE,UT_SEXE,UT_MDP,UT_SALT,UT_ACTIF FROM T_UTILISATEUR WHERE UT_PSEUDO = ? OR UT_MAIL = ?";
+            String requeteSql = "select UT_ID,UT_PSEUDO,UT_MAIL,UT_PRENOM,UT_NOM,UT_DT_NAISSANCE,UT_SEXE,UT_MDP,UT_SALT,UT_ACTIF FROM T_UTILISATEUR WHERE (UT_PSEUDO = ? OR UT_MAIL = ?) AND UT_ACTIF = true ";
 
             PreparedStatement preparedStatement = dataBaseConnection.getConnection().prepareStatement(requeteSql);
             preparedStatement.setString(1, MailOuPseudo.toString());
@@ -47,25 +47,8 @@ public class DataBaseConnectionRequest {
             System.out.println(e);
         }
 
-        return null;
+        return new User();
 
-    }
-
-
-
-
-    public String getHashSHA512(String StringToHash, String salt){
-        /*String generatedPassword = null;
-        try {
-            MessageDigest md = MessageDigest.getInstance("SHA-512");
-            md.update(salt.getBytes(StandardCharsets.UTF_8));
-            byte[] bytes = md.digest(StringToHash.getBytes(StandardCharsets.UTF_8));
-            generatedPassword = Hex.encodeHexString(bytes);
-        }
-        catch (NoSuchAlgorithmException e){
-            e.printStackTrace();
-        }*/
-        return new String();//generatedPassword;
     }
 
 

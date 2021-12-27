@@ -26,10 +26,9 @@ public class Connection implements Runnable {
         while(true){
             try {
                 Socket sockNewClient = serverSocket.accept();
-                ConnectedClient newClient = new ConnectedClient(sockNewClient,this.server);
-                this.server.addClient(newClient);
-                Thread threadNewClient = new Thread(newClient);
-                threadNewClient.start();
+                System.out.println("connection au server : " + sockNewClient.getRemoteSocketAddress().toString());
+                Thread threadConnection = new Thread(new ConnectedClient(sockNewClient,this.server));
+                threadConnection.start();
             } catch (IOException e) {
                 e.printStackTrace();
             }

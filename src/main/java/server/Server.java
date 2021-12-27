@@ -11,11 +11,11 @@ import java.util.List;
 public class Server {
 
     private Integer port;
-    private List<ConnectedClient> clients;
+    private List<ConnectedClient> lesClients;
 
     public Server(Integer port) throws IOException {
         this.port = port;
-        this.clients = new ArrayList<ConnectedClient>();
+        this.lesClients = new ArrayList<>();
         Thread threadConnection = new Thread(new Connection(this));
         threadConnection.start();
     }
@@ -23,42 +23,15 @@ public class Server {
     public Integer getPort() {return port;}
     public void setPort(Integer port) {this.port = port;}
 
-    public List<ConnectedClient> getClients() {return clients;}
-    public void setClients(List<ConnectedClient> clients) {this.clients = clients;}
+    public List<ConnectedClient> getLesClients() {return lesClients;}
+    public void addClient(ConnectedClient Client) {this.lesClients.add(Client);}
 
-    public int getNumClients(){
-        return this.clients.size();
-    }
-
-    public ConnectedClient addClient(ConnectedClient newClient) throws IOException {
-        Message mess = new Message(0,newClient.getId() + " vient de se connecter");
-        for(ConnectedClient client : clients){
-                client.sendMessage(mess);
-        }
-        this.clients.add(newClient);
-        return newClient;
-    }
-
-    public int broadcastMessage(Message mess, int id) throws IOException {
-        for(ConnectedClient client :clients){
-            if(client.getId() != id){
-                client.sendMessage(mess);
-            }
-        }
-        return id;
-    }
-
-    public void disconnectedClient(ConnectedClient discClient) {
-        try {
-            discClient.closeClient();
-        this.clients.remove(discClient);
-        for(ConnectedClient client : clients){
-            client.sendMessage(new Message(0, "Le client "+ discClient.getId() + " nous a quitté"));
-        }
-        } catch (IOException e) {
+    public void disconnectedClient(ConnectedClient client)  {
+        try{
+            client.closeClient();
+        }catch (Exception e){
             e.printStackTrace();
         }
+        this.lesClients.remove(client);
     }
-
-
 }

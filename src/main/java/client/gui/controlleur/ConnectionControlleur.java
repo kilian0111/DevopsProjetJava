@@ -6,15 +6,20 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import main.java.client.Client;
+import main.java.client.MainGui;
+import main.java.common.User;
 import main.java.database.DataBaseConnectionRequest;
-import main.java.user.User;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ConnectionControlleur implements Initializable {
+public class ConnectionControlleur implements Initializable,Icontrolleur {
 
     private DataBaseConnectionRequest sqlRequest = new DataBaseConnectionRequest();
+    private Client client;
+    private MainGui mainGui;
 
     @FXML
     private TextField identifiant;
@@ -27,10 +32,16 @@ public class ConnectionControlleur implements Initializable {
     public void connectionAction(ActionEvent e){
         if(!identifiant.getText().isBlank() && !mdp.getText().isBlank()){
             labelErreur.setVisible(false);
-            User userConnecter = sqlRequest.seConnecter(identifiant.getText(),mdp.getText());
-            if(userConnecter != null){
-                System.out.println("nop");
+
+            User user = new User();
+            user.setPseudo(identifiant.getText());
+            user.setMdp(mdp.getText());
+            this.client.seConnecter(user);
+            User userConnecter =  this.client.getUser();
+            if(userConnecter.getId() != null){
+                System.out.println("oui");
             }
+
         }else{
             labelErreur.setText("Erreur ! Veuillez remplir tout les champs");
             labelErreur.setVisible(true);
@@ -41,8 +52,8 @@ public class ConnectionControlleur implements Initializable {
     }
 
     @FXML
-    public void inscriptionAction(ActionEvent e){
-
+    public void inscriptionAction(ActionEvent e) throws IOException {
+        mainGui.changeScene("inscription.fxml");
     }
 
     @FXML
@@ -55,4 +66,17 @@ public class ConnectionControlleur implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("test");
     }
+
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public MainGui getMainGui() {return mainGui;}
+
+    public void setMainGui(MainGui mainGui) {this.mainGui = mainGui;}
 }

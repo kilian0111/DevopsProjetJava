@@ -5,7 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import main.java.client.gui.MainGui;
+import main.java.client.MainGui;
 
 public class RegisterPanel extends Parent {
 
@@ -123,7 +123,7 @@ public class RegisterPanel extends Parent {
             @Override
             public void handle(ActionEvent actionEvent) {
                 RegisterPanel.this.setVisible(false);
-                MainGui.getConnectionPanel().setVisible(true);
+               // MainGui.getConnectionPanel().setVisible(true);
             }
         });
     }

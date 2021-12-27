@@ -1,5 +1,7 @@
 package main.java.database;
 
+import main.java.common.Utils;
+
 import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,7 +17,7 @@ public  class DataBaseConnection {
 
         Properties props = new Properties();
 
-        try(FileInputStream conf = new FileInputStream("src/main/resources/conf.properties")){
+        try(FileInputStream conf = new FileInputStream(Utils.getResourcesPath()+"conf.properties")){
             props.load(conf);
             Class.forName(props.getProperty("jdbc.driver.class"));
 

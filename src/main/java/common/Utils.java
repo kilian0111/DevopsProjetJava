@@ -24,4 +24,8 @@ public class Utils {
         return generatedPassword;
     }
 
+    public static String getResourcesPath(){
+        return "src/main/resources/";
+    }
+
 }

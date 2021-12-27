@@ -1,22 +1,28 @@
-package main.java.user;
+package main.java.common;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.Date;
 
-public class User {
+public class User implements Serializable {
 
-    private long id;
+    private Long id;
     private String pseudo;
     private String mail;
     private String prenom;
     private String nom;
     private Date dateNaissance;
-    private int sexe;
+    private Integer sexe;
     private String mdp;
     private String salt;
-    private boolean actif;
+    private Boolean actif;
 
-    public long getId() {return id;}
-    public void setId(long id) {this.id = id;}
+    @Serial
+    private  static  final  long serialVersionUID =  1350092881346723535L;
+
+
+    public Long getId() {return id;}
+    public void setId(Long id) {this.id = id;}
 
     public String getPseudo() {return pseudo;}
     public void setPseudo(String pseudo) {this.pseudo = pseudo;}
@@ -33,8 +39,8 @@ public class User {
     public Date getDateNaissance() {return dateNaissance;}
     public void setDateNaissance(Date dateNaissance) {this.dateNaissance = dateNaissance;}
 
-    public int getSexe() {return sexe;}
-    public void setSexe(int sexe) {this.sexe = sexe;}
+    public Integer getSexe() {return sexe;}
+    public void setSexe(Integer sexe) {this.sexe = sexe;}
 
     public String getMdp() {return mdp;}
     public void setMdp(String mdp) {this.mdp = mdp;}
@@ -42,6 +48,6 @@ public class User {
     public String getSalt() {return salt;}
     public void setSalt(String salt) {this.salt = salt;}
 
-    public boolean isActif() {return actif;}
-    public void setActif(boolean actif) {this.actif = actif;}
+    public Boolean getActif() {return actif;}
+    public void setActif(Boolean actif) {this.actif = actif;}
 }
