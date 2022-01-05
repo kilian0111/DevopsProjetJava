@@ -2,7 +2,9 @@ package main.java.server;
 
 
 
+import main.java.common.Action;
 import main.java.common.Message;
+import main.java.common.ObjectSend;
 import main.java.common.User;
 import main.java.database.DataBaseConnectionRequest;
 
@@ -57,9 +59,13 @@ public class ConnectedClient implements Runnable {
             while(isActive){
                 Object object =  this.in.readObject();
                 if(object != null ){
-                   if(object instanceof User){
-                       User user = connexionClient((User) object);
-                       this.user = user;
+                   if(object instanceof ObjectSend){
+                       ObjectSend objectSend = (ObjectSend) object;
+                       if(objectSend.getAction() == Action.CONNECTION && objectSend.getObject() instanceof User){
+                           this.connexionClient((User) objectSend.getObject());
+                       } else if(objectSend.getAction() == Action.INSCRIPTION && objectSend.getObject() instanceof User ){
+                           this.inscription((User) objectSend.getObject());
+                       }
                    }
                 }else{
                     server.disconnectedClient(this);
@@ -73,6 +79,13 @@ public class ConnectedClient implements Runnable {
         }
     }
 
+    private User inscription(User user) throws IOException {
+        User userReturn = this.dataBaseConnectionRequest.inscription(user);
+        this.out.writeObject(userReturn);
+        this.out.flush();
+        return userReturn;
+    }
+
     public void closeClient() throws IOException {
         this.in.close();
         this.out.close();
@@ -84,7 +97,7 @@ public class ConnectedClient implements Runnable {
         User userReturn = this.dataBaseConnectionRequest.seConnecter(user.getPseudo(), user.getMdp());
         this.out.writeObject(userReturn);
         this.out.flush();
-        return user;
+        return userReturn;
     }
 
     public Message sendMessage(Message mess) throws IOException {

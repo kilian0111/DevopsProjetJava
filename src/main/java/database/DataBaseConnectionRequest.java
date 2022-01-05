@@ -52,4 +52,7 @@ public class DataBaseConnectionRequest {
     }
 
 
+    public User inscription(User user) {
+        return null;
+    }
 }

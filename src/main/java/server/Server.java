@@ -3,9 +3,12 @@ package main.java.server;
 
 
 import main.java.common.Message;
+import main.java.common.User;
+import main.java.common.repository.UserJpaRepository;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Server {
@@ -16,6 +19,12 @@ public class Server {
     public Server(Integer port) throws IOException {
         this.port = port;
         this.lesClients = new ArrayList<>();
+        User user = new User();
+        user.setPseudo("test123456789");
+        user.setMail("test");
+        user.setDateNaissance(new Date());
+
+        UserJpaRepository.saveUser(user);
         Thread threadConnection = new Thread(new Connection(this));
         threadConnection.start();
     }
