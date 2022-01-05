@@ -26,7 +26,7 @@ public class MainGui extends Application {
         } catch(Exception ignored){}
 
         try{
-            FXMLLoader fxmlLoader = new FXMLLoader(new File(Utils.getResourcesPath()+"fxml/connection.fxml").toURI().toURL());
+            FXMLLoader fxmlLoader = new FXMLLoader(new File(Utils.getResourcesPath()+"fxml/application.fxml").toURI().toURL());
 
             Scene scene = new Scene(fxmlLoader.load());
             primaryStage.setScene(scene);
