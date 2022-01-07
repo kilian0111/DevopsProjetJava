@@ -51,7 +51,7 @@ public class ApplicationController implements Initializable,Icontrolleur {
 
     private void addMessage(Message message) {
         String userName = message.getSender() + "";
-        if (client.getUser().getId() == message.getSender()) {
+        if (client.getUser().getId()  != null && client.getUser().getId() == message.getSender()) {
             userName = "Moi";
         }
 
