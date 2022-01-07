@@ -2,7 +2,10 @@ package main.java.client;
 
 
 
+import javafx.application.Platform;
+import main.java.common.Action;
 import main.java.common.Message;
+import main.java.common.ObjectSend;
 import main.java.common.User;
 
 import java.io.IOException;
@@ -21,9 +24,6 @@ public class ClientReceive implements Runnable {
         this.socket = socket;
     }
 
-    public void clientReceive(Client client, Socket socket){
-
-    }
 
 
     public Client getClient() {
@@ -58,17 +58,23 @@ public class ClientReceive implements Runnable {
             boolean isActive =true;
             while(isActive){
                 Object object =  in.readObject();
-                if(object != null){
-                    if(object instanceof User){
-                        User user = (User) object;
-                        if(user.getId() != null){
-                            this.client.setUser(user);
-                            System.out.println("connecter");
-                        }else{
-                            this.client.setUser(user);
-                            System.out.println("non Connecter");
+                if(object instanceof ObjectSend objectReceive){
+
+                    if(objectReceive.getObject() instanceof User && objectReceive.getAction().equals(Action.CONNECTION)){
+                        this.client.setUser((User) objectReceive.getObject());
+                        if(this.client.getUser().getId() != null){
+
+                            Platform.runLater(new Runnable(){
+                                @Override
+                                public void run() {
+                                    client.getMainGui().changeScene("application.fxml");
+                                }
+                            });
+
                         }
                     }
+
+
                     }else{
                         isActive = false;
                         client.disconnectedServer();

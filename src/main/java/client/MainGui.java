@@ -22,11 +22,11 @@ public class MainGui extends Application {
     public void start(Stage stage) {
         this.primaryStage = stage;
         try{
-            this.client = new Client(443, "127.0.0.1");
+            this.client = new Client(1111, "127.0.0.1",this);
         } catch(Exception ignored){}
 
         try{
-            FXMLLoader fxmlLoader = new FXMLLoader(new File(Utils.getResourcesPath()+"fxml/application.fxml").toURI().toURL());
+            FXMLLoader fxmlLoader = new FXMLLoader(new File(Utils.getResourcesPath()+"fxml/connection.fxml").toURI().toURL());
 
             Scene scene = new Scene(fxmlLoader.load());
             primaryStage.setScene(scene);
@@ -47,15 +47,21 @@ public class MainGui extends Application {
         Application.launch(MainGui.class,args);
     }
 
-    public void changeScene(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(
-                new File(Utils.getResourcesPath()+"fxml/"+fxml).toURI().toURL()
-        );
-        Scene scene = new Scene(fxmlLoader.load());
-        primaryStage.setScene(scene);
-        Icontrolleur controlleur = fxmlLoader.getController();
-        controlleur.setClient(client);
-        controlleur.setMainGui(this);
+    public void changeScene(String fxml) {
+
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(
+                    new File(Utils.getResourcesPath()+"fxml/"+fxml).toURI().toURL()
+            );
+            Scene scene = new Scene(fxmlLoader.load());
+            primaryStage.setScene(scene);
+            Icontrolleur controlleur = fxmlLoader.getController();
+            controlleur.setClient(client);
+            controlleur.setMainGui(this);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
 
     }
 

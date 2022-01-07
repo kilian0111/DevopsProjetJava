@@ -19,12 +19,6 @@ public class Server {
     public Server(Integer port) throws IOException {
         this.port = port;
         this.lesClients = new ArrayList<>();
-        User user = new User();
-        user.setPseudo("test123456789");
-        user.setMail("test");
-        user.setDateNaissance(new Date());
-
-        UserJpaRepository.saveUser(user);
         Thread threadConnection = new Thread(new Connection(this));
         threadConnection.start();
     }

@@ -6,6 +6,7 @@ import main.java.common.Action;
 import main.java.common.Message;
 import main.java.common.ObjectSend;
 import main.java.common.User;
+import main.java.common.repository.UserJpaRepository;
 import main.java.database.DataBaseConnectionRequest;
 
 import java.io.IOException;
@@ -20,11 +21,10 @@ public class ConnectedClient implements Runnable {
     private ObjectOutputStream out;
     private ObjectInputStream in;
     private Server server;
-    private DataBaseConnectionRequest dataBaseConnectionRequest;
+
     private User user;
 
     public ConnectedClient(Socket socket, Server server) throws IOException {
-        dataBaseConnectionRequest = new DataBaseConnectionRequest();
         this.socket = socket;
         this.server = server;
         this.out = new ObjectOutputStream(this.socket.getOutputStream());
@@ -80,10 +80,10 @@ public class ConnectedClient implements Runnable {
     }
 
     private User inscription(User user) throws IOException {
-        User userReturn = this.dataBaseConnectionRequest.inscription(user);
-        this.out.writeObject(userReturn);
+        //User userReturn = this.dataBaseConnectionRequest.inscription(user);
+        this.out.writeObject(null);
         this.out.flush();
-        return userReturn;
+        return null;
     }
 
     public void closeClient() throws IOException {
@@ -93,11 +93,14 @@ public class ConnectedClient implements Runnable {
 
     }
 
-    public User connexionClient(User user) throws IOException {
-        User userReturn = this.dataBaseConnectionRequest.seConnecter(user.getPseudo(), user.getMdp());
-        this.out.writeObject(userReturn);
+    public void connexionClient(User user) throws IOException {
+        ObjectSend object = new ObjectSend(UserJpaRepository.seConnecter(user.getPseudo(), user.getMdp()), Action.CONNECTION);
+        this.sendToClient(object);
+    }
+
+    public void sendToClient(ObjectSend object) throws IOException {
+        this.out.writeObject(object);
         this.out.flush();
-        return userReturn;
     }
 
     public Message sendMessage(Message mess) throws IOException {

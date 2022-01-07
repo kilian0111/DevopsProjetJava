@@ -9,7 +9,6 @@ import javafx.scene.control.TextField;
 import main.java.client.Client;
 import main.java.client.MainGui;
 import main.java.common.User;
-import main.java.database.DataBaseConnectionRequest;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class ConnectionControlleur implements Initializable,Icontrolleur {
 
-    private DataBaseConnectionRequest sqlRequest = new DataBaseConnectionRequest();
+
     private Client client;
     private MainGui mainGui;
 
@@ -29,7 +28,7 @@ public class ConnectionControlleur implements Initializable,Icontrolleur {
     private Label labelErreur;
 
     @FXML
-    public void connectionAction(ActionEvent e){
+    public void connectionAction(ActionEvent e) throws IOException {
         if(!identifiant.getText().isBlank() && !mdp.getText().isBlank()){
             labelErreur.setVisible(false);
 
@@ -37,10 +36,6 @@ public class ConnectionControlleur implements Initializable,Icontrolleur {
             user.setPseudo(identifiant.getText());
             user.setMdp(mdp.getText());
             this.client.seConnecter(user);
-            User userConnecter =  this.client.getUser();
-            if(userConnecter.getId() != null){
-                System.out.println("oui");
-            }
 
         }else{
             labelErreur.setText("Erreur ! Veuillez remplir tout les champs");
@@ -64,7 +59,7 @@ public class ConnectionControlleur implements Initializable,Icontrolleur {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("test");
+
     }
 
 
