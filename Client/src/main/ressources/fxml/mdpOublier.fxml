@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="468.0" prefWidth="486.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.client.gui.controlleur.MdpOublierControlleur">
+   <children>
+
+      <VBox alignment="TOP_CENTER" prefHeight="423.0" prefWidth="484.0">
+         <children>
+            <ImageView fitHeight="101.0" fitWidth="229.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" x="20.0" y="10.0">
+               <image>
+                  <Image url="@../img/logo.png" />
+               </image>
+               <VBox.margin>
+                  <Insets right="200.0" top="20.0" />
+               </VBox.margin>
+            </ImageView>
+            <Label text="Mots de Passe Oubliée :" textFill="#1873db">
+               <font>
+                  <Font size="19.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="250.0" />
+               </VBox.margin>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow radius="4.75" width="0.0" />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Label>
+            <Label prefHeight="21.0" prefWidth="204.0" text="Entrez le code reçu par email :" textOverrun="CENTER_WORD_ELLIPSIS">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="78.0" top="30.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="codeTxt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="280.0" style="-fx-background-radius: red;">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Label prefHeight="21.0" prefWidth="251.0" text="Entrez votre nouveau mots de passe : " textOverrun="CENTER_WORD_ELLIPSIS">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="30.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+            <PasswordField fx:id="mdpTxt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="280.0" />
+            <Label prefHeight="21.0" prefWidth="265.0" text="Retapez votre nouveau mots de passe : " textOverrun="CENTER_WORD_ELLIPSIS">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="13.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+            <PasswordField fx:id="mdpTxt2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="280.0" />
+            <HBox alignment="TOP_RIGHT" prefHeight="81.0" prefWidth="483.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#retourConnectionAction" prefHeight="31.0" prefWidth="96.0" style="-fx-background-color: rgb(220,53,69);" text="Annuler" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="20.0" top="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#validerChangementMdpAction" prefHeight="31.0" prefWidth="96.0" style="-fx-background-color: #1873db;" text="Valider" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="20.0" top="30.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox alignment="TOP_CENTER" layoutX="1.0" layoutY="432.0" prefHeight="38.0" prefWidth="484.0">
+         <children>
+            <Label fx:id="labelErreur" text="Erreur" textFill="RED" visible="false">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

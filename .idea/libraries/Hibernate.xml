@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Hibernate" type="hibernate">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/src/main/resources/lib/hibernate/required/hibernate-core-5.6.2.Final.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

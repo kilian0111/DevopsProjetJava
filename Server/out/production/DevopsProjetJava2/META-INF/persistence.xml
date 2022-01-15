@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence version="2.1"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+<persistence-unit name="punit" transaction-type="RESOURCE_LOCAL">
+
+
+    <class>main.java.common.User</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+
+        <property name="javax.persistence.validation.mode" value="NONE" />    
+        <property name="hibernate.archive.autodetection" value="class,hbm"/>
+        <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL82Dialect"/>
+        <property name="hibernate.connection.handling_mode" value="DELAYED_ACQUISITION_AND_HOLD"/>
+        <property name="hibernate.default_batch_fetch_size" value="250"/>
+        <property name="hibernate.batch_fetch_style" value="dynamic"/>
+        <property name="hibernate.connection.username" value="javaApp"/>
+        <property name="hibernate.connection.password" value="Jekpkm0402@"/>
+        <property name="hibernate.connection.url" value="jdbc:postgresql://maintenance-sdr.fr:5432/KIJOKI"/>
+
+    <!--<property name="net.sf.ehcache.configurationResourceName" value="/META-INF/ehcache-config.xml".
+        <property name="hibernate.cache.use_second_level_cache" value="true"/>
+    <property name="hibernate.cache.use_query_cache" value="true"/>
+    <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.EhCacheRegionFactory"/>
+    
+    -->
+</properties>
+
+        </persistence-unit>
+
+        </persistence>
+
+
+ <!--
+    <persistence-unit name="example-unit" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <properties>
+            <property name="javax.persistence.schema-generation.database.action" value="update"/>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://maintenance-sdr.fr:5432/KIJOKI"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1"/>
+
+            <property name="hibernate.connection.username">javaApp</property>
+            <property name="hibernate.connection.password">Jekpkm0402@</property>
+        </properties>
+    </persistence-unit>
+
+</persistence>
+
+<hibernate-configuration>
+    <session-factory>
+
+       Connection settings
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://maintenance-sdr.fr:5432/KIJOKI</property>
+        <property name="hibernate.connection.username">javaApp</property>
+        <property name="hibernate.connection.password">Jekpkm0402@</property>
+
+    SQL dialect
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL82Dialect</property>
+
+      Print executed SQL to stdout
+        <property name="show_sql">true</property>
+
+      Update database on startup
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+       Annotated entity classes
+        <mapping class="main.java.common.User"/>
+
+    </session-factory>
+</hibernate-configuration> -->
