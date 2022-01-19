@@ -138,8 +138,6 @@ public class OptionsController implements Icontrolleur, Initializable {
             this.client.sendToServer(new ObjectSend(user, Action.MODIF_USER));
         }
         //On attend que le serveur répond et nous dis que les changements ont bien été faits
-        //this.client.getMainGui().erreurPopUp("Validation", "Les modifications ont bien été prises en compte !", Alert.AlertType.CONFIRMATION);
-        //this.client.getMainGui().changeScene("application.fxml");
     }
 
     @FXML //Le bouton annuler ramène à l'application

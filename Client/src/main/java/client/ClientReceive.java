@@ -83,6 +83,9 @@ public class ClientReceive implements Runnable {
                                // reponse changement de mdp
                             } else if(objectReceive.getAction().equals(Action.REPONSE_CHANGEMENT_MDP)){
                                 this.changementMdp(objectReceive);
+                            } else if(objectReceive.getAction().equals(Action.REPONSE_MODIFUSER) && objectReceive.getObject() instanceof String){
+                                Platform.runLater(() -> client.getMainGui().erreurPopUp("Validation", "Les modifications ont bien été prises en compte !", AlertType.CONFIRMATION));
+                                Platform.runLater(() -> client.getMainGui().changeScene("application.fxml"));
                             }
 
                         }
