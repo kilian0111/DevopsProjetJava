@@ -5,297 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e94660bc-7d73-4a3d-8f55-8ddb14e94c0b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/artifacts/DevopsProjetJava_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Hibernate.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DevopsProjetJava.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/java/client/Client.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/java/client/ClientReceive.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/java/client/gui/application/ClientPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/java/client/gui/application/ClientPanel$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/java/client/gui/application/ClientPanel$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/java/client/gui/application/ClientPanel$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/java/client/gui/application/ClientPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/java/client/gui/connection/ConnectionPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/java/client/gui/connection/ConnectionPanel$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/java/client/gui/connection/ConnectionPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/java/client/gui/controlleur/ConnectionControlleur.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/java/client/gui/register/RegisterPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/java/client/gui/register/RegisterPanel$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/java/client/gui/register/RegisterPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/java/client/gui/style/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/java/common/Message.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/java/common/Utils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/java/database/DataBaseConnection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/java/database/DataBaseConnectionRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/java/server/ConnectedClient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/java/server/Connection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/java/server/MainServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/java/server/Server.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/conf.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/fxml/connection.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/img/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/img/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-console-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-console-l1-2-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-datetime-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-debug-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-errorhandling-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-file-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-file-l1-2-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-file-l2-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-handle-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-heap-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-interlocked-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-libraryloader-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-localization-l1-2-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-memory-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-namedpipe-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-processenvironment-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-processthreads-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-processthreads-l1-1-1.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-profile-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-rtlsupport-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-string-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-synch-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-synch-l1-2-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-sysinfo-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-timezone-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-util-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-conio-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-convert-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-environment-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-filesystem-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-heap-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-locale-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-math-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-multibyte-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-private-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-process-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-runtime-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-stdio-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-string-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-time-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-utility-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/decora_sse.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/fxplugins.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/glass.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/glib-lite.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/gstreamer-lite.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/javafx_font.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/javafx_iio.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/jfxmedia.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/jfxwebkit.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/msvcp140.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/prism_common.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/prism_d3d.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/prism_sw.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/ucrtbase.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/vcruntime140.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/bin/vcruntime140_1.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.base/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.base/ASSEMBLY_EXCEPTION" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.base/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.controls/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.controls/ASSEMBLY_EXCEPTION" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.controls/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.fxml/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.fxml/ASSEMBLY_EXCEPTION" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.fxml/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.graphics/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.graphics/ASSEMBLY_EXCEPTION" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.graphics/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.graphics/jpeg_fx.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.graphics/mesa3d.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.media/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.media/ASSEMBLY_EXCEPTION" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.media/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.media/directshow.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.media/glib.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.media/gstreamer.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.media/libffi.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.swing/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.swing/ASSEMBLY_EXCEPTION" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.swing/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.web/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.web/ASSEMBLY_EXCEPTION" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.web/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.web/icu_web.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.web/libxml2.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.web/libxslt.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.web/webkit.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/lib/javafx-swt.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/lib/javafx.base.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/lib/javafx.controls.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/lib/javafx.fxml.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/lib/javafx.graphics.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/lib/javafx.media.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/lib/javafx.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/lib/javafx.swing.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/lib/javafx.web.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/javafx-sdk-17.0.1/src.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/lib/postgresql-42.3.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/sqlConfig/Script_Postgresql.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/sqlConfig/script_mariadb.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/main/resources/style/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/DevopsProjetJava/module-info.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/META-INF/persistence.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/client/Client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/client/ClientReceive.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/client/MainGui.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/client/gui/application/ClientPanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/client/gui/connection/ConnectionPanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/client/gui/controlleur/ApplicationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/client/gui/controlleur/ConnectionControlleur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/client/gui/controlleur/Icontrolleur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/client/gui/controlleur/InscriptionControlleur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/client/gui/register/RegisterPanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/client/gui/style/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/common/Action.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/common/Message.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/common/ObjectSend.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/common/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/common/Utils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/common/repository/UserJpaRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/database/DataBaseConnection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/database/DataBaseConnectionRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/server/ConnectedClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/server/Connection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/server/MainServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/java/server/Server.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/conf.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/fxml/application.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/fxml/connection.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/fxml/inscription.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/img/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/img/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/hibernate/required/FastInfoset-1.2.15.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/hibernate/required/antlr-2.7.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/hibernate/required/byte-buddy-1.11.20.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/hibernate/required/classmate-1.5.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/hibernate/required/hibernate-commons-annotations-5.1.2.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/hibernate/required/hibernate-core-5.6.2.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/hibernate/required/hibernate-jpamodelgen-5.6.2.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/hibernate/required/istack-commons-runtime-3.0.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/hibernate/required/jandex-2.2.3.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/hibernate/required/javax.activation-api-1.2.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/hibernate/required/javax.persistence-api-2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/hibernate/required/jaxb-api-2.3.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/hibernate/required/jaxb-runtime-2.3.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/hibernate/required/jboss-logging-3.4.2.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/hibernate/required/jboss-transaction-api_1.2_spec-1.1.1.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/hibernate/required/stax-ex-1.8.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/hibernate/required/txw2-2.3.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-console-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-console-l1-2-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-datetime-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-debug-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-errorhandling-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-file-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-file-l1-2-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-file-l2-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-handle-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-heap-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-interlocked-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-libraryloader-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-localization-l1-2-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-memory-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-namedpipe-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-processenvironment-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-processthreads-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-processthreads-l1-1-1.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-profile-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-rtlsupport-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-string-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-synch-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-synch-l1-2-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-sysinfo-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-timezone-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-core-util-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-conio-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-convert-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-environment-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-filesystem-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-heap-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-locale-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-math-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-multibyte-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-private-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-process-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-runtime-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-stdio-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-string-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-time-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/api-ms-win-crt-utility-l1-1-0.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/decora_sse.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/fxplugins.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/glass.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/glib-lite.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/gstreamer-lite.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/javafx_font.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/javafx_iio.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/jfxmedia.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/jfxwebkit.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/msvcp140.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/prism_common.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/prism_d3d.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/prism_sw.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/ucrtbase.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/vcruntime140.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/bin/vcruntime140_1.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.base/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.base/ASSEMBLY_EXCEPTION" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.base/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.controls/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.controls/ASSEMBLY_EXCEPTION" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.controls/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.fxml/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.fxml/ASSEMBLY_EXCEPTION" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.fxml/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.graphics/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.graphics/ASSEMBLY_EXCEPTION" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.graphics/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.graphics/jpeg_fx.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.graphics/mesa3d.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.media/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.media/ASSEMBLY_EXCEPTION" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.media/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.media/directshow.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.media/glib.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.media/gstreamer.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.media/libffi.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.swing/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.swing/ASSEMBLY_EXCEPTION" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.swing/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.web/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.web/ASSEMBLY_EXCEPTION" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.web/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.web/icu_web.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.web/libxml2.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.web/libxslt.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/legal/javafx.web/webkit.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/lib/javafx-swt.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/lib/javafx.base.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/lib/javafx.controls.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/lib/javafx.fxml.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/lib/javafx.graphics.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/lib/javafx.media.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/lib/javafx.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/lib/javafx.swing.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/lib/javafx.web.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/javafx-sdk-17.0.1/src.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/lib/postgresql-42.3.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/sqlConfig/Script_Postgresql.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/sqlConfig/script_mariadb.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/main/resources/style/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/ressources/file/conditionsUtilisations" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/ressources/file/conditionsUtilisations" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/ressources/file/conditionsUtilisations" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/ressources/file/conditionsUtilisations" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/ressources/fxml/connection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/ressources/fxml/connection.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/Mail$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/Mail$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/Mail$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/Mail$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/Mail.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/Mail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/Mail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/Mail.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -361,10 +78,25 @@
       <workItem from="1642095412136" duration="9899000" />
       <workItem from="1642231780254" duration="2227000" />
       <workItem from="1642250326103" duration="1256000" />
+      <workItem from="1642257438072" duration="180000" />
+      <workItem from="1642425728191" duration="1420000" />
+      <workItem from="1642520637440" duration="11000" />
     </task>
+    <task id="LOCAL-00001" summary="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription">
+      <created>1642257550779</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1642257550779</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription" />
+    <option name="LAST_COMMIT_MESSAGE" value="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription" />
   </component>
 </project>

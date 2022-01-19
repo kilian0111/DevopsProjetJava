@@ -9,7 +9,7 @@ import java.util.Properties;
 public class Mail {
 
     private static final String USERNAME = "mail.auto.app@gmail.com";
-    private static final String PASSWORD = "youWillNerverKnow";
+    private static final String PASSWORD = "xasiplquunrhqtsd";
 
     public static void main(String[] args) throws Exception {
         // Email information such as from, to, subject and contents.

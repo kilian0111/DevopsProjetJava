@@ -25,24 +25,33 @@
          <font>
             <Font size="15.0" />
          </font>
+         <VBox.margin>
+            <Insets right="48.0" />
+         </VBox.margin>
       </Label>
       <TextField fx:id="identifiant" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="192.0" style="-fx-background-radius: red;" translateX="24.0">
          <font>
             <Font size="15.0" />
          </font>
+         <VBox.margin>
+            <Insets right="48.0" />
+         </VBox.margin>
       </TextField>
       <Label prefHeight="21.0" prefWidth="144.0" text="Mot de passe :" textOverrun="CENTER_WORD_ELLIPSIS">
          <font>
             <Font size="15.0" />
          </font>
          <VBox.margin>
-            <Insets top="30.0" />
+            <Insets right="48.0" top="30.0" />
          </VBox.margin>
       </Label>
       <PasswordField fx:id="mdp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="192.0" translateX="24.0">
          <font>
             <Font size="15.0" />
          </font>
+         <VBox.margin>
+            <Insets right="48.0" />
+         </VBox.margin>
       </PasswordField>
       <Button mnemonicParsing="false" onAction="#connectionAction" prefHeight="30.0" prefWidth="107.0" text="Connexion">
          <VBox.margin>
