@@ -70,8 +70,10 @@ public class ConnectedClient implements Runnable {
                        //code reçu par mail + nouveau mdp
                        }else if(objectSend.getAction() == Action.CHANGEMENT_MDP && objectSend.getObject() instanceof ChangeMdp ){
                            this.changeMdp((ChangeMdp) objectSend.getObject());
+                           //code reçu par mail + nouveau mdp
+                       }else if(objectSend.getAction() == Action.MODIF_USER && objectSend.getObject() instanceof User ) {
+                           this.modifUser((User) objectSend.getObject());
                        }
-
                    }
                 }else{
                     server.disconnectedClient(this);
@@ -176,6 +178,11 @@ public class ConnectedClient implements Runnable {
         this.out.writeObject(mess);
         this.out.flush();
         return mess;
+    }
+
+    public void modifUser(User user) {
+        UserJpaRepository.updateUserRecord(user);
+        sendToClient(new ObjectSend("OK", Action.REPONSE_MODIFUSER));
     }
 
 }
