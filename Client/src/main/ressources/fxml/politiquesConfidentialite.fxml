@@ -22,7 +22,7 @@
                         <Insets right="200.0" top="10.0" />
                     </VBox.margin>
                 </ImageView>
-                <Label text="la politique de confidentialité de KIJOKI : " textFill="#1873db">
+                <Label text="La politique de confidentialité de KIJOKI : " textFill="#1873db">
                     <font>
                         <Font size="20.0" />
                     </font>
@@ -35,7 +35,7 @@
                         <Insets top="10.0" />
                     </VBox.margin>
                <content>
-                  <TextFlow fx:id="txtPolitiqueConf" prefHeight="469.0" prefWidth="395.0" />
+                  <TextFlow fx:id="txtPolitiqueConf" prefHeight="469.0" prefWidth="399.0" />
                </content>
                 </ScrollPane>
             </children>

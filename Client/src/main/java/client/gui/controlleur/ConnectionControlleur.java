@@ -40,7 +40,7 @@ public class ConnectionControlleur implements Initializable,Icontrolleur {
             this.client.sendToServer(new ObjectSend(user, Action.CONNECTION));
 
         }else{
-            labelErreur.setText("Erreur ! Veuillez remplir tout les champs");
+            labelErreur.setText("Erreur ! Veuillez remplir tous les champs");
             labelErreur.setVisible(true);
 
         }
@@ -60,7 +60,7 @@ public class ConnectionControlleur implements Initializable,Icontrolleur {
 
             this.client.sendToServer(new ObjectSend(identifiant.getText(), Action.MDP_OUBLIEE));
         }else{
-            labelErreur.setText("Erreur ! Veuillez remplir un E-mail");
+            labelErreur.setText("Erreur ! Veuillez remplir un e-mail");
             labelErreur.setVisible(true);
         }
         identifiant.setStyle(identifiant.getText().isBlank() ? "-fx-border-color: red" : "-fx-border-color: transparent");

@@ -5,19 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e94660bc-7d73-4a3d-8f55-8ddb14e94c0b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/ressources/file/conditionsUtilisations" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/ressources/file/conditionsUtilisations" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/ressources/file/conditionsUtilisations" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/ressources/file/conditionsUtilisations" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/ressources/fxml/connection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/ressources/fxml/connection.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/Mail$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/Mail$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/Mail$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/Mail$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/Mail.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/Mail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/Mail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/Mail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/Message.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Message.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -33,6 +36,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/ressources/lib/mail/activation.jar" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -81,6 +85,7 @@
       <workItem from="1642257438072" duration="180000" />
       <workItem from="1642425728191" duration="1420000" />
       <workItem from="1642520637440" duration="11000" />
+      <workItem from="1642575949891" duration="9753000" />
     </task>
     <task id="LOCAL-00001" summary="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription">
       <created>1642257550779</created>
