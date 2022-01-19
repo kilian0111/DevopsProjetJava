@@ -5,3 +5,11 @@
 .userName {
     -fx-font-weight: bold;
 }
+
+.conversationMin {
+    -fx-font-size: 10;
+}
+
+.conversationsList {
+    -fx-background-color:transparent;
+}
