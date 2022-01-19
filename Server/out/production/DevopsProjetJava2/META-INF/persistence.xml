@@ -9,6 +9,9 @@
 
 
     <class>main.java.common.User</class>
+    <class>main.java.common.Message</class>
+    <class>main.java.common.Conversations</class>
+    <class>main.java.common.UtilisateursConversations</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
 
