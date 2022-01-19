@@ -1,7 +1,10 @@
 package main.java.client.gui.controlleur;
 
+
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import main.java.client.Client;
 import main.java.client.MainGui;
 
@@ -12,12 +15,14 @@ public class InscriptionControlleur implements Initializable,Icontrolleur{
 
    private Client client;
 
+   @FXML //fx:id="genreCombo"
+   private ComboBox<String> genreCombo;
 
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        genreCombo.getItems().setAll("Homme","Femme","Non précisé");
     }
 
     @Override
