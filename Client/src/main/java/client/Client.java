@@ -121,4 +121,8 @@ public class Client {
     public void setIn(ObjectInputStream in) {
         this.in = in;
     }
+
+    public Boolean estConnecter(){
+        return this.socket != null;
+    }
 }

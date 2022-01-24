@@ -4,9 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import main.java.client.Client;
 import main.java.common.User;
+import main.java.common.Utils;
 
 import java.io.IOException;
 import java.net.URL;
@@ -76,22 +78,21 @@ public class GameController implements Icontrolleur, Initializable {
         User user = this.client.getUser();
 
         //Si le user choisit la pierre
-        if(myPierreButton.isPressed())
-        {
+        if (myPierreButton.isPressed()) {
             imgPierreMoi.setVisible(false);
-            imgJouerParMoi.setImage(url='@../../../../ressources/img/pierre.png');
+            Image test = new Image(Utils.getResourcesPath() + "img/pierre.png");
+            imgJouerParMoi.setImage(test);
         }
         //Si le user choisit la feuille
-        if(myPierreButton.isPressed())
-        {
+        if (myPierreButton.isPressed()) {
             imgFeuilleAmi.setVisible(false);
 
         }
         //Si le user choisit le ciseaux
-        if(myPierreButton.isPressed())
-        {
+        if (myPierreButton.isPressed()) {
             imgCiseauxMoi.setVisible(false);
 
         }
 
+    }
 }
