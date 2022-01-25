@@ -84,8 +84,8 @@ public class ClientPanel extends Parent {
         this.sendBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Message m = new Message(0, textToSend.getText());
-                printNewMessage(m);
+               // Message m = new Message(0, textToSend.getText());
+              //  printNewMessage(m);
                 textToSend.setText("");
                 //client.sendMessage(m);
             }

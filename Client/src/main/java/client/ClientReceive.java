@@ -3,6 +3,7 @@ package main.java.client;
 
 
 import javafx.application.Platform;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.*;
 import main.java.common.Action;
 import main.java.common.ObjectSend;
@@ -22,13 +23,6 @@ public class ClientReceive implements Runnable {
 
     public ClientReceive(Client client) {
         this.client = client;
-        try{
-            this.client.setSocket(new Socket(this.client.getAddress(), this.client.getPort()));
-            this.socket = this.client.getSocket();
-            this.client.setOut(new ObjectOutputStream(this.socket.getOutputStream()));
-        }catch (Exception ignored){
-        }
-
     }
 
 
@@ -61,60 +55,84 @@ public class ClientReceive implements Runnable {
     @Override
     public void run() {
         try {
+            this.client.setSocket(new Socket(this.client.getAddress(),this.client.getPort()));
+            this.socket = this.client.getSocket();
+            this.client.setOut(new ObjectOutputStream(this.socket.getOutputStream()));
+        } catch (IOException ignored) {}
 
-        }catch (Exception ignored){
-            Platform.runLater(() ->this.client.getMainGui().erreurPopUp("ATTENTION", "Erreur de connection au serveur", AlertType.ERROR));
+       while(true){
+           //permet la reconnection au server
+           while(this.socket == null){
+               try{
+                   this.client.setSocket(new Socket(this.client.getAddress(),this.client.getPort()));
+                   this.socket = this.client.getSocket();
+                   this.client.setOut(new ObjectOutputStream(this.socket.getOutputStream()));
+                   Platform.runLater(() -> this.client.getMainGui().erreurPopUp("INFORMATION", "Vous êtes de nouveau connecté(e)", Alert.AlertType.INFORMATION));
+               } catch (Exception e) {
+                   try {
+                       Thread.sleep(10000);
+                   } catch (InterruptedException ex) {
+                       ex.printStackTrace();
+                   }
+               }
+           }
+           if(this.socket != null){
+               try{
+                   this.in = new ObjectInputStream(this.socket.getInputStream());
+                   boolean isActive =true;
+                   while(isActive){
+                       Object object =  in.readObject();
+                       if(object != null ){
+                           if(object instanceof ObjectSend objectReceive) {
+
+                               //connection
+                               if (objectReceive.getObject() instanceof User && objectReceive.getAction().equals(Action.CONNECTION)) {
+                                   this.connection((User) objectReceive.getObject());
+                                   //mdp oubliee
+                               }else if(objectReceive.getAction().equals(Action.REPONSE_MDP_OUBLIEE)){
+                                   this.demandeMdpOublier(objectReceive);
+                                   // reponse changement de mdp
+                               } else if(objectReceive.getAction().equals(Action.REPONSE_CHANGEMENT_MDP)){
+                                   this.changementMdp(objectReceive);
+                                   // Modification User
+                               } else if(objectReceive.getAction().equals(Action.REPONSE_MODIFUSER) && objectReceive.getObject() instanceof String){
+                                   Platform.runLater(() -> client.getMainGui().erreurPopUp("Validation", "Les modifications ont bien été prises en compte !", AlertType.CONFIRMATION));
+                                   Platform.runLater(() -> client.getMainGui().changeScene("application.fxml"));
+                               // Inscription
+                               }else if(objectReceive.getAction().equals(Action.INSCRIPTION)){
+                                   this.responseInscription(objectReceive);
+                               }
+
+                           }
+                       }else{
+                           isActive = false;
+                       }
+                   }
+               } catch (IOException | ClassNotFoundException e) {
+                   e.printStackTrace();
+               }
+           }
+           this.client.disconnectedServer();
+           Platform.runLater(() -> client.getMainGui().erreurPopUp("ATTENTION", "Erreur de connection au serveur", AlertType.ERROR));
+           this.socket = null;
+
+       }
+
+    }
+
+    public void responseInscription(ObjectSend objectReceive){
+        if(objectReceive.getObject() instanceof String){
+            Platform.runLater(() -> client.getMainGui().erreurPopUp("ATTENTION", (String) objectReceive.getObject(), AlertType.ERROR));
+        }else if(objectReceive.getObject() instanceof User){
+            this.client.setUser((User) objectReceive.getObject());
+            Platform.runLater(() -> client.getMainGui().changeScene("application.fxml"));
         }
-        if(this.socket != null){
-            try{
-                this.in = new ObjectInputStream(this.socket.getInputStream());
-                boolean isActive =true;
-                while(isActive){
-                    Object object =  in.readObject();
-                    if(object != null ){
-                        if(object instanceof ObjectSend objectReceive) {
-
-                            //connection
-                            if (objectReceive.getObject() instanceof User && objectReceive.getAction().equals(Action.CONNECTION)) {
-                                this.connection((User) objectReceive.getObject());
-                           //mdp oubliee
-                            }else if(objectReceive.getAction().equals(Action.REPONSE_MDP_OUBLIEE)){
-                               this.demandeMdpOublier(objectReceive);
-                               // reponse changement de mdp
-                            } else if(objectReceive.getAction().equals(Action.REPONSE_CHANGEMENT_MDP)){
-                                this.changementMdp(objectReceive);
-                            } else if(objectReceive.getAction().equals(Action.REPONSE_MODIFUSER) && objectReceive.getObject() instanceof String){
-                                Platform.runLater(() -> client.getMainGui().erreurPopUp("Validation", "Les modifications ont bien été prises en compte !", AlertType.CONFIRMATION));
-                                Platform.runLater(() -> client.getMainGui().changeScene("application.fxml"));
-                            }
-
-                        }
-                    }else{
-                        isActive = false;
-                    }
-                }
-            } catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
-        this.client.disconnectedServer();
-        Platform.runLater(() -> client.getMainGui().erreurPopUp("ATTENTION", "Erreur de connection au serveur", AlertType.ERROR));
-
-        while(this.client.connectionServer()){
-            try {
-                Thread.sleep(10000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        this.client.lanceThread();
-
     }
 
     public void changementMdp(ObjectSend objectReceive){
 
         String reponse = (String) objectReceive.getObject();
-        Boolean retourPageConnaction = true;
+        boolean retourPageConnaction = true;
 
 
         if(objectReceive.getObject() instanceof String){

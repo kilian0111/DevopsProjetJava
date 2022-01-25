@@ -1,8 +1,9 @@
 package main.java.server;
 
-import main.java.repository.UserJpaRepository;
 
 import main.java.common.*;
+import main.java.repository.UserJpaRepository;
+import main.java.repository.UtilisateursConversationJpaRepository;
 
 
 import java.io.IOException;
@@ -10,6 +11,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.Date;
+import java.util.List;
 
 
 public class ConnectedClient implements Runnable {
@@ -26,9 +28,6 @@ public class ConnectedClient implements Runnable {
         this.socket = socket;
         this.server = server;
         this.out = new ObjectOutputStream(this.socket.getOutputStream());
-        this.id = idCounter;
-        idCounter++;
-        System.out.println("Nouvelle connexion, id = " + id);
     }
 
     public static int getIdCounter() {return idCounter;}
@@ -88,8 +87,19 @@ public class ConnectedClient implements Runnable {
     }
 
     public void inscription(User user) {
-        //User userReturn = this.dataBaseConnectionRequest.inscription(user);
-        this.sendToClient(null);
+        if(UserJpaRepository.getUserByEmail(user.getMail()).getId() == null ){
+            if(UserJpaRepository.getUserByPseudo(user.getPseudo()).getId() == null){
+                User userInscrit =  UserJpaRepository.saveUser(user);
+                this.sendToClient(new ObjectSend(userInscrit,Action.INSCRIPTION));
+                this.user = userInscrit;
+                this.sendToClient(new ObjectSend(UtilisateursConversationJpaRepository.getUtilisateurConversationByUserId(this.user.getId()),Action.LIST_CONVERSATION));
+            }else{
+                this.sendToClient(new ObjectSend("Pseudo déjà utiliser",Action.INSCRIPTION));
+            }
+        }else{
+            this.sendToClient(new ObjectSend("E-mail déjà utiliser",Action.INSCRIPTION));
+        }
+
     }
 
     public void mdpOubliee(String mail)  {
@@ -163,6 +173,10 @@ public class ConnectedClient implements Runnable {
         ObjectSend actionSend = new ObjectSend(userConnecete, Action.CONNECTION);
         this.user = userConnecete;
         this.sendToClient(actionSend);
+        List<UtilisateursConversations> utilisateursConvList = UtilisateursConversationJpaRepository.getUtilisateurConversationByUserId(this.user.getId());
+        this.sendToClient(new ObjectSend(utilisateursConvList,Action.LIST_CONVERSATION));
+        int a = 2;
+        a++;
     }
 
     public void sendToClient(ObjectSend object)  {

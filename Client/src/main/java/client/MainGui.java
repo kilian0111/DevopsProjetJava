@@ -44,9 +44,9 @@ public class MainGui extends Application {
                     new File(Utils.getResourcesPath()+"fxml/"+fxml).toURI().toURL()
             );
             Scene scene = new Scene(fxmlLoader.load());
-            primaryStage.setScene(scene);
             Icontrolleur controlleur = fxmlLoader.getController();
             controlleur.setClient(client);
+            primaryStage.setScene(scene);
         }catch (Exception e){
             e.printStackTrace();
         }

@@ -39,7 +39,7 @@ public class Utils {
 
     public static String generateChaine(){
         Random rand = new Random();
-        String alphabet = "abcdefghijklmnopqrstuvwxyz@$*12356789";
+        String alphabet = "abcdefghijklmnopqrstuvwxyz@$12356789";
         StringBuilder chaine = new StringBuilder("");
         int longueur = alphabet.length();
         for(int i = 0; i < 10; i++) {

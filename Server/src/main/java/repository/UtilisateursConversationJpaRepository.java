@@ -27,14 +27,14 @@ public class UtilisateursConversationJpaRepository {
         em.getTransaction().commit();
 
     }
-    public static List<UtilisateursConversations> getUtilisateurConversationByUserId(Long conversationId) {
+    public static List<UtilisateursConversations> getUtilisateurConversationByUserId(Long utilisateurId) {
         EntityManager em = entityManagerFactory.createEntityManager();
-        TypedQuery<UtilisateursConversations> query = em.createQuery("SELECT e FROM UtilisateursConversations e WHERE e.id = :id", UtilisateursConversations.class);
-        query.setParameter("id", conversationId);
+        TypedQuery<UtilisateursConversations> query = em.createQuery("SELECT e FROM UtilisateursConversations e WHERE e.pkComposer.utilisateurId = :id", UtilisateursConversations.class);
+        query.setParameter("id", utilisateurId);
         return query.getResultList();
     }
 
-    public static void saveMessage(UtilisateursConversations utilisateursConversations) {
+    public static void saveUtilisateursConversations(UtilisateursConversations utilisateursConversations) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
         em.persist(utilisateursConversations);

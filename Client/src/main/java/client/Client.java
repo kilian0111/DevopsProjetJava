@@ -5,12 +5,14 @@ import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import main.java.common.ObjectSend;
 import main.java.common.User;
+import main.java.common.UtilisateursConversations;
 
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.List;
 
 
 public class Client {
@@ -22,6 +24,7 @@ public class Client {
     private ObjectInputStream in;
     private User user;
     private MainGui mainGui;
+    private List<UtilisateursConversations> lesConversations;
 
 
     public Client(int port, String address, MainGui mainGui) throws IOException {
@@ -29,7 +32,8 @@ public class Client {
         this.address = address;
         this.user = new User();
         this.mainGui = mainGui;
-        this.lanceThread();
+        Thread threadConnection = new Thread(new ClientReceive(this));
+        threadConnection.start();
     }
 
 
@@ -59,22 +63,6 @@ public class Client {
 
     }
 
-    public Boolean connectionServer(){
-        try{
-            this.socket = new Socket(this.address,this.port);
-            this.out = new ObjectOutputStream(this.socket.getOutputStream());
-            Platform.runLater(() -> this.getMainGui().erreurPopUp("INFORMATION", "Vous êtes de nouveau connecté(e)", Alert.AlertType.INFORMATION));
-            return false;
-        } catch (Exception e) {
-            return true;
-        }
-    }
-
-    public void lanceThread(){
-        Thread threadConnection = new Thread(new ClientReceive(this));
-        threadConnection.start();
-
-    }
 
     public User getUser() {return user; }
     public void setUser(User user) {this.user = user;}
@@ -125,4 +113,9 @@ public class Client {
     public Boolean estConnecter(){
         return this.socket != null;
     }
+
+    public List<UtilisateursConversations> getLesConversations() {return lesConversations;}
+
+    public void setLesConversations(List<UtilisateursConversations> lesConversations) {this.lesConversations = lesConversations;}
+
 }

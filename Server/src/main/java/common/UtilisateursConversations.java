@@ -9,30 +9,41 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "T_UTILISATEUR")
+@Table(name = "T_UTILISATEUR_CONVERSATION")
 public class UtilisateursConversations implements Serializable{
 
         private PkComposer pkComposer;
-        private Long utilisateurId;
-        private List<Conversations> conversations;
         private Boolean mute;
         private Date dateDerniereLecture;
 
-        @Serial
+    public UtilisateursConversations() {
+        super();
+    }
+
+    public UtilisateursConversations(PkComposer pkComposer) {
+        this.pkComposer = pkComposer;
+    }
+
+    public UtilisateursConversations(Boolean mute) {
+        this.mute = mute;
+    }
+
+    public UtilisateursConversations(Date dateDerniereLecture) {
+        this.dateDerniereLecture = dateDerniereLecture;
+    }
+
+    public UtilisateursConversations(PkComposer pkComposer, Boolean mute, Date dateDerniereLecture) {
+        this.pkComposer = pkComposer;
+        this.mute = mute;
+        this.dateDerniereLecture = dateDerniereLecture;
+    }
+
+    @Serial
         private  static  final  long serialVersionUID =  1352192881346723535L;
 
     @EmbeddedId
     public PkComposer getPkComposer() {return pkComposer;}
     public void setPkComposer(PkComposer pkComposer) {this.pkComposer = pkComposer;}
-
-    @Column(name = "UT_ID")
-    public Long getUtilisateurId() {return utilisateurId;}
-    public void setUtilisateurId(Long utilisateurId) {this.utilisateurId = utilisateurId;}
-
-    @ManyToMany
-    @JoinColumn(name="CO_ID", referencedColumnName="CO_ID")
-    public List<Conversations> getConversations() {return conversations;}
-    public void setConversations(List<Conversations> conversations) {this.conversations = conversations;}
 
     @Column(name = "UC_MUTE")
     public Boolean getMute() {return mute;}
@@ -45,15 +56,21 @@ public class UtilisateursConversations implements Serializable{
     @Embeddable
     public class PkComposer implements Serializable {
         protected Long utilisateurId;
-        protected Long conversationId;
+        protected Conversations conversations;
 
-        public PkComposer() {}
-
-        public PkComposer(Long utilisateurId, Long conversationId) {
-            this.utilisateurId = utilisateurId;
-            this.conversationId = conversationId;
+        public PkComposer() {
+            super();
         }
 
+
+
+        public PkComposer(Long utilisateurId, Conversations conversations) {
+            super();
+            this.utilisateurId = utilisateurId;
+            this.conversations = conversations;
+        }
+
+        @Column(name = "UT_ID")
         public Long getUtilisateurId() {
             return utilisateurId;
         }
@@ -61,13 +78,14 @@ public class UtilisateursConversations implements Serializable{
         public void setUtilisateurId(Long utilisateurId) {
             this.utilisateurId = utilisateurId;
         }
-
-        public Long getConversationId() {
-            return conversationId;
+        @OneToOne
+        @JoinColumn(name="CO_ID", referencedColumnName="CO_ID")
+        public Conversations getConversations() {
+            return conversations;
         }
 
-        public void setConversationId(Long conversationId) {
-            this.conversationId = conversationId;
+        public void setConversations(Conversations conversations) {
+            this.conversations = conversations;
         }
     }
 }

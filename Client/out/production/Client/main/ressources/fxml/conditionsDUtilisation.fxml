@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
@@ -23,7 +22,7 @@
                   <Insets right="200.0" top="10.0" />
                </VBox.margin>
             </ImageView>
-            <Label text="les Conditions d'utilisation de KIJOKI : " textFill="#1873db">
+            <Label text="Les conditions d'utilisation de KIJOKI : " textFill="#1873db">
                <font>
                   <Font size="20.0" />
                </font>

@@ -88,6 +88,7 @@ public class InscriptionControlleur implements Initializable,Icontrolleur{
                             User user = new User();
                             user.setSexe(genreCombo.getSelectionModel().getSelectedIndex());
                             user.setMail(email.getText());
+                            user.setPseudo(pseudo.getText());
                             user.setMdp(Utils.convertMdpWithSalt(motDePasse.getText(), salt));
                             user.setSalt(salt);
                             user.setDateNaissance(new SimpleDateFormat("yyyy-MM-dd").parse(this.dateNaissance.getValue().toString()));

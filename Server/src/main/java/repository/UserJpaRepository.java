@@ -54,17 +54,28 @@ public class UserJpaRepository {
             EntityManager em = entityManagerFactory.createEntityManager();
             TypedQuery<User> query = em.createQuery("SELECT e FROM User e WHERE (e.mail = :identifiant) ", User.class);
             query.setParameter("identifiant", email);
-            User user =  query.getSingleResult();
-            return user;
+            return query.getSingleResult();
          }catch(Exception e){
              return new User();
          }
     }
-    public static void saveUser(User user) {
+
+    public static User getUserByPseudo(String pseudo){
+        try{
+            EntityManager em = entityManagerFactory.createEntityManager();
+            TypedQuery<User> query = em.createQuery("SELECT e FROM User e WHERE (e.pseudo = :identifiant) ", User.class);
+            query.setParameter("identifiant", pseudo);
+            return query.getSingleResult();
+        }catch(Exception e){
+            return new User();
+        }
+    }
+    public static User saveUser(User user) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
         em.persist(user);
         em.getTransaction().commit();
+        return user;
     }
 }
 

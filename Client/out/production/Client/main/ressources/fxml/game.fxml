@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="450.0" stylesheets="@../style/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.client.gui.controlleur.ConnectionControlleur">
+   <children>
+      <!--AnchorPane concerne ici le joueur Ami-->
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Pane prefHeight="86.0" prefWidth="450.0" style="-fx-background-color: rgb(162,162,162);" />
+            <!--Photo de l'homme Ami-->
+            <ImageView fitHeight="126.0" fitWidth="127.0" layoutX="162.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@../img/man.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </ImageView>
+            <!--Photo de la table Ami-->
+            <ImageView fitHeight="131.0" fitWidth="450.0" layoutY="83.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../img/table.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a3a3a3" height="86.0" layoutX="74.0" layoutY="103.0" stroke="BLACK" strokeType="INSIDE" width="77.0" />
+            <ImageView fx:id="imgPierreAmi" fitHeight="93.0" fitWidth="86.0" layoutX="72.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/pierre.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a3a3a3" height="86.0" layoutX="294.0" layoutY="103.0" stroke="BLACK" strokeType="INSIDE" width="77.0" />
+            <ImageView fx:id="imgCiseauxAmi" fitHeight="93.0" fitWidth="86.0" layoutX="290.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/ciseaux.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a3a3a3" height="86.0" layoutX="182.0" layoutY="103.0" stroke="BLACK" strokeType="INSIDE" width="77.0" />
+            <ImageView fx:id="imgFeuilleAmi" fitHeight="93.0" fitWidth="86.0" layoutX="182.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/feuille.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="yourRound3" fitHeight="39.0" fitWidth="49.0" layoutX="14.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="yourRound1" fitHeight="39.0" fitWidth="49.0" layoutX="14.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="yourRound2" fitHeight="39.0" fitWidth="49.0" layoutX="14.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <!-- Ceci est la table ou seront deposés les cartes choisi par Moi et Ami-->
+      <Pane maxHeight="-Infinity" prefHeight="200.0" prefWidth="450.0" style="-fx-background-color: rgb(1,130,1);">
+         <children>
+            <ImageView fx:id="imgJouerParMoi" fitHeight="93.0" fitWidth="86.0" layoutX="71.0" layoutY="39.0" />
+            <ImageView fx:id="imgJouerParAmi" fitHeight="93.0" fitWidth="86.0" layoutX="291.0" layoutY="39.0" />
+         </children></Pane>
+      <!--AnchorPane concerne ici Moi-->
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" rotate="180.0">
+         <children>
+            <Pane prefHeight="86.0" prefWidth="450.0" style="-fx-background-color: rgb(162,162,162);" />
+            <ImageView fitHeight="126.0" fitWidth="127.0" layoutX="162.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@../img/man.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="131.0" fitWidth="450.0" layoutY="83.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../img/table.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a3a3a3" height="86.0" layoutX="74.0" layoutY="103.0" stroke="BLACK" strokeType="INSIDE" width="77.0" />
+            <ImageView fx:id="imgPierreMoi" fitHeight="93.0" fitWidth="86.0" layoutX="68.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+               <image>
+                  <Image url="@../img/pierre.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a3a3a3" height="86.0" layoutX="294.0" layoutY="103.0" stroke="BLACK" strokeType="INSIDE" width="77.0" />
+            <ImageView fx:id="imgCiseauxMoi" fitHeight="93.0" fitWidth="86.0" layoutX="290.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+               <image>
+                  <Image url="@../img/ciseaux.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+            </ImageView>
+            <Button fx:id="myPierreButton" layoutX="74.0" layoutY="103.0" mnemonicParsing="false" opacity="0.0" prefHeight="86.0" prefWidth="77.0" text="Button" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a3a3a3" height="86.0" layoutX="182.0" layoutY="103.0" stroke="BLACK" strokeType="INSIDE" width="77.0" />
+            <ImageView fx:id="imgFeuilleMoi" fitHeight="93.0" fitWidth="86.0" layoutX="175.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+               <image>
+                  <Image url="@../img/feuille.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+            </ImageView>
+            <Button fx:id="myCiseauxButton" layoutX="294.0" layoutY="104.0" mnemonicParsing="false" opacity="0.0" prefHeight="86.0" prefWidth="77.0" rotate="180.0" text="Button" />
+            <Button fx:id="myFeuilleButton" layoutX="182.0" layoutY="102.0" mnemonicParsing="false" opacity="0.0" prefHeight="86.0" prefWidth="77.0" text="Button" />
+            <ImageView fx:id="myRound1" fitHeight="39.0" fitWidth="49.0" layoutX="16.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="myRound2" fitHeight="39.0" fitWidth="49.0" layoutX="16.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="myRound3" fitHeight="39.0" fitWidth="49.0" layoutX="16.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

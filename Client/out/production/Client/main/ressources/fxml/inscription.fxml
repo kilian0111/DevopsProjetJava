@@ -15,11 +15,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="684.0" prefWidth="452.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.client.gui.controlleur.InscriptionControlleur">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="737.0" prefWidth="452.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.client.gui.controlleur.InscriptionControlleur">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
          <VBox.margin>
-            <Insets right="120.0" />
+            <Insets />
          </VBox.margin>
          <image>
             <Image url="@../img/logo.png" />
@@ -40,7 +40,7 @@
                   <Insets left="40.0" top="7.0" />
                </VBox.margin>
             </Label>
-            <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="370.0">
+            <TextField fx:id="pseudo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="370.0">
                <VBox.margin>
                   <Insets left="40.0" />
                </VBox.margin>
@@ -53,7 +53,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="370.0">
+            <TextField fx:id="email" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="370.0">
                <VBox.margin>
                   <Insets left="40.0" />
                </VBox.margin>
@@ -66,7 +66,7 @@
                   <Insets left="40.0" top="7.0" />
                </VBox.margin>
             </Label>
-            <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="370.0">
+            <TextField fx:id="prenom" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="370.0">
                <VBox.margin>
                   <Insets left="40.0" />
                </VBox.margin>
@@ -79,7 +79,7 @@
                   <Insets left="40.0" top="7.0" />
                </VBox.margin>
             </Label>
-            <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="370.0">
+            <TextField fx:id="nom" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="370.0">
                <VBox.margin>
                   <Insets left="40.0" />
                </VBox.margin>
@@ -92,7 +92,7 @@
                   <Insets left="40.0" top="7.0" />
                </VBox.margin>
             </Label>
-            <DatePicker maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="370.0">
+            <DatePicker fx:id="dateNaissance" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="370.0">
                <VBox.margin>
                   <Insets left="40.0" />
                </VBox.margin>
@@ -105,7 +105,7 @@
                   <Insets left="40.0" top="7.0" />
                </VBox.margin>
             </Label>
-            <ComboBox prefHeight="25.0" prefWidth="370.0">
+            <ComboBox fx:id="genreCombo" prefHeight="25.0" prefWidth="370.0">
                <VBox.margin>
                   <Insets left="40.0" />
                </VBox.margin>
@@ -118,7 +118,7 @@
                   <Insets left="40.0" top="7.0" />
                </VBox.margin>
             </Label>
-            <PasswordField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="370.0">
+            <PasswordField fx:id="motDePasse" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="370.0">
                <VBox.margin>
                   <Insets left="40.0" />
                </VBox.margin>
@@ -131,14 +131,14 @@
                   <Insets left="40.0" top="7.0" />
                </VBox.margin>
             </Label>
-            <PasswordField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="370.0">
+            <PasswordField fx:id="motDePasseConfirm" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="370.0">
                <VBox.margin>
                   <Insets left="40.0" />
                </VBox.margin>
             </PasswordField>
             <HBox prefHeight="47.0" prefWidth="450.0">
                <children>
-                  <CheckBox mnemonicParsing="false" prefHeight="25.0" prefWidth="163.0" text="J'ai lu et accepté les " wrapText="true">
+                  <CheckBox fx:id="conditionInscription" mnemonicParsing="false" prefHeight="25.0" prefWidth="163.0" text="J'ai lu et accepté les " wrapText="true">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -170,6 +170,9 @@
                      <font>
                         <Font size="15.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets right="2.0" top="0.5" />
+                     </HBox.margin>
                   </Hyperlink>
                   <Label text="de KIJOKI">
                      <HBox.margin>
@@ -180,10 +183,13 @@
                      </font>
                   </Label>
                </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="-5.0" />
+               </VBox.margin>
             </HBox>
          </children>
       </VBox>
-      <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="377.0" style="-fx-background-color: rgb(24,115,219);" text="CONTINUER">
+      <Button mnemonicParsing="false" onAction="#inscriptionAction" prefHeight="31.0" prefWidth="377.0" style="-fx-background-color: rgb(24,115,219);" text="CONTINUER">
          <font>
             <Font size="15.0" />
          </font>
@@ -196,5 +202,13 @@
             <Font size="15.0" />
          </font>
       </Hyperlink>
+      <Label fx:id="erreurLabel" text="Label" textFill="RED" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </Label>
    </children>
 </VBox>

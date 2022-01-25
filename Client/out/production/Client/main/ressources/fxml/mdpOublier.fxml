@@ -20,20 +20,20 @@
 
       <VBox alignment="TOP_CENTER" prefHeight="423.0" prefWidth="484.0">
          <children>
-            <ImageView fitHeight="101.0" fitWidth="229.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" x="20.0" y="10.0">
+            <ImageView fitHeight="116.0" fitWidth="253.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" x="20.0" y="10.0">
                <image>
                   <Image url="@../img/logo.png" />
                </image>
                <VBox.margin>
-                  <Insets right="200.0" top="20.0" />
+                  <Insets top="20.0" />
                </VBox.margin>
             </ImageView>
-            <Label text="Mots de Passe Oubliée :" textFill="#1873db">
+            <Label text="Mot de Passe Oublié :" textFill="#1873db">
                <font>
                   <Font size="19.0" />
                </font>
                <VBox.margin>
-                  <Insets right="250.0" />
+                  <Insets right="100.0" top="30.0" />
                </VBox.margin>
                <effect>
                   <Lighting>
@@ -46,12 +46,12 @@
                   </Lighting>
                </effect>
             </Label>
-            <Label prefHeight="21.0" prefWidth="204.0" text="Entrez le code reçu par email :" textOverrun="CENTER_WORD_ELLIPSIS">
+            <Label prefHeight="21.0" prefWidth="227.0" text="Entrez le code reçu par e-mail :" textOverrun="CENTER_WORD_ELLIPSIS">
                <font>
                   <Font size="15.0" />
                </font>
                <VBox.margin>
-                  <Insets right="78.0" top="30.0" />
+                  <Insets right="54.0" top="20.0" />
                </VBox.margin>
             </Label>
             <TextField fx:id="codeTxt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="280.0" style="-fx-background-radius: red;">
@@ -59,7 +59,7 @@
                   <Font size="15.0" />
                </font>
             </TextField>
-            <Label prefHeight="21.0" prefWidth="251.0" text="Entrez votre nouveau mots de passe : " textOverrun="CENTER_WORD_ELLIPSIS">
+            <Label prefHeight="21.0" prefWidth="251.0" text="Entrez votre nouveau mot de passe : " textOverrun="CENTER_WORD_ELLIPSIS">
                <font>
                   <Font size="15.0" />
                </font>
@@ -68,7 +68,7 @@
                </VBox.margin>
             </Label>
             <PasswordField fx:id="mdpTxt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="280.0" />
-            <Label prefHeight="21.0" prefWidth="265.0" text="Retapez votre nouveau mots de passe : " textOverrun="CENTER_WORD_ELLIPSIS">
+            <Label prefHeight="21.0" prefWidth="265.0" text="Retapez votre nouveau mot de passe : " textOverrun="CENTER_WORD_ELLIPSIS">
                <font>
                   <Font size="15.0" />
                </font>

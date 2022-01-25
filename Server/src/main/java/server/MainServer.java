@@ -15,10 +15,9 @@ public class MainServer {
         try(FileInputStream conf = new FileInputStream(Utils.getResourcesPath()+"conf.properties")) {
 
             props.load(conf);
-            Class.forName(props.getProperty("jdbc.driver.class"));
             Integer port = Integer.parseInt(props.getProperty("server.port"));
             Server server = new Server(port);
-        } catch (IOException | ClassNotFoundException e1) {
+        } catch (IOException  e1) {
             e1.printStackTrace();
         }
     }

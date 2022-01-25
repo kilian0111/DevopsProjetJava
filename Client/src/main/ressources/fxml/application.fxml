@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,16 +10,16 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.client.gui.controlleur.ApplicationController">
    <children>
-      <ScrollPane fx:id="conversationsList" hbarPolicy="NEVER" layoutX="8.0" layoutY="14.0" onMouseClicked="#onConversationClick" prefHeight="572.0" prefWidth="206.0" styleClass="conversationsList" stylesheets="@../style/main.css">
+      <ScrollPane fx:id="conversationsList" hbarPolicy="NEVER" layoutX="8.0" layoutY="14.0" onMouseClicked="#onConversationClick" prefHeight="575.0" prefWidth="200.0" styleClass="conversationsList" stylesheets="@../style/main.css">
           <padding>
               <Insets left="5.0" top="5.0" />
           </padding>
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-        </content>
          <opaqueInsets>
             <Insets left="2.0" top="2.0" />
          </opaqueInsets>
+         <content>
+            <ListView fx:id="lesConversations" prefHeight="570.0" prefWidth="200.0" />
+         </content>
       </ScrollPane>
       <TextArea layoutX="223.0" layoutY="513.0" prefHeight="73.0" prefWidth="601.0" />
       <Button id="sendMessage" layoutX="832.0" layoutY="513.0" mnemonicParsing="false" onAction="#sendMessage" prefHeight="73.0" prefWidth="57.0" text="Button" />
