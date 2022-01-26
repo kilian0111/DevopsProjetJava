@@ -14,7 +14,6 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name = "T_UTILISATEUR")
 public class User implements Serializable {
 
-
     private Long id;
     private String pseudo;
     private String mail;
@@ -27,7 +26,7 @@ public class User implements Serializable {
     private Boolean actif;
 
     @Serial
-    private  static  final  long serialVersionUID =  1350092881346723535L;
+    private static final long serialVersionUID =  1350092881346723534L;
 
     @GenericGenerator(name = "generator", strategy = "increment")
     @Id

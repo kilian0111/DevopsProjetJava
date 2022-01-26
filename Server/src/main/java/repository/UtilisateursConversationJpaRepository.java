@@ -29,7 +29,7 @@ public class UtilisateursConversationJpaRepository {
     }
     public static List<UtilisateursConversations> getUtilisateurConversationByUserId(Long utilisateurId) {
         EntityManager em = entityManagerFactory.createEntityManager();
-        TypedQuery<UtilisateursConversations> query = em.createQuery("SELECT e FROM UtilisateursConversations e WHERE e.pkComposer.utilisateurId = :id", UtilisateursConversations.class);
+        TypedQuery<UtilisateursConversations> query = em.createQuery("SELECT e FROM UtilisateursConversations e WHERE e.id.utilisateur.id = :id", UtilisateursConversations.class);
         query.setParameter("id", utilisateurId);
         return query.getResultList();
     }

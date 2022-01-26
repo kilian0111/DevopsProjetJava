@@ -473,5 +473,12 @@ INSERT INTO T_MESSAGE (ME_CONTENT,ME_DT,ME_VISIBLE,UT_ID,CO_ID) VALUES ('cursus 
 UPDATE t_UTILISATEUR SET UT_SALT = '159971001';
 UPDATE t_UTILISATEUR SET UT_MDP = SUBSTRING (CAST (sha512('159971001root') as VARCHAR(512)),3);
 
-update t_utilisateur set ut_sexe = 2 where ut_sexe = 0 
+update t_utilisateur set ut_sexe = 2 where ut_sexe = 0
 
+
+CREATE VIEW V_UTILISATEUR_CONVERSATION_DETAIL as
+SELECT UT_ID,CO_ID,UC_MUTE,UC_DT_LU,
+       CASE WHEN
+                    (SELECT count(*) FROM t_utilisateur_conversation tuc WHERE tuc.CO_ID = uc.CO_ID ) = 2
+                then 1 else 0 end as UC_JEUX_POSSIBLE
+FROM t_utilisateur_conversation uc

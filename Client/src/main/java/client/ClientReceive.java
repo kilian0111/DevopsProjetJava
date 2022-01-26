@@ -5,14 +5,13 @@ package main.java.client;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.*;
-import main.java.common.Action;
-import main.java.common.ObjectSend;
-import main.java.common.User;
+import main.java.common.*;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.List;
 
 public class ClientReceive implements Runnable {
 
@@ -58,7 +57,9 @@ public class ClientReceive implements Runnable {
             this.client.setSocket(new Socket(this.client.getAddress(),this.client.getPort()));
             this.socket = this.client.getSocket();
             this.client.setOut(new ObjectOutputStream(this.socket.getOutputStream()));
-        } catch (IOException ignored) {}
+        } catch (IOException ignored) {
+            Platform.runLater(() -> client.getMainGui().erreurPopUp("ATTENTION", "Erreur de connection au serveur", AlertType.ERROR));
+        }
 
        while(true){
            //permet la reconnection au server
@@ -101,6 +102,9 @@ public class ClientReceive implements Runnable {
                                // Inscription
                                }else if(objectReceive.getAction().equals(Action.INSCRIPTION)){
                                    this.responseInscription(objectReceive);
+                               } else if(objectReceive.getAction().equals(Action.LIST_CONVERSATION) && objectReceive.getObject() instanceof List ){
+                                   this.client.setLesConversations((List<UtilisateursConversations>) objectReceive.getObject());
+                                   Platform.runLater(() -> client.getMainGui().changeScene("application.fxml"));
                                }
 
                            }
@@ -125,7 +129,6 @@ public class ClientReceive implements Runnable {
             Platform.runLater(() -> client.getMainGui().erreurPopUp("ATTENTION", (String) objectReceive.getObject(), AlertType.ERROR));
         }else if(objectReceive.getObject() instanceof User){
             this.client.setUser((User) objectReceive.getObject());
-            Platform.runLater(() -> client.getMainGui().changeScene("application.fxml"));
         }
     }
 
@@ -175,7 +178,6 @@ public class ClientReceive implements Runnable {
     public void connection(User user){
         if(user.getId() != null){
             if(user.getActif()){
-                Platform.runLater(() -> client.getMainGui().changeScene("application.fxml"));
                 this.client.setUser(user);
             }else{
                 Platform.runLater(() -> client.getMainGui().erreurPopUp("Erreur","votre compte est désactivé", AlertType.INFORMATION));

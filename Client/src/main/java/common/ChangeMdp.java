@@ -1,5 +1,6 @@
 package main.java.common;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -10,6 +11,9 @@ public class ChangeMdp implements Serializable {
     private String newMdp;
     private Integer nbEssais;
     private Date dateDemande;
+
+    @Serial
+    private static final long serialVersionUID =  1350092881346723530L;
 
     public ChangeMdp(String codeMail, String newMdp) {
         this.codeMail = codeMail;

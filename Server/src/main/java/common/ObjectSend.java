@@ -1,11 +1,15 @@
 package main.java.common;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class ObjectSend implements Serializable {
 
     private Object object;
     private Action action;
+
+    @Serial
+    private static final long serialVersionUID =  1350092881346723533L;
 
     public ObjectSend(Object object, Action action) {
         this.object = object;

@@ -9,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.*;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import main.java.client.gui.controlleur.ApplicationController;
 import main.java.client.gui.controlleur.Icontrolleur;
 import main.java.common.Utils;
 
@@ -46,6 +47,10 @@ public class MainGui extends Application {
             Scene scene = new Scene(fxmlLoader.load());
             Icontrolleur controlleur = fxmlLoader.getController();
             controlleur.setClient(client);
+            if(controlleur instanceof ApplicationController){
+               ApplicationController app =  (ApplicationController) controlleur;
+               app.chargerData();
+            }
             primaryStage.setScene(scene);
         }catch (Exception e){
             e.printStackTrace();

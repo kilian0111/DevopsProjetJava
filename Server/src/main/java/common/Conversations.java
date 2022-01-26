@@ -1,8 +1,11 @@
 package main.java.common;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
@@ -17,9 +20,10 @@ public class Conversations implements Serializable {
     private Date dateCreationConv;
     private Long utilisateurCreateurID;
     private List<Message> lesMessages;
+    private List<UserSafeData> lesUsers;
 
     @Serial
-    private  static  final  long serialVersionUID =  1350083881342723135L;
+    private static final long serialVersionUID =  1350092881346723531L;
 
     @GenericGenerator(name = "generator", strategy = "increment")
     @Id
@@ -41,7 +45,17 @@ public class Conversations implements Serializable {
     public void setUtilisateurCreateurID(Long utilisateurCreateurID) {this.utilisateurCreateurID = utilisateurCreateurID;}
 
     @OneToMany
+    @LazyCollection(LazyCollectionOption.FALSE)
     @JoinColumn(name="CO_ID", referencedColumnName="CO_ID")
     public List<Message> getLesMessages() {return lesMessages;}
     public void setLesMessages(List<Message> lesMessages) {this.lesMessages = lesMessages;}
+
+    @JoinTable(name = "T_UTILISATEUR_CONVERSATION",
+            joinColumns = @JoinColumn(name = "CO_ID"),
+            inverseJoinColumns = @JoinColumn(name = "UT_ID"))
+    @MapKeyJoinColumn(name = "CO_ID")
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @OneToMany
+    public List<UserSafeData> getLesUsers() {return lesUsers;}
+    public void setLesUsers(List<UserSafeData> lesUsers) {this.lesUsers = lesUsers;}
 }

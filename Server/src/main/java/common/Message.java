@@ -15,11 +15,11 @@ public class Message implements Serializable {
     private String Content;
     private Date dateMessage;
     private Boolean visible;
-    private Long utilisateurSenderId;
+    private UserSafeData utilisateurSender;
     private Long conversationId;
 
     @Serial
-    private  static  final  long serialVersionUID =  1350083881346723535L;
+    private static final long serialVersionUID =  1350092881346723532L;
 
     @GenericGenerator(name = "generator", strategy = "increment")
     @Id
@@ -40,13 +40,15 @@ public class Message implements Serializable {
     public Boolean getVisible() {return visible;}
     public void setVisible(Boolean visible) {this.visible = visible;}
 
-    @Column(name = "UT_ID")
-    public Long getUtilisateurSenderId() {return utilisateurSenderId;}
-    public void setUtilisateurSenderId(Long utilisateurSenderId) {this.utilisateurSenderId = utilisateurSenderId;}
+    @OneToOne
+    @JoinColumn(name = "UT_ID", referencedColumnName = "UT_ID")
+    public UserSafeData getUtilisateurSender() {return utilisateurSender;}
+    public void setUtilisateurSender(UserSafeData utilisateurSender) {this.utilisateurSender = utilisateurSender;}
 
     @Column(name = "CO_ID")
     public Long getConversationId() {return conversationId;}
     public void setConversationId(Long conversationId) {this.conversationId = conversationId;}
+
 }
 
 

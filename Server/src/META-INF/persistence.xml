@@ -12,6 +12,8 @@
     <class>main.java.common.Message</class>
     <class>main.java.common.Conversations</class>
     <class>main.java.common.UtilisateursConversations</class>
+    <class>main.java.common.UtilisateursConversationsId</class>
+    <class>main.java.common.UserSafeData</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
 
