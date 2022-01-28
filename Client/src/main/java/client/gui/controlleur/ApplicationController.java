@@ -5,6 +5,8 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
@@ -35,7 +37,11 @@ public class ApplicationController implements Initializable,Icontrolleur {
     @FXML
     private TextArea textAreaMessage;
 
+    @FXML
+    private Label accountName;
 
+    @FXML
+    private Button playButton;
 
     public void sendMessage(ActionEvent event) {
         if(!this.textAreaMessage.getText().isBlank()){
@@ -69,6 +75,8 @@ public class ApplicationController implements Initializable,Icontrolleur {
                 currentConv = (UtilisateursConversations) t1;
                 messagesList.getChildren().clear();
                 currentConv.getId().getConversations().getLesMessages().forEach(message -> { addMessage(message); });
+
+                setPlayButtonState(currentConv);
             }
         });
     }
@@ -95,6 +103,9 @@ public class ApplicationController implements Initializable,Icontrolleur {
         this.lesConversations.setCellFactory(uc -> new ConversationListCell());
         this.lesConversations.getItems().setAll(lesConv);
         this.lesConversations.getSelectionModel().select(0);;
+
+        accountName.setText(this.client.getUser().getPseudo());
+        setPlayButtonState(this.lesConversations.getSelectionModel().getSelectedItem());
     }
 
     @Override
@@ -105,6 +116,16 @@ public class ApplicationController implements Initializable,Icontrolleur {
     @Override
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    private void setPlayButtonState(UtilisateursConversations currentConv) {
+        Conversations conversations = currentConv.getId().getConversations();
+
+        if (conversations.getLesUsers() != null && conversations.getLesUsers().size() == 2) {
+            this.playButton.setDisable(false);
+        } else {
+            this.playButton.setDisable(true);
+        }
     }
 
     private void addMessage(Message message) {
