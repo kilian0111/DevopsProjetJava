@@ -32,9 +32,12 @@ public class ConversationListCell extends ListCell<UtilisateursConversations> {
             List<Message> messages = item.getId().getConversations().getLesMessages();
             conversationName.setText(item.nomConv());
             lastMessage.setText("");
+
             if(!messages.isEmpty()){
-                lastMessage.setText(messages.get(messages.size()-1).getContent());
+                String message = messages.get(messages.size()-1).getContent();
+                lastMessage.setText(message.substring(0, 15).replace('\n', ' '));
             }
+
             setGraphic(content);
             setText(null);
         }
