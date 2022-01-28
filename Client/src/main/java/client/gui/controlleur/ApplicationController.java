@@ -6,12 +6,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import main.java.client.Client;
-import main.java.client.MainGui;
+import main.java.client.gui.style.ConversationListCell;
 import main.java.common.*;
 
 import java.net.URL;
@@ -27,7 +26,7 @@ public class ApplicationController implements Initializable,Icontrolleur {
     private TextFlow messagesList;
 
     @FXML
-    private ListView lesConversations;
+    private ListView<UtilisateursConversations> lesConversations;
 
 
 
@@ -37,20 +36,20 @@ public class ApplicationController implements Initializable,Icontrolleur {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        chargerData();
 
         this.lesConversations.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
-
+                UtilisateursConversations conversation = (UtilisateursConversations) t1;
+                messagesList.getChildren().clear();
+                conversation.getId().getConversations().getLesMessages().forEach(message -> { addMessage(message); });
             }
         });
-
-
     }
 
 
     public void chargerData(){
-
         // conversation générale
         Conversations convgen = new Conversations();
         convgen.setLesMessages(new ArrayList<>());
@@ -58,14 +57,15 @@ public class ApplicationController implements Initializable,Icontrolleur {
         idgeneral.setConversations(convgen);
         UtilisateursConversations generale = new UtilisateursConversations();
         generale.setId(idgeneral);
+
         List<UtilisateursConversations> lesConv = new ArrayList<>();
         lesConv.add(generale);
 
         // toute les autres conv
         lesConv.addAll(this.client.getLesConversations());
 
+        this.lesConversations.setCellFactory(uc -> new ConversationListCell());
         this.lesConversations.getItems().setAll(lesConv);
-        System.out.println("test");
     }
 
     @Override
@@ -79,8 +79,8 @@ public class ApplicationController implements Initializable,Icontrolleur {
     }
 
     private void addMessage(Message message) {
-        /*String userName = message.getSender() + "";
-        if (client.getUser().getId()  != null && client.getUser().getId() == message.getSender()) {
+        String userName = message.getUtilisateurSender().getPseudo();
+        if (client.getUser().getId()  != null && client.getUser().getId().equals(message.getUtilisateurSender().getId())) {
             userName = "Moi";
         }
 
@@ -89,7 +89,7 @@ public class ApplicationController implements Initializable,Icontrolleur {
         Text userMessage = new Text(message.getContent() + "\n\n");
 
         messagesList.getChildren().add(name);
-        messagesList.getChildren().add(userMessage);*/
+        messagesList.getChildren().add(userMessage);
 
     }
 
