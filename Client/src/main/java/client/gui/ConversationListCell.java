@@ -1,4 +1,4 @@
-package main.java.client.gui.style;
+package main.java.client.gui;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
@@ -31,7 +31,10 @@ public class ConversationListCell extends ListCell<UtilisateursConversations> {
         if (!empty && item != null) {
             List<Message> messages = item.getId().getConversations().getLesMessages();
             conversationName.setText(item.nomConv());
-            lastMessage.setText(messages.get(messages.size()-1).getContent());
+            lastMessage.setText("");
+            if(!messages.isEmpty()){
+                lastMessage.setText(messages.get(messages.size()-1).getContent());
+            }
             setGraphic(content);
             setText(null);
         }

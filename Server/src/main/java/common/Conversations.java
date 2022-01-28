@@ -58,4 +58,12 @@ public class Conversations implements Serializable {
     @OneToMany
     public List<UserSafeData> getLesUsers() {return lesUsers;}
     public void setLesUsers(List<UserSafeData> lesUsers) {this.lesUsers = lesUsers;}
+
+    public void addMessage(Message message){
+        this.lesMessages.add(message);
+    }
+
+    public void removeMessage(Message message){
+        this.lesMessages.remove(message);
+    }
 }

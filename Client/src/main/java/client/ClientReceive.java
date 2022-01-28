@@ -118,6 +118,7 @@ public class ClientReceive implements Runnable {
            }
            this.client.disconnectedServer();
            Platform.runLater(() -> client.getMainGui().erreurPopUp("ATTENTION", "Erreur de connection au serveur", AlertType.ERROR));
+           Platform.runLater(() ->this.client.getMainGui().changeScene("connection"));
            this.socket = null;
 
        }

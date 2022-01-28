@@ -5,45 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e94660bc-7d73-4a3d-8f55-8ddb14e94c0b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/ClientReceive.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/ClientReceive.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/ChangeMdp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/ChangeMdp.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/application/ClientPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/application/ClientPanel$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/application/ClientPanel$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/application/ClientPanel$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/application/ClientPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/connection/ConnectionPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/connection/ConnectionPanel$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/connection/ConnectionPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ApplicationController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ApplicationController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ApplicationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ApplicationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/register/RegisterPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/register/RegisterPanel$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/register/RegisterPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/Action.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/Action.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/Conversations.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/Conversations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/Message.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/ObjectSend.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/ObjectSend.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/UtilisateursConversations$PkComposer.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/UtilisateursConversations.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/UtilisateursConversations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/ClientReceive.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/ClientReceive.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/MainGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/MainGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/ressources/fxml/application.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/ressources/fxml/application.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/gui/application/ClientPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/gui/connection/ConnectionPanel.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/ApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/common/ChangeMdp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/common/ChangeMdp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/gui/register/RegisterPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/gui/style/ConversationListCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/gui/ConversationListCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/common/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/common/Action.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/src/main/java/common/Conversations.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/common/Conversations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/common/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/common/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/common/ObjectSend.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/common/ObjectSend.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/common/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/common/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/common/UtilisateursConversations.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/common/UtilisateursConversations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/ressources/fxml/application.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/ressources/fxml/application.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/ChangeMdp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/ChangeMdp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/Conversations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/Conversations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/Message.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/ObjectSend.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/ObjectSend.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/UtilisateursConversations$PkComposer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/UtilisateursConversations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/UtilisateursConversations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/repository/UtilisateursConversationJpaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/repository/UtilisateursConversationJpaRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/ressources/sqlConfig/Script_Postgresql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/ressources/sqlConfig/Script_Postgresql.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/ChangeMdp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/ChangeMdp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Action.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/Conversations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Conversations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/ObjectSend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/ObjectSend.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/UtilisateursConversations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/UtilisateursConversations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repository/UtilisateursConversationJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/UtilisateursConversationJpaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ressources/sqlConfig/Script_Postgresql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ressources/sqlConfig/Script_Postgresql.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,6 +120,7 @@
       <workItem from="1643136924269" duration="4000" />
       <workItem from="1643136938957" duration="10213000" />
       <workItem from="1643222911592" duration="7993000" />
+      <workItem from="1643400927412" duration="1395000" />
     </task>
     <task id="LOCAL-00001" summary="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription">
       <created>1642257550779</created>
@@ -144,6 +138,22 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription" />
     <option name="LAST_COMMIT_MESSAGE" value="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/server/ConnectedClient.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/server/ConnectedClient.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Server$MainServer.ic" NAME="MainServer Coverage Results" MODIFIED="1643140349598" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

@@ -6,21 +6,25 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import main.java.client.Client;
-import main.java.client.gui.style.ConversationListCell;
+import main.java.client.gui.ConversationListCell;
 import main.java.common.*;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class ApplicationController implements Initializable,Icontrolleur {
 
+
     private Client client;
+
+    private UtilisateursConversations currentConv;
 
     @FXML
     private TextFlow messagesList;
@@ -28,22 +32,43 @@ public class ApplicationController implements Initializable,Icontrolleur {
     @FXML
     private ListView<UtilisateursConversations> lesConversations;
 
+    @FXML
+    private TextArea textAreaMessage;
+
 
 
     public void sendMessage(ActionEvent event) {
-        //addMessage(new Message(0, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultricies vitae mi vitae imperdiet. Proin a fringilla justo. Sed eu lectus a felis varius iaculis vel faucibus risus. Fusce hendrerit fringilla elit ac porttitor. Cras iaculis, urna ut euismod mollis, lectus metus congue mi, at malesuada metus nunc at libero. Curabitur ac sem eget quam volutpat iaculis a vel leo. Nunc bibendum turpis lorem, eu blandit massa ultrices sed. Aenean vel quam lacus. Vivamus diam arcu, laoreet vitae diam quis, tempor egestas nulla"));
+        if(!this.textAreaMessage.getText().isBlank()){
+            List<Message> lesMessages = this.currentConv.getId().getConversations().getLesMessages();
+            UserSafeData currentUser = new UserSafeData();
+            currentUser.setId(this.client.getUser().getId());
+            currentUser.setPseudo(this.client.getUser().getPseudo());
+            Message nouvMessage = new Message();
+            nouvMessage.setDateMessage(new Date());
+            nouvMessage.setContent(textAreaMessage.getText());
+            nouvMessage.setVisible(true);
+            nouvMessage.setConversationId(this.currentConv.getId().getConversations().getConversationId());
+            nouvMessage.setUtilisateurSender(currentUser);
+            this.addMessage(nouvMessage);
+            this.client.addMessage(nouvMessage);
+
+            this.textAreaMessage.setText("");
+            this.textAreaMessage.setStyle("-fx-border-color: transparent");
+            this.client.sendToServer(new ObjectSend(nouvMessage, Action.MESSAGE));
+        } else{
+            this.textAreaMessage.setStyle("-fx-border-color: red");
+        }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        chargerData();
 
         this.lesConversations.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
-                UtilisateursConversations conversation = (UtilisateursConversations) t1;
+                currentConv = (UtilisateursConversations) t1;
                 messagesList.getChildren().clear();
-                conversation.getId().getConversations().getLesMessages().forEach(message -> { addMessage(message); });
+                currentConv.getId().getConversations().getLesMessages().forEach(message -> { addMessage(message); });
             }
         });
     }
@@ -52,7 +77,9 @@ public class ApplicationController implements Initializable,Icontrolleur {
     public void chargerData(){
         // conversation générale
         Conversations convgen = new Conversations();
+        convgen.setConversationId(0L);
         convgen.setLesMessages(new ArrayList<>());
+        convgen.setConversationNom("Générale");
         UtilisateursConversationsId idgeneral = new UtilisateursConversationsId();
         idgeneral.setConversations(convgen);
         UtilisateursConversations generale = new UtilisateursConversations();
@@ -63,9 +90,11 @@ public class ApplicationController implements Initializable,Icontrolleur {
 
         // toute les autres conv
         lesConv.addAll(this.client.getLesConversations());
+        this.client.addConversation(generale);
 
         this.lesConversations.setCellFactory(uc -> new ConversationListCell());
         this.lesConversations.getItems().setAll(lesConv);
+        this.lesConversations.getSelectionModel().select(0);;
     }
 
     @Override
@@ -79,6 +108,9 @@ public class ApplicationController implements Initializable,Icontrolleur {
     }
 
     private void addMessage(Message message) {
+        List<Message> lesMessages = this.currentConv.getId().getConversations().getLesMessages();
+
+
         String userName = message.getUtilisateurSender().getPseudo();
         if (client.getUser().getId()  != null && client.getUser().getId().equals(message.getUtilisateurSender().getId())) {
             userName = "Moi";
@@ -90,10 +122,6 @@ public class ApplicationController implements Initializable,Icontrolleur {
 
         messagesList.getChildren().add(name);
         messagesList.getChildren().add(userMessage);
-
     }
 
-    public void onConversationClick(MouseEvent mouseEvent) {
-
-    }
 }
