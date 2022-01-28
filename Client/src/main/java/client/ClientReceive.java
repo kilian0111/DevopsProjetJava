@@ -24,8 +24,6 @@ public class ClientReceive implements Runnable {
         this.client = client;
     }
 
-
-
     public Client getClient() {
         return client;
     }
@@ -77,49 +75,49 @@ public class ClientReceive implements Runnable {
                    }
                }
            }
-           if(this.socket != null){
-               try{
-                   this.in = new ObjectInputStream(this.socket.getInputStream());
-                   boolean isActive =true;
-                   while(isActive){
-                       Object object =  in.readObject();
-                       if(object != null ){
-                           if(object instanceof ObjectSend objectReceive) {
+           try{
+               this.in = new ObjectInputStream(this.socket.getInputStream());
+               boolean isActive =true;
+               while(isActive){
+                   Object object =  in.readObject();
+                   if(object != null ){
+                       if(object instanceof ObjectSend objectReceive) {
 
-                               //connection
-                               if (objectReceive.getObject() instanceof User && objectReceive.getAction().equals(Action.CONNECTION)) {
-                                   this.connection((User) objectReceive.getObject());
-                                   //mdp oubliee
-                               }else if(objectReceive.getAction().equals(Action.REPONSE_MDP_OUBLIEE)){
-                                   this.demandeMdpOublier(objectReceive);
-                                   // reponse changement de mdp
-                               } else if(objectReceive.getAction().equals(Action.REPONSE_CHANGEMENT_MDP)){
-                                   this.changementMdp(objectReceive);
-                                   // Modification User
-                               } else if(objectReceive.getAction().equals(Action.REPONSE_MODIFUSER) && objectReceive.getObject() instanceof String){
-                                   Platform.runLater(() -> client.getMainGui().erreurPopUp("Validation", "Les modifications ont bien été prises en compte !", AlertType.CONFIRMATION));
-                                   Platform.runLater(() -> client.getMainGui().changeScene("application.fxml"));
-                               // Inscription
-                               }else if(objectReceive.getAction().equals(Action.INSCRIPTION)){
-                                   this.responseInscription(objectReceive);
-                               } else if(objectReceive.getAction().equals(Action.LIST_CONVERSATION) && objectReceive.getObject() instanceof List ){
-                                   this.client.setLesConversations((List<UtilisateursConversations>) objectReceive.getObject());
-                                   Platform.runLater(() -> client.getMainGui().changeScene("application.fxml"));
-                               }
-
+                           //connection
+                           if (objectReceive.getObject() instanceof User && objectReceive.getAction().equals(Action.CONNECTION)) {
+                               this.connection((User) objectReceive.getObject());
+                               //mdp oubliee
+                           }else if(objectReceive.getAction().equals(Action.REPONSE_MDP_OUBLIEE)){
+                               this.demandeMdpOublier(objectReceive);
+                               // reponse changement de mdp
+                           } else if(objectReceive.getAction().equals(Action.REPONSE_CHANGEMENT_MDP)){
+                               this.changementMdp(objectReceive);
+                               // Modification User
+                           } else if(objectReceive.getAction().equals(Action.REPONSE_MODIFUSER) && objectReceive.getObject() instanceof String){
+                               Platform.runLater(() -> client.getMainGui().erreurPopUp("Validation", "Les modifications ont bien été prises en compte !", AlertType.CONFIRMATION));
+                               Platform.runLater(() -> client.getMainGui().changeScene("application.fxml"));
+                           // Inscription
+                           }else if(objectReceive.getAction().equals(Action.INSCRIPTION)){
+                               this.responseInscription(objectReceive);
+                           } else if(objectReceive.getAction().equals(Action.LIST_CONVERSATION) && objectReceive.getObject() instanceof List ){
+                               this.client.setLesConversations((List<UtilisateursConversations>) objectReceive.getObject());
+                               Platform.runLater(() -> client.getMainGui().changeScene("application.fxml"));
+                           }else if(objectReceive.getAction() == Action.MESSAGE && objectReceive.getObject() instanceof Message ){
+                               this.addMessage((Message) objectReceive.getObject());
                            }
-                       }else{
-                           isActive = false;
                        }
+                   }else{
+                       isActive = false;
                    }
-               } catch (IOException | ClassNotFoundException e) {
-                   e.printStackTrace();
                }
+           } catch (IOException | ClassNotFoundException e) {
+               e.printStackTrace();
            }
            this.client.disconnectedServer();
-           Platform.runLater(() -> client.getMainGui().erreurPopUp("ATTENTION", "Erreur de connection au serveur", AlertType.ERROR));
-           Platform.runLater(() ->this.client.getMainGui().changeScene("connection"));
            this.socket = null;
+           Platform.runLater(() -> client.getMainGui().erreurPopUp("ATTENTION", "Erreur de connection au serveur", AlertType.ERROR));
+           Platform.runLater(() ->this.client.getMainGui().changeScene("connection.fxml"));
+
 
        }
 
@@ -186,6 +184,20 @@ public class ClientReceive implements Runnable {
 
         } else {
             Platform.runLater(() -> client.getMainGui().erreurPopUp("Erreur","Identifiants ou mots de passe incorrecte", AlertType.ERROR));
+        }
+    }
+
+    public void addMessage(Message message){
+       /* for(UtilisateursConversations conv : this.client.getLesConversations() ){
+            if(conv.getId().getConversations().getConversationId().equals(message.getConversationId())){
+                conv.getId().getConversations().addMessage(message);
+                this.client.removeConversation(conv);
+                this.client.addConversation(conv);
+                break;
+            }
+        }*/
+        if(this.client != null && this.client.getApplicationController() != null){
+            Platform.runLater(() ->this.client.getApplicationController().addMessageRecu(message));
         }
     }
 }

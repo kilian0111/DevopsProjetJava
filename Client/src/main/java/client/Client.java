@@ -3,6 +3,7 @@ package main.java.client;
 
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
+import main.java.client.gui.controlleur.ApplicationController;
 import main.java.common.Message;
 import main.java.common.ObjectSend;
 import main.java.common.User;
@@ -26,6 +27,7 @@ public class Client {
     private User user;
     private MainGui mainGui;
     private List<UtilisateursConversations> lesConversations;
+    private ApplicationController applicationController;
 
 
     public Client(int port, String address, MainGui mainGui) throws IOException {
@@ -117,13 +119,17 @@ public class Client {
 
     public List<UtilisateursConversations> getLesConversations() {return lesConversations;}
 
+    public ApplicationController getApplicationController() {return applicationController;}
+
+    public void setApplicationController(ApplicationController applicationController) {this.applicationController = applicationController;}
+
     public void setLesConversations(List<UtilisateursConversations> lesConversations) {this.lesConversations = lesConversations;}
 
     public void addConversation(UtilisateursConversations utilisateursConversations){
         this.lesConversations.add(utilisateursConversations);
     }
 
-    public void removEonversation(UtilisateursConversations utilisateursConversations){
+    public void removeConversation(UtilisateursConversations utilisateursConversations){
         this.lesConversations.remove(utilisateursConversations);
     }
 
@@ -144,5 +150,6 @@ public class Client {
             }
         }
     }
+
 
 }

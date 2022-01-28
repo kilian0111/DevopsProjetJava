@@ -35,7 +35,7 @@ public class ConversationListCell extends ListCell<UtilisateursConversations> {
 
             if(!messages.isEmpty()){
                 String message = messages.get(messages.size()-1).getContent();
-                lastMessage.setText(message.substring(0, 15).replace('\n', ' '));
+                lastMessage.setText(message.substring(0, Math.min(message.length(), 15)).replace('\n', ' '));
             }
 
             setGraphic(content);

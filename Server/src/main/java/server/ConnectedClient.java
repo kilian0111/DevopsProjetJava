@@ -2,6 +2,8 @@ package main.java.server;
 
 
 import main.java.common.*;
+import main.java.repository.ConversationJpaRepository;
+import main.java.repository.MessageJpaRepository;
 import main.java.repository.UserJpaRepository;
 import main.java.repository.UtilisateursConversationJpaRepository;
 
@@ -10,6 +12,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -48,6 +51,9 @@ public class ConnectedClient implements Runnable {
     public Server getServer() {return server;}
     public void setServer(Server server) {this.server = server;}
 
+    public User getUser() {return user;}
+    public void setUser(User user) {this.user = user;}
+
     @Override
     public void run() {
        try {
@@ -72,6 +78,8 @@ public class ConnectedClient implements Runnable {
                            //code reçu par mail + nouveau mdp
                        }else if(objectSend.getAction() == Action.MODIF_USER && objectSend.getObject() instanceof User ) {
                            this.modifUser((User) objectSend.getObject());
+                       }else if(objectSend.getAction() == Action.MESSAGE && objectSend.getObject() instanceof Message ){
+                           this.addMessage((Message) objectSend.getObject());
                        }
                    }
                 }else{
@@ -173,10 +181,11 @@ public class ConnectedClient implements Runnable {
         ObjectSend actionSend = new ObjectSend(userConnecete, Action.CONNECTION);
         this.user = userConnecete;
         this.sendToClient(actionSend);
-        List<UtilisateursConversations> utilisateursConvList = UtilisateursConversationJpaRepository.getUtilisateurConversationByUserId(this.user.getId());
-        this.sendToClient(new ObjectSend(utilisateursConvList,Action.LIST_CONVERSATION));
-        int a = 2;
-        a++;
+        if(userConnecete != null && userConnecete.getId() != null && userConnecete.getActif()){
+            List<UtilisateursConversations> utilisateursConvList = UtilisateursConversationJpaRepository.getUtilisateurConversationByUserId(this.user.getId());
+            this.sendToClient(new ObjectSend(utilisateursConvList,Action.LIST_CONVERSATION));
+        }
+
     }
 
     public void sendToClient(ObjectSend object)  {
@@ -197,6 +206,32 @@ public class ConnectedClient implements Runnable {
     public void modifUser(User user) {
         UserJpaRepository.updateUserRecord(user);
         sendToClient(new ObjectSend("OK", Action.REPONSE_MODIFUSER));
+    }
+
+    public void addMessage(Message message){
+        if(this.user.getId().equals(message.getUtilisateurSender().getId())){
+            if(message.getConversationId() != 0){
+                MessageJpaRepository.saveMessage(message);
+                Conversations conv = ConversationJpaRepository.getConversationById(message.getConversationId());
+                List<Long> userId = new ArrayList<>();
+                for(UserSafeData user : conv.getLesUsers()){
+                    userId.add(user.getId());
+                }
+                for(ConnectedClient connectedClient : this.server.getLesClients()){
+                    if(connectedClient.getUser() != null && userId.contains(connectedClient.getUser().getId()) && !message.getUtilisateurSender().getId().equals(connectedClient.getUser().getId())){
+                        connectedClient.sendToClient(new ObjectSend(message,Action.MESSAGE));
+                    }
+                }
+            }else{
+                for(ConnectedClient connectedClient : this.server.getLesClients()){
+                    if(connectedClient.getUser() != null && !message.getUtilisateurSender().getId().equals(connectedClient.getUser().getId())){
+                        connectedClient.sendToClient(new ObjectSend(message,Action.MESSAGE));
+                    }
+                }
+            }
+        }else{
+
+        }
     }
 
 }

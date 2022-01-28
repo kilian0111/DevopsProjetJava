@@ -47,6 +47,7 @@ public class Conversations implements Serializable {
     @OneToMany
     @LazyCollection(LazyCollectionOption.FALSE)
     @JoinColumn(name="CO_ID", referencedColumnName="CO_ID")
+    @OrderBy("ME_ID")
     public List<Message> getLesMessages() {return lesMessages;}
     public void setLesMessages(List<Message> lesMessages) {this.lesMessages = lesMessages;}
 

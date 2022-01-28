@@ -49,6 +49,7 @@ public class MainGui extends Application {
             controlleur.setClient(client);
             if(controlleur instanceof ApplicationController){
                ApplicationController app =  (ApplicationController) controlleur;
+               this.client.setApplicationController(app);
                app.chargerData();
             }
             primaryStage.setScene(scene);

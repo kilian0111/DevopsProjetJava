@@ -28,6 +28,8 @@ public class ApplicationController implements Initializable,Icontrolleur {
 
     private UtilisateursConversations currentConv;
 
+    private List<UtilisateursConversations> lesConvs;
+
     @FXML
     private TextFlow messagesList;
 
@@ -68,6 +70,7 @@ public class ApplicationController implements Initializable,Icontrolleur {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.lesConvs = new ArrayList<>();
 
         this.lesConversations.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
@@ -93,16 +96,16 @@ public class ApplicationController implements Initializable,Icontrolleur {
         UtilisateursConversations generale = new UtilisateursConversations();
         generale.setId(idgeneral);
 
-        List<UtilisateursConversations> lesConv = new ArrayList<>();
-        lesConv.add(generale);
+
+        this.lesConvs.add(generale);
 
         // toute les autres conv
-        lesConv.addAll(this.client.getLesConversations());
+        this.lesConvs.addAll(this.client.getLesConversations());
         this.client.addConversation(generale);
 
         this.lesConversations.setCellFactory(uc -> new ConversationListCell());
-        this.lesConversations.getItems().setAll(lesConv);
-        this.lesConversations.getSelectionModel().select(0);;
+        this.lesConversations.getItems().setAll(this.lesConvs);
+        this.lesConversations.getSelectionModel().select(0);
 
         accountName.setText(this.client.getUser().getPseudo());
         setPlayButtonState(this.lesConversations.getSelectionModel().getSelectedItem());
@@ -131,7 +134,6 @@ public class ApplicationController implements Initializable,Icontrolleur {
     private void addMessage(Message message) {
         List<Message> lesMessages = this.currentConv.getId().getConversations().getLesMessages();
 
-
         String userName = message.getUtilisateurSender().getPseudo();
         if (client.getUser().getId()  != null && client.getUser().getId().equals(message.getUtilisateurSender().getId())) {
             userName = "Moi";
@@ -143,6 +145,25 @@ public class ApplicationController implements Initializable,Icontrolleur {
 
         messagesList.getChildren().add(name);
         messagesList.getChildren().add(userMessage);
+    }
+
+
+    public void addMessageRecu(Message message) {
+        for(UtilisateursConversations userConv : this.lesConvs){
+            if(userConv.getId().getConversations().getConversationId().equals(message.getConversationId())){
+                List<Message> lesMessages = userConv.getId().getConversations().getLesMessages();
+                lesMessages.add(message);
+                userConv.getId().getConversations().setLesMessages(lesMessages);
+            }
+        }
+
+        Text name = new Text(message.getUtilisateurSender().getPseudo() + "\n");
+        name.getStyleClass().add("userName");
+        Text userMessage = new Text(message.getContent() + "\n\n");
+        if(this.currentConv.getId().getConversations().getConversationId().equals(message.getConversationId())){
+            messagesList.getChildren().add(name);
+            messagesList.getChildren().add(userMessage);
+        }
     }
 
 }

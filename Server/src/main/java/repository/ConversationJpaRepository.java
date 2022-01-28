@@ -1,6 +1,7 @@
 package main.java.repository;
 
 import main.java.common.Conversations;
+import main.java.common.User;
 import main.java.common.UtilisateursConversations;
 
 import javax.persistence.EntityManager;
@@ -25,6 +26,13 @@ public class ConversationJpaRepository {
         em.merge(conversations);
         em.getTransaction().commit();
 
+    }
+
+    public static Conversations getConversationById(Long convId) {
+        EntityManager em = entityManagerFactory.createEntityManager();
+        TypedQuery<Conversations> query = em.createQuery("SELECT e FROM Conversations e WHERE e.conversationId = :id", Conversations.class);
+        query.setParameter("id", convId);
+        return query.getSingleResult();
     }
 
     public static void saveUtilisateursConversations(Conversations conversations) {
