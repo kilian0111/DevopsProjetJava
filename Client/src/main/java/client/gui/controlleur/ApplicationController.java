@@ -5,10 +5,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import main.java.client.Client;
@@ -22,6 +19,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ApplicationController implements Initializable,Icontrolleur {
+
 
 
     private Client client;
@@ -45,6 +43,9 @@ public class ApplicationController implements Initializable,Icontrolleur {
     @FXML
     private Button playButton;
 
+    @FXML
+    private ScrollPane scrollMessage;
+
     public void sendMessage(ActionEvent event) {
         if(!this.textAreaMessage.getText().isBlank()){
             List<Message> lesMessages = this.currentConv.getId().getConversations().getLesMessages();
@@ -59,10 +60,10 @@ public class ApplicationController implements Initializable,Icontrolleur {
             nouvMessage.setUtilisateurSender(currentUser);
             this.addMessage(nouvMessage);
             this.client.addMessage(nouvMessage);
-
             this.textAreaMessage.setText("");
             this.textAreaMessage.setStyle("-fx-border-color: transparent");
             this.client.sendToServer(new ObjectSend(nouvMessage, Action.MESSAGE));
+
         } else{
             this.textAreaMessage.setStyle("-fx-border-color: red");
         }
@@ -78,8 +79,8 @@ public class ApplicationController implements Initializable,Icontrolleur {
                 currentConv = (UtilisateursConversations) t1;
                 messagesList.getChildren().clear();
                 currentConv.getId().getConversations().getLesMessages().forEach(message -> { addMessage(message); });
-
-                setPlayButtonState(currentConv);
+                scrollMessage.vvalueProperty().bind(messagesList.heightProperty());
+                setPlayButtonState();
             }
         });
     }
@@ -106,9 +107,9 @@ public class ApplicationController implements Initializable,Icontrolleur {
         this.lesConversations.setCellFactory(uc -> new ConversationListCell());
         this.lesConversations.getItems().setAll(this.lesConvs);
         this.lesConversations.getSelectionModel().select(0);
-
+        this.currentConv = this.lesConversations.getSelectionModel().getSelectedItem();
         accountName.setText(this.client.getUser().getPseudo());
-        setPlayButtonState(this.lesConversations.getSelectionModel().getSelectedItem());
+        setPlayButtonState();
     }
 
     @Override
@@ -121,10 +122,8 @@ public class ApplicationController implements Initializable,Icontrolleur {
         this.client = client;
     }
 
-    private void setPlayButtonState(UtilisateursConversations currentConv) {
-        Conversations conversations = currentConv.getId().getConversations();
-
-        if (conversations.getLesUsers() != null && conversations.getLesUsers().size() == 2) {
+    private void setPlayButtonState() {
+        if (currentConv.getId().getConversations().getLesUsers() != null &&  currentConv.getId().getConversations().getLesUsers().size() == 2) {
             this.playButton.setDisable(false);
         } else {
             this.playButton.setDisable(true);
@@ -145,6 +144,7 @@ public class ApplicationController implements Initializable,Icontrolleur {
 
         messagesList.getChildren().add(name);
         messagesList.getChildren().add(userMessage);
+        scrollMessage.vvalueProperty().bind(messagesList.heightProperty());
     }
 
 
@@ -163,7 +163,31 @@ public class ApplicationController implements Initializable,Icontrolleur {
         if(this.currentConv.getId().getConversations().getConversationId().equals(message.getConversationId())){
             messagesList.getChildren().add(name);
             messagesList.getChildren().add(userMessage);
+            scrollMessage.vvalueProperty().bind(messagesList.heightProperty());
         }
+    }
+
+    public void addNewConvAction(ActionEvent actionEvent) {
+
+    }
+
+    public void deconexionAction(ActionEvent actionEvent) {
+        this.client.setUser(new User());
+        this.client.setLesConversations(null);
+        this.client.setApplicationController(null);
+        this.client.getMainGui().changeScene("connection.fxml");
+    }
+
+    public void playAction(ActionEvent actionEvent) {
+        if(this.currentConv.getId().getConversations().getLesUsers() != null && this.currentConv.getId().getConversations().getLesUsers().size() == 2 ){
+            this.client.sendToServer(new ObjectSend(null,Action.LANCER_JEUX));
+        }
+    }
+
+    public void settingAction(ActionEvent actionEvent) {
+        this.client.setLesConversations(null);
+        this.client.setApplicationController(null);
+        this.client.getMainGui().changeScene("options.fxml");
     }
 
 }

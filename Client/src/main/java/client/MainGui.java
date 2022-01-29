@@ -15,7 +15,9 @@ import main.java.common.Utils;
 
 
 import java.io.File;
-
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 
 
 public class MainGui extends Application {
@@ -27,10 +29,16 @@ public class MainGui extends Application {
     public void start(Stage stage) {
         this.primaryStage = stage;
 
-        try{
-            this.client = new Client(1111, "127.0.0.1",this);
-        } catch(Exception ignored){}
+        Properties props = new Properties();
+        try(FileInputStream conf = new FileInputStream(Utils.getResourcesPath()+"conf.properties")) {
+            props.load(conf);
+            int port = Integer.parseInt(props.getProperty("server.port"));
+            String ip = props.getProperty("server.ip");
 
+            this.client = new Client(port, ip,this);
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
         this.initStage(this.primaryStage,"connection.fxml");
     }
 
@@ -89,6 +97,12 @@ public class MainGui extends Application {
         }  catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void stop(){
+        //arrete les threads
+        System.exit(0);
     }
 
 }

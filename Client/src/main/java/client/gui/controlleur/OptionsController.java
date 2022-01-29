@@ -47,91 +47,90 @@ public class OptionsController implements Icontrolleur, Initializable {
 
     @Override
     public Client getClient() {
-        return null;
+        return this.client;
     }
 
     @Override
     public void setClient(Client client) {
-
+        this.client = client;
     }
 
-    /**
-     *
-     * @param e
-     * @throws IOException
-     */
-    @FXML
-    public void EnvoyerAction(ActionEvent e) throws IOException {
 
+
+    public void validerChangeAction(ActionEvent actionEvent) {
         User user = this.client.getUser();
-        Boolean modif = false;
+        boolean modif = false;
 
         //On controle si des champs sont remplis
-        if(!email.getText().isBlank() || !confirmEmail.getText().isBlank() || !mdp.getText().isBlank() || !confirmMdp.getText().isBlank() || !pseudo.getText().isBlank() || !confirmPseudo.getText().isBlank())
-        {
+        if(!email.getText().isBlank() || !confirmEmail.getText().isBlank() || !mdp.getText().isBlank() || !confirmMdp.getText().isBlank() || !pseudo.getText().isBlank() || !confirmPseudo.getText().isBlank()) {
             //On controle si les champs email remplis sont correct
-            if (!email.getText().isBlank() && !confirmEmail.getText().isBlank())
-            {
-                if (Utils.isEmailAdress(email.getText())) {
-                    if (email.getText().equals(confirmEmail.getText())) {
-                        //Rentrons le nouveau email dans la bdd
-                        user.setMail(email.getText());
-                        modif = true;
+
+            if(!email.getText().isBlank() || !confirmEmail.getText().isBlank()){
+                if (!email.getText().isBlank() && !confirmEmail.getText().isBlank()) {
+                    if (Utils.isEmailAdress(email.getText())) {
+                        if (email.getText().equals(confirmEmail.getText())) {
+                            //Rentrons le nouveau email dans la bdd
+                            user.setMail(email.getText());
+                            modif = true;
+                        } else {
+                            labelErreur.setText("Erreur ! L'adresse e-mail rentrée et sa confirmation ne correspondent pas !");
+                        }
                     } else {
-                        labelErreur.setText("Erreur ! L'adresse e-mail rentrée et sa confirmation ne correspondent pas !");
-                        email.setStyle(email.getText().isBlank() ? "-fx-border-color: red" : "-fx-border-color: transparent");
-                        confirmEmail.setStyle(confirmEmail.getText().isBlank() ? "-fx-border-color: red" : "-fx-border-color: transparent");
+                        labelErreur.setText("Erreur ! L'adresse e-mail rentrée est incorrecte !");
+
                     }
                 } else {
-                    labelErreur.setText("Erreur ! L'adresse e-mail rentrée est incorrecte !");
-                    email.setStyle(email.getText().isBlank() ? "-fx-border-color: red" : "-fx-border-color: transparent");
-                    confirmEmail.setStyle(confirmEmail.getText().isBlank() ? "-fx-border-color: red" : "-fx-border-color: transparent");
+                    labelErreur.setText("Erreur ! Veuillez remplir tous les champs e-mail !");
                 }
+                email.setStyle(email.getText().isBlank() ? "-fx-border-color: red" : "-fx-border-color: transparent");
+                confirmEmail.setStyle(confirmEmail.getText().isBlank() ? "-fx-border-color: red" : "-fx-border-color: transparent");
+            }
 
-                //On controle dans un premier temps si les champs mdp remplis sont correct
+            //On controle dans un premier temps si les champs mdp remplis sont correct
+            if (!mdp.getText().isBlank() || !confirmMdp.getText().isBlank()) {
                 if (!mdp.getText().isBlank() && !confirmMdp.getText().isBlank()) {
-
                     if (mdp.getText().equals(confirmMdp.getText())) {
                         //Rentrons le nouveau mdp dans la bdd
-
                         user.setMdp(mdp.getText());
                         modif = true;
                     } else {
                         labelErreur.setText("Erreur ! Le mot de passe rentré et sa confirmation ne correspondent pas !");
-                        mdp.setStyle(mdp.getText().isBlank() ? "-fx-border-color: red" : "-fx-border-color: transparent");
-                        confirmMdp.setStyle(confirmMdp.getText().isBlank() ? "-fx-border-color: red" : "-fx-border-color: transparent");
-                    }
 
-                    //On controle dans un premier temps si les champs nom d'affichage remplis sont correct
-                    if (!pseudo.getText().isBlank() && !confirmPseudo.getText().isBlank())
-                    {
-
-                        if (pseudo.getText().equals(confirmPseudo.getText())) {
-                            //Rentrons le nouveau nom d'affichage dans la bdd
-
-                            user.setPseudo(pseudo.getText());
-                            modif = true;
-                        } else {
-                            labelErreur.setText("Erreur ! Le pseudo rentré et sa confirmation ne correspondent pas !");
-                            pseudo.setStyle(pseudo.getText().isBlank() ? "-fx-border-color: red" : "-fx-border-color: transparent");
-                            confirmPseudo.setStyle(confirmPseudo.getText().isBlank() ? "-fx-border-color: red" : "-fx-border-color: transparent");
-                        }
+                        modif = false;
                     }
-                    else {
-                        labelErreur.setText("Erreur ! Veuillez remplir tous les champs nom d'affichage !");
-                    }
-                }
-                else {
+                } else {
                     labelErreur.setText("Erreur ! Veuillez remplir tous les champs mot de passe !");
+                    modif = false;
                 }
+                mdp.setStyle(mdp.getText().isBlank() ? "-fx-border-color: red" : "-fx-border-color: transparent");
+                confirmMdp.setStyle(confirmMdp.getText().isBlank() ? "-fx-border-color: red" : "-fx-border-color: transparent");
             }
-            else {
-                labelErreur.setText("Erreur ! Veuillez remplir tous les champs e-mail !");
+
+
+
+            //On controle dans un premier temps si les champs nom d'affichage remplis sont correct
+            if (!pseudo.getText().isBlank() || !confirmPseudo.getText().isBlank()){
+                if (!pseudo.getText().isBlank() && !confirmPseudo.getText().isBlank()) {
+                    if (pseudo.getText().equals(confirmPseudo.getText())) {
+                        //Rentrons le nouveau nom d'affichage dans la bdd
+                        user.setPseudo(pseudo.getText());
+                        modif = true;
+                    } else {
+                        labelErreur.setText("Erreur ! Le pseudo rentré et sa confirmation ne correspondent pas !");
+
+                        modif = false;
+                    }
+                } else {
+                    labelErreur.setText("Erreur ! Veuillez remplir tous les champs nom d'affichage !");
+                    modif = false;
+                }
+                pseudo.setStyle(pseudo.getText().isBlank() ? "-fx-border-color: red" : "-fx-border-color: transparent");
+                confirmPseudo.setStyle(confirmPseudo.getText().isBlank() ? "-fx-border-color: red" : "-fx-border-color: transparent");
             }
-        }
-        else {
+        } else {
             labelErreur.setText("Erreur ! Veuillez remplir les champs !");
         }
+
 
         if(modif)
         {
@@ -140,8 +139,7 @@ public class OptionsController implements Icontrolleur, Initializable {
         //On attend que le serveur répond et nous dis que les changements ont bien été faits
     }
 
-    @FXML //Le bouton annuler ramène à l'application
-    public void annulerAction(ActionEvent e) throws IOException {
+    public void annulerChangeAction(ActionEvent actionEvent) {
         this.client.getMainGui().changeScene("application.fxml");
     }
 }

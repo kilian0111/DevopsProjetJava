@@ -94,7 +94,7 @@ public class ClientReceive implements Runnable {
                                this.changementMdp(objectReceive);
                                // Modification User
                            } else if(objectReceive.getAction().equals(Action.REPONSE_MODIFUSER) && objectReceive.getObject() instanceof String){
-                               Platform.runLater(() -> client.getMainGui().erreurPopUp("Validation", "Les modifications ont bien été prises en compte !", AlertType.CONFIRMATION));
+                               Platform.runLater(() -> client.getMainGui().erreurPopUp("Validation", "Les modifications ont bien été prises en compte !", AlertType.INFORMATION));
                                Platform.runLater(() -> client.getMainGui().changeScene("application.fxml"));
                            // Inscription
                            }else if(objectReceive.getAction().equals(Action.INSCRIPTION)){
@@ -188,14 +188,6 @@ public class ClientReceive implements Runnable {
     }
 
     public void addMessage(Message message){
-       /* for(UtilisateursConversations conv : this.client.getLesConversations() ){
-            if(conv.getId().getConversations().getConversationId().equals(message.getConversationId())){
-                conv.getId().getConversations().addMessage(message);
-                this.client.removeConversation(conv);
-                this.client.addConversation(conv);
-                break;
-            }
-        }*/
         if(this.client != null && this.client.getApplicationController() != null){
             Platform.runLater(() ->this.client.getApplicationController().addMessageRecu(message));
         }

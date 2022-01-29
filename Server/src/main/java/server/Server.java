@@ -2,7 +2,10 @@ package main.java.server;
 
 
 
-import main.java.repository.UserJpaRepository;
+import main.java.common.Action;
+import main.java.common.Message;
+import main.java.common.ObjectSend;
+import main.java.common.UserSafeData;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,5 +36,29 @@ public class Server {
             e.printStackTrace();
         }
         this.lesClients.remove(client);
+        if(client.getUser() != null && client.getUser().getPseudo() != null){
+            this.sendToAll(client.getUser().getPseudo() + " Vient de se déconnecter (Quelle Indignité) ");
+        }
+
     }
+
+    public void sendToAll(String content){
+        UserSafeData serveur = new UserSafeData();
+        serveur.setPseudo("Bot");
+        serveur.setId(0L);
+        Message message = new Message();
+        message.setVisible(true);
+        message.setConversationId(0L);
+        message.setContent(content);
+        message.setUtilisateurSender(serveur);
+
+        for(ConnectedClient connectedClient : this.lesClients){
+            connectedClient.sendToClient(new ObjectSend(message,Action.MESSAGE));
+        }
+
+    }
+
+
+
+
 }

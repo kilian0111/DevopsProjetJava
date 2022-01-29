@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="705.0" prefWidth="452.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.client.gui.controlleur.InscriptionControlleur">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="705.0" prefWidth="452.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.client.gui.controlleur.OptionsController">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
          <VBox.margin>
@@ -129,7 +129,7 @@
                   <Insets left="40.0" top="7.0" />
                </VBox.margin>
             </TextField>
-            <Label fx:id="labelErreur">
+            <Label fx:id="labelErreur" textFill="RED">
                <font>
                   <Font size="15.0" />
                </font>
@@ -139,7 +139,7 @@
             </Label>
          </children>
       </VBox>
-      <Button fx:id="validButton" mnemonicParsing="false" prefHeight="32.0" prefWidth="87.0" style="-fx-background-color: rgb(24,115,219);" text="Valider" textFill="WHITE">
+      <Button mnemonicParsing="false" onAction="#validerChangeAction" prefHeight="32.0" prefWidth="87.0" style="-fx-background-color: rgb(24,115,219);" text="Valider" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
@@ -147,7 +147,7 @@
             <Insets top="10.0" />
          </VBox.margin>
       </Button>
-      <Button fx:id="cancelButton" mnemonicParsing="false" prefHeight="32.0" prefWidth="87.0" style="-fx-background-color: rgb(220,53,59);" text="Annuler" textFill="WHITE">
+      <Button mnemonicParsing="false" onAction="#annulerChangeAction" prefHeight="32.0" prefWidth="87.0" style="-fx-background-color: rgb(220,53,59);" text="Annuler" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>

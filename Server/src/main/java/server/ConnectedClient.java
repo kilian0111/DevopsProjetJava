@@ -101,6 +101,7 @@ public class ConnectedClient implements Runnable {
                 this.sendToClient(new ObjectSend(userInscrit,Action.INSCRIPTION));
                 this.user = userInscrit;
                 this.sendToClient(new ObjectSend(UtilisateursConversationJpaRepository.getUtilisateurConversationByUserId(this.user.getId()),Action.LIST_CONVERSATION));
+                this.server.sendToAll(this.user.getPseudo() + " vient d'arriver sur KIJOKI (comment a t-il pu faire sans kijoki)");
             }else{
                 this.sendToClient(new ObjectSend("Pseudo déjà utiliser",Action.INSCRIPTION));
             }
@@ -184,6 +185,7 @@ public class ConnectedClient implements Runnable {
         if(userConnecete != null && userConnecete.getId() != null && userConnecete.getActif()){
             List<UtilisateursConversations> utilisateursConvList = UtilisateursConversationJpaRepository.getUtilisateurConversationByUserId(this.user.getId());
             this.sendToClient(new ObjectSend(utilisateursConvList,Action.LIST_CONVERSATION));
+            this.server.sendToAll(this.user.getPseudo() + " est de retour sur KIJOKI ");
         }
 
     }

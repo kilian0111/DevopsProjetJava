@@ -1,5 +1,7 @@
 package main.java.server;
 
+import main.java.common.Message;
+import main.java.common.UserSafeData;
 import main.java.common.Utils;
 
 import java.io.FileInputStream;
