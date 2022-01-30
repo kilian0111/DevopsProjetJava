@@ -68,8 +68,19 @@ public class GameController implements Icontrolleur, Initializable {
     @FXML
     private Label scoreCurrentUser;
 
+    private Image imageFeuille;
+    private Image imageCisceaux;
+    private Image imagePierre;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        try{
+            imageFeuille = new Image(String.valueOf(new File(Utils.getResourcesPath()+"img/feuille.png").toURI().toURL()));
+            imageCisceaux = new Image(String.valueOf(new File(Utils.getResourcesPath()+"img/ciseaux.png").toURI().toURL()));
+            imagePierre = new Image(String.valueOf(new File(Utils.getResourcesPath()+"img/ciseaux.png").toURI().toURL()));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
     }
 
@@ -140,8 +151,7 @@ public class GameController implements Icontrolleur, Initializable {
     public void cisceauxAction(ActionEvent actionEvent) {
         try{
             this.action(3);
-            Image img = new Image(String.valueOf(new File(Utils.getResourcesPath()+"img/ciseaux.png").toURI().toURL()));
-            this.myRound1.setImage(img);
+            this.myRound1.setImage(imageCisceaux);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -155,8 +165,7 @@ public class GameController implements Icontrolleur, Initializable {
     public void feuilleAction(ActionEvent actionEvent) {
         try {
             this.action(1);
-            Image img = new Image(String.valueOf(new File(Utils.getResourcesPath()+"img/feuille.png").toURI().toURL()));
-            this.myRound1.setImage(img);
+            this.myRound1.setImage(imageFeuille);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -169,8 +178,7 @@ public class GameController implements Icontrolleur, Initializable {
     public void pierreAction(ActionEvent actionEvent) {
         try {
             this.action(2);
-            Image img = new Image(String.valueOf(new File(Utils.getResourcesPath()+"img/pierre.png").toURI().toURL()));
-            this.myRound1.setImage(img);
+            this.myRound1.setImage(imagePierre);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -194,20 +202,19 @@ public class GameController implements Icontrolleur, Initializable {
      * @param choix Ce que l'utilisateur joue
      * @return L'image concernée
      */
-    private String selectImageByAction(Integer choix){
+    private Image selectImageByAction(Integer choix){
         try{
             if(choix == 1){
-                return String.valueOf(new File(Utils.getResourcesPath()+"img/feuille.png").toURI().toURL());
+                return imageFeuille;
             }else if(choix == 2){
-                return String.valueOf(new File(Utils.getResourcesPath()+"img/pierre.png").toURI().toURL());
+                return imagePierre;
             }else{
-                return String.valueOf(new File(Utils.getResourcesPath()+"img/ciseaux.png").toURI().toURL());
+                return imageCisceaux;
             }
         }catch (Exception e){
             e.printStackTrace();
-
         }
-        return "";
+        return null;
     }
 
 }
