@@ -1,0 +1,215 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"e94660bc-7d73-4a3d-8f55-8ddb14e94c0b\" name=\"Changes\" comment=\"restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription\">\r\n      <change beforePath=\"$PROJECT_DIR$/../Client/out/production/Client/main/java/client/ClientReceive.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../Client/out/production/Client/main/java/client/ClientReceive.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/../Client/out/production/Client/main/java/client/MainGui.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../Client/out/production/Client/main/java/client/MainGui.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/../Client/src/main/java/client/Client.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../Client/src/main/java/client/Client.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/../Client/src/main/java/client/ClientReceive.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../Client/src/main/java/client/ClientReceive.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/../Client/src/main/java/client/MainGui.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../Client/src/main/java/client/MainGui.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/GameController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/GameController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/../Client/src/main/java/common/Action.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../Client/src/main/java/common/Action.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/../Client/src/main/ressources/fxml/game.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../Client/src/main/ressources/fxml/game.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/common/Action.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/common/Action.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/server/ConnectedClient.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/server/ConnectedClient.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/server/GameChifoumiThread.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/server/GameChifoumiThread.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/server/Server.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/server/Server.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\r\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"23cB1fF2S96peGLGFVp6q5bhccf\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/src/main/ressources/lib/mail/activation.jar\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.2\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Kilian\\Desktop\\DevopsProjetJava2\\Server\\src\\main\\ressources\\lib\\mail\" />\r\n      <recent name=\"C:\\Users\\Kilian\\Desktop\\DevopsProjetJava2\\Server\\src\\java\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"main.java.common\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"MainServer\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"main.java.server.MainServer\" />\r\n      <module name=\"DevopsProjetJava2\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"main.java.server.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.MainServer\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"e94660bc-7d73-4a3d-8f55-8ddb14e94c0b\" name=\"Changes\" comment=\"\" />\r\n      <created>1642023280722</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1642023280722</updated>\r\n      <workItem from=\"1642023445221\" duration=\"3094000\" />\r\n      <workItem from=\"1642095412136\" duration=\"9899000\" />\r\n      <workItem from=\"1642231780254\" duration=\"2227000\" />\r\n      <workItem from=\"1642250326103\" duration=\"1256000\" />\r\n      <workItem from=\"1642257438072\" duration=\"180000\" />\r\n      <workItem from=\"1642425728191\" duration=\"1420000\" />\r\n      <workItem from=\"1642520637440\" duration=\"11000\" />\r\n      <workItem from=\"1642575949891\" duration=\"9753000\" />\r\n      <workItem from=\"1643053173790\" duration=\"20000\" />\r\n      <workItem from=\"1643136750953\" duration=\"163000\" />\r\n      <workItem from=\"1643136924269\" duration=\"4000\" />\r\n      <workItem from=\"1643136938957\" duration=\"10213000\" />\r\n      <workItem from=\"1643222911592\" duration=\"7993000\" />\r\n      <workItem from=\"1643400927412\" duration=\"8448000\" />\r\n      <workItem from=\"1643457066823\" duration=\"10029000\" />\r\n      <workItem from=\"1643539982923\" duration=\"23133000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription\">\r\n      <created>1642257550779</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1642257550779</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/Server$MainServer.ic\" NAME=\"MainServer Coverage Results\" MODIFIED=\"1643140349598\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>main.java.server.*</FILTER>\r\n    </SUITE>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,21 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="e94660bc-7d73-4a3d-8f55-8ddb14e94c0b" name="Changes" comment="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription">
+-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/ClientReceive.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/ClientReceive.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/MainGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/MainGui.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/Client.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/ClientReceive.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/ClientReceive.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/MainGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/MainGui.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/GameController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/common/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/common/Action.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/../Client/src/main/ressources/fxml/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/ressources/fxml/game.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/common/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Action.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/server/ConnectedClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ConnectedClient.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/server/GameChifoumiThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/GameChifoumiThread.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/Server.java" afterDir="false" />
+-    </list>
++    <list default="true" id="e94660bc-7d73-4a3d-8f55-8ddb14e94c0b" name="Changes" comment="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -104,7 +90,7 @@
+       <workItem from="1643222911592" duration="7993000" />
+       <workItem from="1643400927412" duration="8448000" />
+       <workItem from="1643457066823" duration="10029000" />
+-      <workItem from="1643539982923" duration="23133000" />
++      <workItem from="1643539982923" duration="23837000" />
+     </task>
+     <task id="LOCAL-00001" summary="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription">
+       <created>1642257550779</created>
+@@ -122,6 +108,52 @@
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription" />
+     <option name="LAST_COMMIT_MESSAGE" value="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription" />
++  </component>
++  <component name="XDebuggerManager">
++    <breakpoint-manager>
++      <breakpoints>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/server/GameChifoumiThread.java</url>
++          <line>81</line>
++          <option name="timeStamp" value="25" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/server/GameChifoumiThread.java</url>
++          <line>84</line>
++          <option name="timeStamp" value="26" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/server/GameChifoumiThread.java</url>
++          <line>77</line>
++          <option name="timeStamp" value="33" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/server/GameChifoumiThread.java</url>
++          <line>78</line>
++          <option name="timeStamp" value="34" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/server/GameChifoumiThread.java</url>
++          <line>79</line>
++          <option name="timeStamp" value="35" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/server/GameChifoumiThread.java</url>
++          <line>80</line>
++          <option name="timeStamp" value="36" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/server/GameChifoumiThread.java</url>
++          <line>70</line>
++          <option name="timeStamp" value="37" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/server/GameChifoumiThread.java</url>
++          <line>69</line>
++          <option name="timeStamp" value="38" />
++        </line-breakpoint>
++      </breakpoints>
++    </breakpoint-manager>
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+     <SUITE FILE_PATH="coverage/Server$MainServer.ic" NAME="MainServer Coverage Results" MODIFIED="1643140349598" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+Index: ../Client/src/main/ressources/fxml/creerConversation.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../Client/src/main/ressources/fxml/creerConversation.fxml b/../Client/src/main/ressources/fxml/creerConversation.fxml
+new file mode 100644
+--- /dev/null	
++++ b/../Client/src/main/ressources/fxml/creerConversation.fxml	
+@@ -0,0 +1,52 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<?import javafx.geometry.Insets?>
++<?import javafx.scene.control.Button?>
++<?import javafx.scene.control.Label?>
++<?import javafx.scene.control.ListView?>
++<?import javafx.scene.control.ScrollPane?>
++<?import javafx.scene.control.TextArea?>
++<?import javafx.scene.layout.AnchorPane?>
++<?import javafx.scene.text.Font?>
++
++<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0"
++            prefWidth="300.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
++            fx:controller="main.java.client.gui.controlleur.ApplicationController">
++    <ScrollPane hbarPolicy="NEVER" layoutX="10.0" layoutY="122.0" prefHeight="332.0" prefWidth="279.0"
++                styleClass="conversationsList" stylesheets="@../style/main.css">
++        <padding>
++            <Insets left="5.0" top="5.0"/>
++        </padding>
++        <opaqueInsets>
++            <Insets left="2.0" top="2.0"/>
++        </opaqueInsets>
++        <content>
++            <ListView fx:id="lesConversations" prefHeight="324.0" prefWidth="272.0"/>
++        </content>
++    </ScrollPane>
++    <Button alignment="CENTER" layoutX="238.0" layoutY="460.0" mnemonicParsing="false" onAction="#addNewConvAction"
++            prefHeight="25.0" prefWidth="47.0" style="-fx-background-color: rgb(24,115,219);" text="Créer"
++            textFill="WHITE">
++        <font>
++            <Font size="9.0"/>
++        </font>
++    </Button>
++    <Label layoutX="32.0" layoutY="14.0" text="Créer une conversation" textFill="#5d7bce">
++        <font>
++            <Font size="23.0"/>
++        </font>
++    </Label>
++    <Label layoutX="14.0" layoutY="53.0" text="Nom de la conversation :" textFill="#828282">
++        <font>
++            <Font size="16.0"/>
++        </font>
++    </Label>
++    <TextArea layoutX="16.0" layoutY="82.0" prefHeight="39.0" prefWidth="272.0"/>
++    <Button alignment="CENTER" layoutX="179.0" layoutY="460.0" mnemonicParsing="false" onAction="#addNewConvAction"
++            prefHeight="25.0" prefWidth="47.0" style="-fx-background-color: rgb(220,53,59);" text="Annuler"
++            textFill="WHITE">
++        <font>
++            <Font size="9.0"/>
++        </font>
++    </Button>
++</AnchorPane>
+\ No newline at end of file
+Index: ../Client/out/production/Client/main/ressources/fxml/creerConversation.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../Client/out/production/Client/main/ressources/fxml/creerConversation.fxml b/../Client/out/production/Client/main/ressources/fxml/creerConversation.fxml
+new file mode 100644
+--- /dev/null	
++++ b/../Client/out/production/Client/main/ressources/fxml/creerConversation.fxml	
+@@ -0,0 +1,47 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<?import javafx.geometry.Insets?>
++<?import javafx.scene.control.Button?>
++<?import javafx.scene.control.Label?>
++<?import javafx.scene.control.ListView?>
++<?import javafx.scene.control.ScrollPane?>
++<?import javafx.scene.control.TextArea?>
++<?import javafx.scene.layout.AnchorPane?>
++<?import javafx.scene.text.Font?>
++
++<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.client.gui.controlleur.ApplicationController">
++   <children>
++      <ScrollPane hbarPolicy="NEVER" layoutX="10.0" layoutY="122.0" prefHeight="332.0" prefWidth="279.0" styleClass="conversationsList" stylesheets="@../style/main.css">
++          <padding>
++              <Insets left="5.0" top="5.0" />
++          </padding>
++         <opaqueInsets>
++            <Insets left="2.0" top="2.0" />
++         </opaqueInsets>
++         <content>
++            <ListView fx:id="lesConversations" prefHeight="324.0" prefWidth="272.0" />
++         </content>
++      </ScrollPane>
++      <Button alignment="CENTER" layoutX="238.0" layoutY="460.0" mnemonicParsing="false" onAction="#addNewConvAction" prefHeight="25.0" prefWidth="47.0" style="-fx-background-color: rgb(24,115,219);" text="Créer" textFill="WHITE">
++         <font>
++            <Font size="9.0" />
++         </font>
++      </Button>
++      <Label layoutX="32.0" layoutY="14.0" text="Créer une conversation" textFill="#5d7bce">
++         <font>
++            <Font size="23.0" />
++         </font>
++      </Label>
++      <Label layoutX="14.0" layoutY="53.0" text="Nom de la conversation :" textFill="#828282">
++         <font>
++            <Font size="16.0" />
++         </font>
++      </Label>
++      <TextArea layoutX="16.0" layoutY="82.0" prefHeight="39.0" prefWidth="272.0" />
++      <Button alignment="CENTER" layoutX="179.0" layoutY="460.0" mnemonicParsing="false" onAction="#addNewConvAction" prefHeight="25.0" prefWidth="47.0" style="-fx-background-color: rgb(220,53,59);" text="Annuler" textFill="WHITE">
++         <font>
++            <Font size="9.0" />
++         </font>
++      </Button>
++   </children>
++</AnchorPane>

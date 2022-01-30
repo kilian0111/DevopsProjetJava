@@ -5,19 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e94660bc-7d73-4a3d-8f55-8ddb14e94c0b" name="Changes" comment="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription">
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/ClientReceive.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/ClientReceive.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/MainGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/MainGui.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/ressources/fxml/creerConversation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/ressources/fxml/creerConversation.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/ClientReceive.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/ClientReceive.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/MainGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/MainGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/ApplicationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/src/main/java/common/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/common/Action.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/ressources/fxml/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/ressources/fxml/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/ressources/fxml/creerConversation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/ressources/fxml/creerConversation.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/UserJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/UserJpaRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/ConnectedClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ConnectedClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/GameChifoumiThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/GameChifoumiThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +31,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RESET_MODE" value="SOFT" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectId" id="23cB1fF2S96peGLGFVp6q5bhccf" />
@@ -118,6 +117,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription" />

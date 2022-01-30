@@ -1,6 +1,7 @@
 package main.java.repository;
 
 import main.java.common.User;
+import main.java.common.UserSafeData;
 import main.java.common.Utils;
 
 import java.util.List;
@@ -76,6 +77,12 @@ public class UserJpaRepository {
         em.persist(user);
         em.getTransaction().commit();
         return user;
+    }
+
+    public static List<UserSafeData> getAllUser() {
+        EntityManager em = entityManagerFactory.createEntityManager();
+        TypedQuery<UserSafeData> query = em.createQuery("SELECT e FROM UserSafeData e", UserSafeData.class);
+        return query.getResultList();
     }
 }
 

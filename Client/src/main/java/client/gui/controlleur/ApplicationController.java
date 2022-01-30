@@ -145,7 +145,7 @@ public class ApplicationController implements Initializable,Icontrolleur {
     }
 
     public void addNewConvAction(ActionEvent actionEvent) {
-
+        this.client.sendToServer(new ObjectSend(null , Action.LIST_USER));
     }
 
     public void deconexionAction(ActionEvent actionEvent) {

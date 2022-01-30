@@ -120,6 +120,8 @@ public class ClientReceive implements Runnable {
                                this.reponseDemandeJeux(objectReceive.getObject());
                            }else if(objectReceive.getAction() == Action.RESULTAT_JEUX &&  objectReceive.getObject() instanceof GameChifoumi){
                                this.envoyerResultat((GameChifoumi) objectReceive.getObject() );
+                           }else if(objectReceive.getAction() == Action.LIST_USER &&  objectReceive.getObject() instanceof List){
+                               this.createConv( (List<UserSafeData> ) objectReceive.getObject());
                            }
                        }
                    }else{
@@ -136,6 +138,11 @@ public class ClientReceive implements Runnable {
 
        }
 
+    }
+
+    private void createConv(List<UserSafeData> listUser) {
+        this.client.setLesUser(listUser);
+        Platform.runLater(()-> this.client.getMainGui().changeScene("creerConversation.fxml"));
     }
 
     private void envoyerResultat(GameChifoumi gameChifoumi) {

@@ -88,6 +88,8 @@ public class ConnectedClient implements Runnable {
                            this.reponseChifoumiJ2((GameChifoumi) objectSend.getObject());
                        } else if(objectSend.getAction() == Action.CHOIX_JEUX && objectSend.getObject() instanceof ChoixChifoumi){
                            this.addChoixToPartie((ChoixChifoumi) objectSend.getObject()  );
+                       } else if(objectSend.getAction() == Action.LIST_USER ){
+                           this.envoyerListUser();
                        }
                    }
                 }else{
@@ -102,6 +104,11 @@ public class ConnectedClient implements Runnable {
         } catch(Exception e ){
             e.printStackTrace();
         }
+    }
+
+    private void envoyerListUser() {
+        List<UserSafeData> lesUsers = UserJpaRepository.getAllUser();
+        this.sendToClient(new ObjectSend(lesUsers,Action.LIST_USER));
     }
 
     private void addChoixToPartie(ChoixChifoumi choixChifoumi) {

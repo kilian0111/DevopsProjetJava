@@ -30,6 +30,7 @@ public class Client {
     private ApplicationController applicationController;
     private HashMap<Long, GameController> lesGames;
     private GameChifoumi laGame;
+    private List<UserSafeData> lesUser;
 
 
     public Client(int port, String address, MainGui mainGui) throws IOException {
@@ -172,4 +173,8 @@ public class Client {
     public void setLesGames(HashMap<Long, GameController> lesGames) {
         this.lesGames = lesGames;
     }
+
+
+    public List<UserSafeData> getLesUser() { return lesUser;}
+    public void setLesUser(List<UserSafeData> lesUser) { this.lesUser = lesUser;}
 }

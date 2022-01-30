@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0"
             prefWidth="300.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="main.java.client.gui.controlleur.ApplicationController">
+            fx:controller="main.java.client.gui.controlleur.CreerConversationController">
     <ScrollPane hbarPolicy="NEVER" layoutX="10.0" layoutY="122.0" prefHeight="332.0" prefWidth="279.0"
                 styleClass="conversationsList" stylesheets="@../style/main.css">
         <padding>

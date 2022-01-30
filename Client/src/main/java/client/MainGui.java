@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import main.java.client.gui.controlleur.ApplicationController;
+import main.java.client.gui.controlleur.CreerConversationController;
 import main.java.client.gui.controlleur.GameController;
 import main.java.client.gui.controlleur.Icontrolleur;
 import main.java.common.Action;
@@ -70,6 +71,8 @@ public class MainGui extends Application {
             }else if(controlleur instanceof GameController gameController){
                 gameController.setGame(this.client.getLaGame());
                 this.client.addGame(this.client.getLaGame().getId(),gameController);
+            }else if(controlleur instanceof CreerConversationController creerConversationController){
+                creerConversationController.chargerData(this.client.getLesUser());
             }
             primaryStage.setScene(scene);
         }catch (Exception e){
