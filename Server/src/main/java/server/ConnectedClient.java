@@ -16,7 +16,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
+/**
+ * Client connecté au Socket
+ */
 public class ConnectedClient implements Runnable {
     private static int idCounter;
     private int id;
@@ -56,6 +58,9 @@ public class ConnectedClient implements Runnable {
     public User getUser() {return user;}
     public void setUser(User user) {this.user = user;}
 
+    /**
+     * Vérifie en permanence si un objet est reçu d'un client
+     */
     @Override
     public void run() {
        try {
@@ -106,11 +111,18 @@ public class ConnectedClient implements Runnable {
         }
     }
 
+    /**
+     * Liste de tous les utilisateurs
+     */
     private void envoyerListUser() {
         List<UserSafeData> lesUsers = UserJpaRepository.getAllUser();
         this.sendToClient(new ObjectSend(lesUsers,Action.LIST_USER));
     }
 
+    /**
+     * Défini les choix du Chifoumi
+     * @param choixChifoumi
+     */
     private void addChoixToPartie(ChoixChifoumi choixChifoumi) {
         GameChifoumiThread leJeux = null ;
         for(GameChifoumiThread gameChifoumiThread : this.server.getLesGames()){
@@ -148,7 +160,10 @@ public class ConnectedClient implements Runnable {
         }
     }
 
-
+    /**
+     * Inscrit un utilisateur
+     * @param user
+     */
     public void inscription(User user) {
         if(UserJpaRepository.getUserByEmail(user.getMail()).getId() == null ){
             if(UserJpaRepository.getUserByPseudo(user.getPseudo()).getId() == null){
@@ -166,6 +181,10 @@ public class ConnectedClient implements Runnable {
 
     }
 
+    /**
+     * Gère l'oubli de mot de passe : envoi le mail
+     * @param mail
+     */
     public void mdpOubliee(String mail)  {
         if(mail != null){
             User user = UserJpaRepository.getUserByEmail(mail);
@@ -191,6 +210,10 @@ public class ConnectedClient implements Runnable {
 
     }
 
+    /**
+     * Change le mot de passe d'un utilisateur suite à mot de passe oublié
+     * @param renitMdp
+     */
     public void changeMdp(ChangeMdp renitMdp){
         ObjectSend objectSend = new ObjectSend();
         objectSend.setAction(Action.REPONSE_CHANGEMENT_MDP);
@@ -220,6 +243,10 @@ public class ConnectedClient implements Runnable {
         this.sendToClient(objectSend);
     }
 
+    /**
+     * Déconnecte du serveur
+     * @throws IOException
+     */
     public void closeClient() throws IOException {
         if(this.in != null){
             this.in.close();
@@ -232,6 +259,10 @@ public class ConnectedClient implements Runnable {
         }
     }
 
+    /**
+     * Connexion d'un utilisateur
+     * @param user
+     */
     public void connexionClient(User user)  {
         User userConnecete = UserJpaRepository.seConnecter(user.getPseudo(), user.getMdp());
         ObjectSend actionSend = new ObjectSend(userConnecete, Action.CONNECTION);
@@ -245,6 +276,10 @@ public class ConnectedClient implements Runnable {
 
     }
 
+    /**
+     * Envoi d'un objet au client
+     * @param object
+     */
     public void sendToClient(ObjectSend object)  {
         try{
             this.out.writeObject(object);
@@ -260,11 +295,19 @@ public class ConnectedClient implements Runnable {
         return mess;
     }
 
+    /**
+     * Modification des paramètres d'un utilisateur
+     * @param user
+     */
     public void modifUser(User user) {
         UserJpaRepository.updateUserRecord(user);
         sendToClient(new ObjectSend("OK", Action.REPONSE_MODIFUSER));
     }
 
+    /**
+     * Envoi d'un nouveau message aux clients concernés
+     * @param message
+     */
     public void addMessage(Message message){
         if(this.user.getId().equals(message.getUtilisateurSender().getId())){
             if(message.getConversationId() != 0){
@@ -290,7 +333,10 @@ public class ConnectedClient implements Runnable {
     }
 
 
-
+    /**
+     * Lance une partie de jeu
+     * @param game
+     */
     private void lancerJeux(GameChifoumi game) {
         GameChifoumiThread lancerJeux = new GameChifoumiThread(this.server,game,this);
         this.server.addGame(lancerJeux);

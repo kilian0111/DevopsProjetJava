@@ -11,6 +11,12 @@ public class DataBaseConnectionRequest {
 
     private final static DataBaseConnection dataBaseConnection = DataBaseConnection.getDataBaseConnection();
 
+    /**
+     * Connecte un utilisateur
+     * @param MailOuPseudo Identifiant de l'utilisateur
+     * @param mdp Mot de passe
+     * @return User L'utilisateur
+     */
     public User seConnecter(String MailOuPseudo, String mdp){
 
        ArrayList<String> getdata = new ArrayList<String>();

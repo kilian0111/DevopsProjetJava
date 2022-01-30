@@ -12,7 +12,9 @@ public  class DataBaseConnection {
     private static DataBaseConnection dataBaseConnection;
     private Connection connection;
 
-
+    /**
+     *  Se connecte à la base de données
+     */
     public DataBaseConnection() {
 
         Properties props = new Properties();
