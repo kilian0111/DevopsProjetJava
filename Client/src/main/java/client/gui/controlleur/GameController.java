@@ -94,6 +94,9 @@ public class GameController implements Icontrolleur, Initializable {
     public Stage getStage() { return stage;}
     public void setStage(Stage stage) {  this.stage = stage;}
 
+    /**
+     * Affiche le résultat aux joueurs
+     */
     public void showResult(){
         if(!this.game.getLesManches().isEmpty()){
             GameMancheChifoumi gameMancheChifoumi = this.game.getLesManches().get(this.game.getLesManches().size() -1);
@@ -118,6 +121,10 @@ public class GameController implements Icontrolleur, Initializable {
 
     }
 
+    /**
+     * Ferme la fenêtre de jeu
+     * @param actionEvent
+     */
 
     public void fermerStageAction(ActionEvent actionEvent) {
         this.client.removeGame(game.getId());
@@ -126,6 +133,11 @@ public class GameController implements Icontrolleur, Initializable {
     }
 
     //3
+
+    /**
+     * Le joueur joue "Ciseau"
+     * @param actionEvent
+     */
     public void cisceauxAction(ActionEvent actionEvent) {
         try{
             this.action(3);
@@ -138,6 +150,10 @@ public class GameController implements Icontrolleur, Initializable {
     }
 
     //1
+    /**
+     * Le joueur joue "Feuille"
+     * @param actionEvent
+     */
     public void feuilleAction(ActionEvent actionEvent) {
         try {
             this.action(1);
@@ -149,6 +165,10 @@ public class GameController implements Icontrolleur, Initializable {
     }
 
     //2
+    /**
+     * Le joueur joue "Pierre"
+     * @param actionEvent
+     */
     public void pierreAction(ActionEvent actionEvent) {
         try {
             this.action(2);
@@ -160,6 +180,10 @@ public class GameController implements Icontrolleur, Initializable {
 
     }
 
+    /**
+     * Prend en compte le choix de l'utilisateur
+     * @param button
+     */
     private void action(Integer button){
         this.cacherImage();
         this.myPierreButton.setDisable(true);
@@ -169,6 +193,11 @@ public class GameController implements Icontrolleur, Initializable {
         this.client.sendToServer(new ObjectSend(choixChifoumi,Action.CHOIX_JEUX));
     }
 
+    /**
+     * Récupère l'image selon le choix de l'utilisateur
+     * @param choix Ce que l'utilisateur joue
+     * @return L'image concernée
+     */
     private void selectImageByAction(Integer choix,boolean currentUser){
             if(currentUser){
                 if(choix == 1){
