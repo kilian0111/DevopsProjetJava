@@ -9,44 +9,37 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0"
-            prefWidth="300.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="main.java.client.gui.controlleur.CreerConversationController">
-    <ScrollPane hbarPolicy="NEVER" layoutX="10.0" layoutY="122.0" prefHeight="332.0" prefWidth="279.0"
-                styleClass="conversationsList" stylesheets="@../style/main.css">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.client.gui.controlleur.CreerConversationController">
+    <ScrollPane hbarPolicy="NEVER" layoutX="10.0" layoutY="122.0" prefHeight="332.0" prefWidth="279.0" styleClass="conversationsList" stylesheets="@../style/main.css">
         <padding>
-            <Insets left="5.0" top="5.0"/>
+            <Insets left="5.0" top="5.0" />
         </padding>
         <opaqueInsets>
-            <Insets left="2.0" top="2.0"/>
+            <Insets left="2.0" top="2.0" />
         </opaqueInsets>
         <content>
-            <ListView fx:id="lesConversations" prefHeight="324.0" prefWidth="272.0"/>
+            <ListView fx:id="lesUtilisateurs" prefHeight="324.0" prefWidth="272.0" />
         </content>
     </ScrollPane>
-    <Button alignment="CENTER" layoutX="238.0" layoutY="460.0" mnemonicParsing="false" onAction="#addNewConvAction"
-            prefHeight="25.0" prefWidth="47.0" style="-fx-background-color: rgb(24,115,219);" text="Créer"
-            textFill="WHITE">
+    <Button alignment="CENTER" layoutX="238.0" layoutY="460.0" mnemonicParsing="false" onAction="#addNewConvAction" prefHeight="25.0" prefWidth="47.0" style="-fx-background-color: rgb(24,115,219);" text="Créer" textFill="WHITE">
         <font>
-            <Font size="9.0"/>
+            <Font size="9.0" />
         </font>
     </Button>
     <Label layoutX="32.0" layoutY="14.0" text="Créer une conversation" textFill="#5d7bce">
         <font>
-            <Font size="23.0"/>
+            <Font size="23.0" />
         </font>
     </Label>
     <Label layoutX="14.0" layoutY="53.0" text="Nom de la conversation :" textFill="#828282">
         <font>
-            <Font size="16.0"/>
+            <Font size="16.0" />
         </font>
     </Label>
-    <TextArea layoutX="16.0" layoutY="82.0" prefHeight="39.0" prefWidth="272.0"/>
-    <Button alignment="CENTER" layoutX="179.0" layoutY="460.0" mnemonicParsing="false" onAction="#addNewConvAction"
-            prefHeight="25.0" prefWidth="47.0" style="-fx-background-color: rgb(220,53,59);" text="Annuler"
-            textFill="WHITE">
+    <TextArea fx:id="conversationName" layoutX="16.0" layoutY="82.0" prefHeight="39.0" prefWidth="272.0" />
+    <Button alignment="CENTER" layoutX="179.0" layoutY="460.0" mnemonicParsing="false" onMouseClicked="#closeNewConversation" prefHeight="25.0" prefWidth="47.0" style="-fx-background-color: rgb(220,53,59);" text="Annuler" textFill="WHITE">
         <font>
-            <Font size="9.0"/>
+            <Font size="9.0" />
         </font>
     </Button>
 </AnchorPane>

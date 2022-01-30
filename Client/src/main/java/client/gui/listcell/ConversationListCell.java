@@ -1,4 +1,4 @@
-package main.java.client.gui;
+package main.java.client.gui.listcell;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
