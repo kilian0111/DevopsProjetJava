@@ -26,11 +26,13 @@ public class ConnectedClient implements Runnable {
     private Server server;
     private User user;
     private ChangeMdp chaineMdpOubliee;
+    private List<GameChifoumiThread> lesGamesChifoumi;
 
     public ConnectedClient(Socket socket, Server server) throws IOException {
         this.socket = socket;
         this.server = server;
         this.out = new ObjectOutputStream(this.socket.getOutputStream());
+        this.lesGamesChifoumi = new ArrayList<>();
     }
 
     public static int getIdCounter() {return idCounter;}
@@ -80,19 +82,44 @@ public class ConnectedClient implements Runnable {
                            this.modifUser((User) objectSend.getObject());
                        }else if(objectSend.getAction() == Action.MESSAGE && objectSend.getObject() instanceof Message ){
                            this.addMessage((Message) objectSend.getObject());
+                       } else if(objectSend.getAction() == Action.LANCER_JEUX && objectSend.getObject() instanceof GameChifoumi){
+                           this.lancerJeux((GameChifoumi) objectSend.getObject() );
+                       }else if(objectSend.getAction() == Action.REPONSEJ2_JEUX && objectSend.getObject() instanceof GameChifoumi){
+                           this.reponseChifoumiJ2((GameChifoumi) objectSend.getObject());
                        }
                    }
                 }else{
                     server.disconnectedClient(this);
                     isActive = false;
+                    Thread.currentThread().interrupt();
                 }
             }
         } catch (IOException e) {
             server.disconnectedClient(this);
+           Thread.currentThread().interrupt();
         } catch(Exception e ){
             e.printStackTrace();
         }
     }
+
+    private void reponseChifoumiJ2(GameChifoumi accepter) {
+        GameChifoumiThread leJeux = null ;
+        for(GameChifoumiThread gameChifoumiThread : this.server.getLesGames()){
+            if(gameChifoumiThread.getGame().getId().equals(accepter.getId())){
+                leJeux = gameChifoumiThread;
+                break;
+            }
+        }
+        if(leJeux != null ){
+            if(accepter.getAccepter()){
+                leJeux.setAccepter(true);
+                this.lesGamesChifoumi.add(leJeux);
+            }else{
+                leJeux.setAccepter(false);
+            }
+        }
+    }
+
 
     public void inscription(User user) {
         if(UserJpaRepository.getUserByEmail(user.getMail()).getId() == null ){
@@ -231,9 +258,26 @@ public class ConnectedClient implements Runnable {
                     }
                 }
             }
-        }else{
-
         }
+    }
+
+
+
+    private void lancerJeux(GameChifoumi game) {
+        GameChifoumiThread lancerJeux = new GameChifoumiThread(this.server,game,this);
+        this.server.addGame(lancerJeux);
+        this.addGame(lancerJeux);
+        Thread threadJeux = new Thread(lancerJeux);
+        threadJeux.start();
+    }
+
+
+    public void addGame(GameChifoumiThread gameChifoumi){
+        this.lesGamesChifoumi.add(gameChifoumi);
+    }
+
+    public void remove(GameChifoumiThread gameChifoumi){
+        this.lesGamesChifoumi.remove(gameChifoumi);
     }
 
 }

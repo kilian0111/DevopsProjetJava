@@ -5,27 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e94660bc-7d73-4a3d-8f55-8ddb14e94c0b" name="Changes" comment="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription">
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/ClientReceive.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/ClientReceive.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/MainGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/MainGui.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ApplicationController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ApplicationController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ApplicationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ApplicationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/style/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/Action.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/Action.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/ressources/conf.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/ressources/conf.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/ressources/fxml/application.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/ressources/fxml/application.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/ressources/style/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/ressources/style/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/ClientReceive.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/ClientReceive.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/MainGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/MainGui.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/ApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/gui/style/style.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/src/main/java/common/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/common/Action.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/ressources/conf.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/ressources/conf.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/ressources/fxml/application.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/ressources/fxml/application.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/ressources/style/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/ressources/style/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/common/Game.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/common/JeuxChoix.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/ConnectedClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/ConnectedClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/persistence.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/Game.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/JeuxChoix.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/ConnectedClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ConnectedClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/MainServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/MainServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ressources/sqlConfig/Script_Postgresql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ressources/sqlConfig/Script_Postgresql.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +110,8 @@
       <workItem from="1643136938957" duration="10213000" />
       <workItem from="1643222911592" duration="7993000" />
       <workItem from="1643400927412" duration="8448000" />
-      <workItem from="1643457066823" duration="5100000" />
+      <workItem from="1643457066823" duration="10029000" />
+      <workItem from="1643539982923" duration="14524000" />
     </task>
     <task id="LOCAL-00001" summary="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription">
       <created>1642257550779</created>
@@ -129,6 +129,17 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription" />
     <option name="LAST_COMMIT_MESSAGE" value="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/server/GameChifoumiThread.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Server$MainServer.ic" NAME="MainServer Coverage Results" MODIFIED="1643140349598" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

@@ -4,16 +4,14 @@ package main.java.client;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import main.java.client.gui.controlleur.ApplicationController;
-import main.java.common.Message;
-import main.java.common.ObjectSend;
-import main.java.common.User;
-import main.java.common.UtilisateursConversations;
+import main.java.common.*;
 
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -28,6 +26,7 @@ public class Client {
     private MainGui mainGui;
     private List<UtilisateursConversations> lesConversations;
     private ApplicationController applicationController;
+    private GameChifoumi LaGame;
 
 
     public Client(int port, String address, MainGui mainGui) throws IOException {
@@ -150,6 +149,6 @@ public class Client {
             }
         }
     }
-
-
+    public GameChifoumi getLaGame() {return LaGame;}
+    public void setLaGame(GameChifoumi laGame) {LaGame = laGame;}
 }

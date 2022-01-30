@@ -5,13 +5,19 @@ package main.java.client;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.*;
+import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 import main.java.common.*;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class ClientReceive implements Runnable {
 
@@ -99,11 +105,18 @@ public class ClientReceive implements Runnable {
                            // Inscription
                            }else if(objectReceive.getAction().equals(Action.INSCRIPTION)){
                                this.responseInscription(objectReceive);
+                               // recois la liste des conversation et des messages
                            } else if(objectReceive.getAction().equals(Action.LIST_CONVERSATION) && objectReceive.getObject() instanceof List ){
-                               this.client.setLesConversations((List<UtilisateursConversations>) objectReceive.getObject());
-                               Platform.runLater(() -> client.getMainGui().changeScene("application.fxml"));
+                               this.loadApplication((List<UtilisateursConversations>) objectReceive.getObject());
+                               // reçoie un message
                            }else if(objectReceive.getAction() == Action.MESSAGE && objectReceive.getObject() instanceof Message ){
                                this.addMessage((Message) objectReceive.getObject());
+                               // à reçu une demande de jeux
+                           }else if(objectReceive.getAction() == Action.DEMANDE_JEUX && objectReceive.getObject() instanceof GameChifoumi ){
+                               this.demandeJeux((GameChifoumi) objectReceive.getObject());
+                               // si a demander de jouer recois la reponse
+                           }else if(objectReceive.getAction() == Action.LANCER_JEUX){
+                               this.reponseDemandeJeux(objectReceive.getObject());
                            }
                        }
                    }else{
@@ -121,6 +134,37 @@ public class ClientReceive implements Runnable {
 
        }
 
+    }
+
+    private void reponseDemandeJeux(Object object) {
+        if(object instanceof String){
+            Platform.runLater(() ->this.client.getMainGui().erreurPopUp("DEMANDE JEUX",(String) object,AlertType.INFORMATION));
+        }else if(object instanceof GameChifoumi){
+            this.client.setLaGame((GameChifoumi) object);
+            Platform.runLater(()->this.client.getMainGui().showSecondNewStage("game.fxml"));
+        }
+    }
+
+    private void demandeJeux(GameChifoumi gameChifoumi) {
+        Platform.runLater(()->this.client.getMainGui().demandeJeux(gameChifoumi));
+    }
+
+    private void loadApplication(List<UtilisateursConversations> lesConvByUser) {
+        Conversations convgen = new Conversations();
+        convgen.setConversationId(0L);
+        convgen.setLesMessages(new ArrayList<>());
+        convgen.setConversationNom("Générale");
+        UtilisateursConversationsId idgeneral = new UtilisateursConversationsId();
+        idgeneral.setConversations(convgen);
+        UtilisateursConversations generale = new UtilisateursConversations();
+        generale.setId(idgeneral);
+
+        List<UtilisateursConversations> lesConvs = new ArrayList<>();
+        lesConvs.add(generale);
+        lesConvs.addAll(lesConvByUser);
+
+        this.client.setLesConversations(lesConvs);
+        Platform.runLater(() -> client.getMainGui().changeScene("application.fxml"));
     }
 
     public void responseInscription(ObjectSend objectReceive){

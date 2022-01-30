@@ -13,10 +13,7 @@ import main.java.client.gui.ConversationListCell;
 import main.java.common.*;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class ApplicationController implements Initializable,Icontrolleur {
 
@@ -26,7 +23,6 @@ public class ApplicationController implements Initializable,Icontrolleur {
 
     private UtilisateursConversations currentConv;
 
-    private List<UtilisateursConversations> lesConvs;
 
     @FXML
     private TextFlow messagesList;
@@ -71,8 +67,6 @@ public class ApplicationController implements Initializable,Icontrolleur {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.lesConvs = new ArrayList<>();
-
         this.lesConversations.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
@@ -87,25 +81,8 @@ public class ApplicationController implements Initializable,Icontrolleur {
 
 
     public void chargerData(){
-        // conversation générale
-        Conversations convgen = new Conversations();
-        convgen.setConversationId(0L);
-        convgen.setLesMessages(new ArrayList<>());
-        convgen.setConversationNom("Générale");
-        UtilisateursConversationsId idgeneral = new UtilisateursConversationsId();
-        idgeneral.setConversations(convgen);
-        UtilisateursConversations generale = new UtilisateursConversations();
-        generale.setId(idgeneral);
-
-
-        this.lesConvs.add(generale);
-
-        // toute les autres conv
-        this.lesConvs.addAll(this.client.getLesConversations());
-        this.client.addConversation(generale);
-
         this.lesConversations.setCellFactory(uc -> new ConversationListCell());
-        this.lesConversations.getItems().setAll(this.lesConvs);
+        this.lesConversations.getItems().setAll(this.client.getLesConversations());
         this.lesConversations.getSelectionModel().select(0);
         this.currentConv = this.lesConversations.getSelectionModel().getSelectedItem();
         accountName.setText(this.client.getUser().getPseudo());
@@ -149,7 +126,7 @@ public class ApplicationController implements Initializable,Icontrolleur {
 
 
     public void addMessageRecu(Message message) {
-        for(UtilisateursConversations userConv : this.lesConvs){
+        for(UtilisateursConversations userConv : this.client.getLesConversations()){
             if(userConv.getId().getConversations().getConversationId().equals(message.getConversationId())){
                 List<Message> lesMessages = userConv.getId().getConversations().getLesMessages();
                 lesMessages.add(message);
@@ -180,13 +157,21 @@ public class ApplicationController implements Initializable,Icontrolleur {
 
     public void playAction(ActionEvent actionEvent) {
         if(this.currentConv.getId().getConversations().getLesUsers() != null && this.currentConv.getId().getConversations().getLesUsers().size() == 2 ){
-            this.client.sendToServer(new ObjectSend(null,Action.LANCER_JEUX));
+            UserSafeData userConnected = new UserSafeData();
+            UserSafeData userJ2 = new UserSafeData();
+            for(UserSafeData userSafeData : this.currentConv.getId().getConversations().getLesUsers() ){
+                if(userSafeData.getId().equals(this.client.getUser().getId())){
+                    userConnected = userSafeData;
+                }else{
+                    userJ2 = userSafeData;
+                }
+            }
+            GameChifoumi game = new GameChifoumi(this.currentConv.getId().getConversations().getConversationId(),userConnected,userJ2);
+            this.client.sendToServer(new ObjectSend(game,Action.LANCER_JEUX));
         }
     }
 
     public void settingAction(ActionEvent actionEvent) {
-        this.client.setLesConversations(null);
-        this.client.setApplicationController(null);
         this.client.getMainGui().changeScene("options.fxml");
     }
 

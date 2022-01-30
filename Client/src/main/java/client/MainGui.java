@@ -2,21 +2,29 @@ package main.java.client;
 
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.*;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import main.java.client.gui.controlleur.ApplicationController;
+import main.java.client.gui.controlleur.GameController;
 import main.java.client.gui.controlleur.Icontrolleur;
+import main.java.common.Action;
+import main.java.common.GameChifoumi;
+import main.java.common.ObjectSend;
 import main.java.common.Utils;
 
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.util.Optional;
 import java.util.Properties;
 
 
@@ -59,6 +67,9 @@ public class MainGui extends Application {
                ApplicationController app =  (ApplicationController) controlleur;
                this.client.setApplicationController(app);
                app.chargerData();
+            }else if(controlleur instanceof GameController){
+                GameController app =  (GameController) controlleur;
+                app.setGame(this.client.getLaGame());
             }
             primaryStage.setScene(scene);
         }catch (Exception e){
@@ -66,7 +77,7 @@ public class MainGui extends Application {
         }
     }
 
-    public void erreurPopUp(String title, String content, AlertType type) {
+    public Alert erreurPopUp(String title, String content, AlertType type) {
         Alert alert = new Alert(type);
         alert.setTitle(title);
         alert.setHeaderText(null);
@@ -75,12 +86,35 @@ public class MainGui extends Application {
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
         stage.getIcons().add(new Image("file:"+Utils.getResourcesPath()+"img/favicon.png"));
         alert.showAndWait();
+        return alert;
     }
 
     public void showSecondNewStage(String fxml){
             Stage stage = new Stage();
             this.initStage(stage, fxml);
     }
+
+    public void  demandeJeux(GameChifoumi gameChifoumi){
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("DEMANDE JEUX");
+        alert.setHeaderText(null);
+        alert.setContentText(gameChifoumi.getIdUtilisateurJ1().getPseudo() + " Veut jouer au chifoumi Accepter ?");
+        alert.setResizable(false);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image("file:"+Utils.getResourcesPath()+"img/favicon.png"));
+        Optional<ButtonType> result = alert.showAndWait();
+        if(result.isPresent() && result.get() == ButtonType.OK){
+            gameChifoumi.setAccepter(true);
+            this.client.sendToServer(new ObjectSend(gameChifoumi, Action.REPONSEJ2_JEUX));
+            this.client.setLaGame(gameChifoumi);
+            Platform.runLater(()->this.client.getMainGui().showSecondNewStage("game.fxml"));
+        }else{
+            gameChifoumi.setAccepter(false);
+            this.client.sendToServer(new ObjectSend(gameChifoumi, Action.REPONSEJ2_JEUX));
+        }
+    }
+
+
 
     private void initStage(Stage stage ,String fxml){
         try {

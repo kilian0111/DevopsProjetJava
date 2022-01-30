@@ -2,10 +2,7 @@ package main.java.server;
 
 
 
-import main.java.common.Action;
-import main.java.common.Message;
-import main.java.common.ObjectSend;
-import main.java.common.UserSafeData;
+import main.java.common.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,10 +12,12 @@ public class Server {
 
     private Integer port;
     private List<ConnectedClient> lesClients;
+    private List<GameChifoumiThread> lesGames;
 
     public Server(Integer port) throws IOException {
         this.port = port;
         this.lesClients = new ArrayList<>();
+        this.lesGames = new ArrayList<>();
         Thread threadConnection = new Thread(new Connection(this));
         threadConnection.start();
     }
@@ -42,6 +41,14 @@ public class Server {
 
     }
 
+    public void addGame(GameChifoumiThread gameChifoumiThread){
+        this.lesGames.add(gameChifoumiThread);
+    }
+
+    public void removeGame(GameChifoumiThread gameChifoumiThread){
+        this.lesGames.remove(gameChifoumiThread);
+    }
+
     public void sendToAll(String content){
         UserSafeData serveur = new UserSafeData();
         serveur.setPseudo("Bot");
@@ -58,7 +65,7 @@ public class Server {
 
     }
 
-
-
-
+    public List<GameChifoumiThread> getLesGames() {
+        return lesGames;
+    }
 }

@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import main.java.client.Client;
+import main.java.common.GameChifoumi;
 import main.java.common.User;
 import main.java.common.Utils;
 
@@ -17,6 +18,8 @@ import java.util.ResourceBundle;
 public class GameController implements Icontrolleur, Initializable {
 
     private Client client;
+
+    private GameChifoumi game;
 
     //Tout ceux qui concerne l'Ami
     @FXML //fx:id="imgPierreAmi"
@@ -64,13 +67,15 @@ public class GameController implements Icontrolleur, Initializable {
 
     @Override
     public Client getClient() {
-        return null;
+        return this.client;
     }
 
     @Override
-    public void setClient(Client client) {
+    public void setClient(Client client) { this.client = client;}
 
-    }
+    public GameChifoumi getGame() {return game;}
+
+    public void setGame(GameChifoumi game) {this.game = game;}
 
     @FXML
     public void JouerAction(ActionEvent e) throws IOException {
