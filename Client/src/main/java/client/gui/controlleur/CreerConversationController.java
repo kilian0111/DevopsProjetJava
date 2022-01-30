@@ -6,9 +6,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import main.java.client.Client;
 import main.java.client.gui.listcell.UserListCell;
-import main.java.common.UserSafeData;
+import main.java.common.*;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -60,11 +62,41 @@ public class CreerConversationController implements Initializable,Icontrolleur {
             this.client.getMainGui().erreurPopUp("Aucun utilisateur sélectionné", "Merci de sélectionner au moins un utilisateur.", Alert.AlertType.ERROR);
             return;
         }
+        UserSafeData currentUser = new UserSafeData();
+        currentUser.setId(this.client.getUser().getId());
+        currentUser.setPseudo(this.client.getUser().getPseudo());
 
-        // TODO : Créer la conv
+
+        Conversations conversations = new Conversations();
+        conversations.setConversationNom(name);
+        conversations.setDateCreationConv(new Date());
+        conversations.setUtilisateurCreateurID(this.client.getUser().getId());
+        this.client.sendToServer(new ObjectSend(conversations, Action.CREATE_CONV));
+        List<UtilisateursConversations> lesUtilisateursConversations  = new ArrayList<>();
+
+        UtilisateursConversations userConvCurrentUser = new UtilisateursConversations();
+        UtilisateursConversationsId userConvIdCurrentUser = new UtilisateursConversationsId();
+        userConvIdCurrentUser.setConversations(conversations);
+        userConvIdCurrentUser.setUtilisateur(currentUser);
+        userConvCurrentUser.setId(userConvIdCurrentUser);
+        lesUtilisateursConversations.add(userConvCurrentUser);
+
+        for(UserSafeData userSafeData : users){
+            UtilisateursConversations userConv = new UtilisateursConversations();
+            UtilisateursConversationsId userConvId = new UtilisateursConversationsId();
+            userConvId.setConversations(conversations);
+            userConvId.setUtilisateur(userSafeData);
+            userConv.setId(userConvId);
+            lesUtilisateursConversations.add(userConv);
+        }
+
+        this.client.sendToServer(new ObjectSend(lesUtilisateursConversations, Action.AJOUT_USER_CONV));
+
+
     }
 
-    public void closeNewConversation(ActionEvent actionEvent) {
+
+    public void retourApplicationsAction(ActionEvent actionEvent) {
         this.client.getMainGui().changeScene("application.fxml");
     }
 }

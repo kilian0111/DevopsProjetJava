@@ -91,8 +91,10 @@
       <!-- Ceci est la table ou seront deposés les cartes choisi par Moi et Ami-->
       <Pane maxHeight="-Infinity" prefHeight="200.0" prefWidth="450.0" style="-fx-background-color: rgb(1,130,1);">
          <children>
-            <ImageView fx:id="imgJouerParMoi" fitHeight="93.0" fitWidth="86.0" layoutX="71.0" layoutY="39.0" />
-            <ImageView fx:id="imgJouerParAmi" fitHeight="93.0" fitWidth="86.0" layoutX="291.0" layoutY="39.0" />
+            <ImageView fx:id="imgPierreAmi" fitHeight="39.0" fitWidth="42.0" layoutX="259.0" layoutY="100.0">
+               <image>
+                  <Image url="@../img/pierre.png" />
+               </image></ImageView>
             <Label layoutX="16.0" layoutY="54.0" text="Vous">
                <font>
                   <Font size="15.0" />
@@ -113,6 +115,31 @@
                   <Font size="15.0" />
                </font>
             </Label>
+            <ImageView fx:id="imgFeuilleAmi" fitHeight="39.0" fitWidth="42.0" layoutX="259.0" layoutY="59.0">
+               <image>
+                  <Image url="@../img/feuille.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgCisceauxAmi" fitHeight="39.0" fitWidth="42.0" layoutX="259.0" layoutY="20.0">
+               <image>
+                  <Image url="@../img/ciseaux.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgPierreMoiPlateau" fitHeight="39.0" fitWidth="42.0" layoutX="149.0" layoutY="101.0">
+               <image>
+                  <Image url="@../img/pierre.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgFeuilleMoiPlateau" fitHeight="39.0" fitWidth="42.0" layoutX="149.0" layoutY="60.0">
+               <image>
+                  <Image url="@../img/feuille.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgCisceauxMoiPlateau" fitHeight="39.0" fitWidth="42.0" layoutX="149.0" layoutY="21.0">
+               <image>
+                  <Image url="@../img/ciseaux.png" />
+               </image>
+            </ImageView>
          </children></Pane>
       <!--AnchorPane concerne ici Moi-->
       <AnchorPane prefHeight="200.0" prefWidth="200.0" rotate="180.0">

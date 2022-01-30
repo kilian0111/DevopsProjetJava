@@ -90,6 +90,13 @@ public class ConnectedClient implements Runnable {
                            this.addChoixToPartie((ChoixChifoumi) objectSend.getObject()  );
                        } else if(objectSend.getAction() == Action.LIST_USER ){
                            this.envoyerListUser();
+                       }else if(objectSend.getAction() == Action.CREATE_CONV && objectSend.getObject() instanceof Conversations ){
+                           this.createConv((Conversations) objectSend.getObject());
+                       }else if(objectSend.getAction() == Action.AJOUT_USER_CONV && objectSend.getObject() instanceof List ){
+                           this.createUtilisateurConv((List<UtilisateursConversations>) objectSend.getObject());
+                       }else if(objectSend.getAction() == Action.FERMER_JEUX && objectSend.getObject() instanceof GameChifoumi){
+                           this.jeuxFermer((GameChifoumi) objectSend.getObject());
+
                        }
                    }
                 }else{
@@ -104,6 +111,36 @@ public class ConnectedClient implements Runnable {
         } catch(Exception e ){
             e.printStackTrace();
         }
+    }
+
+    private void jeuxFermer(GameChifoumi gameChifoumi) {
+        GameChifoumiThread leJeux = null ;
+        for(GameChifoumiThread gameChifoumiThread : this.server.getLesGames()){
+            if(gameChifoumiThread.getGame().getId().equals(gameChifoumi.getId())){
+                leJeux = gameChifoumiThread;
+                break;
+            }
+        }
+        if(leJeux != null ){
+            leJeux.setFermer(true);
+        }
+
+    }
+
+    private void createUtilisateurConv(List<UtilisateursConversations> lesUtilisateursConv) {
+        for(UtilisateursConversations userConv : lesUtilisateursConv){
+            UtilisateursConversationJpaRepository.saveUtilisateursConversations(userConv);
+            for(ConnectedClient connectedClient : this.server.getLesClients()){
+                if(connectedClient.getUser() != null && userConv.getId().getUtilisateur().getId().equals(connectedClient.getUser().getId())){
+                    List<UtilisateursConversations> utilisateursConvList = UtilisateursConversationJpaRepository.getUtilisateurConversationByUserId(connectedClient.getUser().getId());
+                    connectedClient.sendToClient(new ObjectSend(utilisateursConvList,Action.LIST_CONVERSATION));
+                }
+            }
+        }
+    }
+
+    private void createConv(Conversations conversations) {
+        ConversationJpaRepository.saveConversations(conversations);
     }
 
     private void envoyerListUser() {

@@ -5,10 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e94660bc-7d73-4a3d-8f55-8ddb14e94c0b" name="Changes" comment="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription">
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/MainGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/MainGui.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ApplicationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ApplicationController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/Action.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/Action.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/ressources/fxml/creerConversation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/ressources/fxml/creerConversation.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/ressources/fxml/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/ressources/fxml/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/MainGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/MainGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/CreerConversationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/CreerConversationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/InscriptionControlleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/InscriptionControlleur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/common/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/common/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/common/UserSafeData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/common/UserSafeData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/ressources/fxml/creerConversation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/ressources/fxml/creerConversation.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/ressources/fxml/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/ressources/fxml/game.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/Action.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/Action.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/UserSafeData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/UserSafeData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/repository/ConversationJpaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/repository/ConversationJpaRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/ConnectedClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/ConnectedClient.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/GameChifoumiThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/GameChifoumiThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/UserSafeData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/UserSafeData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/ConversationJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/ConversationJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/UserJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/UserJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/ConnectedClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ConnectedClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/GameChifoumiThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/GameChifoumiThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

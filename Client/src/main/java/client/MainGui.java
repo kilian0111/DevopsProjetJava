@@ -133,7 +133,8 @@ public class MainGui extends Application {
                 gameController.setGame(this.client.getLaGame());
                 gameController.setStage(stage);
                 this.client.addGame(this.client.getLaGame().getId(),gameController);
-
+            }else if(controlleur instanceof CreerConversationController creerConversationController){
+                creerConversationController.chargerData(this.client.getLesUser());
             }
             stage.setTitle("Kijoki");
             stage.getIcons().add(new Image("file:" + Utils.getResourcesPath() + "img/favicon.png"));

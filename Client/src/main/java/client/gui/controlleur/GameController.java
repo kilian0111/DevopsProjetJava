@@ -35,19 +35,6 @@ public class GameController implements Icontrolleur, Initializable {
     @FXML //fx:id="yourRound3"
     private ImageView yourRound3;
 
-    //Tout ceux qui concerne Moi
-    @FXML //fx:id="imgPierreMoi"
-    private ImageView imgPierreMoi;
-    @FXML
-    private Button myPierreButton;
-    @FXML //fx:id="imgFeuilleMoi"
-    private ImageView imgFeuilleMoi;
-    @FXML
-    private Button myFeuilleButton;
-    @FXML //fx:id="imgCiseauxMoi"
-    private ImageView imgCiseauxMoi;
-    @FXML
-    private Button myCiseauxButton;
     //Mes rounds
     @FXML //fx:id="myRound1"
     private ImageView myRound1;
@@ -55,12 +42,31 @@ public class GameController implements Icontrolleur, Initializable {
     private ImageView myRound2;
     @FXML //fx:id="myRound3"
     private ImageView myRound3;
+    @FXML
+    private ImageView imgFeuilleAmi;
+    @FXML
+    private ImageView imgCisceauxAmi;
+    @FXML
+    private ImageView imgPierreMoiPlateau;
+    @FXML
+    private ImageView imgFeuilleMoiPlateau;
+    @FXML
+    private ImageView imgCisceauxMoiPlateau;
+    @FXML
+    private ImageView imgPierreMoi;
+    @FXML
+    private ImageView imgCiseauxMoi;
+    @FXML
+    private Button myPierreButton;
+    @FXML
+    private ImageView imgFeuilleMoi;
+    @FXML
+    private Button myCiseauxButton;
+    @FXML
+    private Button myFeuilleButton;
+    @FXML
+    private ImageView imgPierreAmi;
 
-    //La table au milieu
-    @FXML //fx:id="imgJouerParMoi"
-    private ImageView imgJouerParMoi;
-    @FXML //fx:id="imgJouerParAmi"
-    private ImageView imgJouerParAmi;
 
     @FXML
     private Label scoreJ2;
@@ -68,20 +74,11 @@ public class GameController implements Icontrolleur, Initializable {
     @FXML
     private Label scoreCurrentUser;
 
-    private Image imageFeuille;
-    private Image imageCisceaux;
-    private Image imagePierre;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try{
-            imageFeuille = new Image(String.valueOf(new File(Utils.getResourcesPath()+"img/feuille.png").toURI().toURL()));
-            imageCisceaux = new Image(String.valueOf(new File(Utils.getResourcesPath()+"img/ciseaux.png").toURI().toURL()));
-            imagePierre = new Image(String.valueOf(new File(Utils.getResourcesPath()+"img/ciseaux.png").toURI().toURL()));
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-
+        this.cacherImage();
     }
 
     @Override
@@ -100,30 +97,19 @@ public class GameController implements Icontrolleur, Initializable {
     public void showResult(){
         if(!this.game.getLesManches().isEmpty()){
             GameMancheChifoumi gameMancheChifoumi = this.game.getLesManches().get(this.game.getLesManches().size() -1);
-            Image imgJ1 = this.selectImageByAction(gameMancheChifoumi.getChoixJ1());
-            Image imgJ2 =  this.selectImageByAction(gameMancheChifoumi.getChoixJ2());
             if(this.client.getUser().getId().equals(this.game.getIdUtilisateurJ1().getId())){
-                this.imgJouerParMoi.setImage(imgJ1);
-                this.yourRound3.setImage(imgJ2);
-                this.imgJouerParAmi.setImage(imgJ2);
+                this.selectImageByAction(gameMancheChifoumi.getChoixJ1(),true);
+                this.selectImageByAction(gameMancheChifoumi.getChoixJ2(),false);
                 this.scoreCurrentUser.setText(this.game.getScoreJ1().toString());
                 this.scoreJ2.setText(this.game.getScoreJ2().toString());
             }else{
-                this.imgJouerParMoi.setImage(imgJ2);
-                this.yourRound3.setImage(imgJ1);
-                this.imgJouerParAmi.setImage(imgJ1);
+                this.selectImageByAction(gameMancheChifoumi.getChoixJ1(),false);
+                this.selectImageByAction(gameMancheChifoumi.getChoixJ2(),true);
                 this.scoreCurrentUser.setText(this.game.getScoreJ2().toString());
                 this.scoreJ2.setText(this.game.getScoreJ1().toString());
             }
 
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            this.imgJouerParMoi.setImage(null);
-            this.yourRound3.setImage(null);
-            this.imgJouerParAmi.setImage(null);
+
             this.myPierreButton.setDisable(false);
             this.myFeuilleButton.setDisable(false);
             this.myCiseauxButton.setDisable(false);
@@ -135,6 +121,7 @@ public class GameController implements Icontrolleur, Initializable {
 
     public void fermerStageAction(ActionEvent actionEvent) {
         this.client.removeGame(game.getId());
+        this.client.sendToServer(new ObjectSend(game, Action.FERMER_JEUX));
         this.stage.close();
     }
 
@@ -142,7 +129,8 @@ public class GameController implements Icontrolleur, Initializable {
     public void cisceauxAction(ActionEvent actionEvent) {
         try{
             this.action(3);
-            this.myRound1.setImage(imageCisceaux);
+            Image img = new Image(String.valueOf(new File(Utils.getResourcesPath()+"img/ciseaux.png").toURI().toURL()));
+            this.myRound1.setImage(img);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -153,7 +141,8 @@ public class GameController implements Icontrolleur, Initializable {
     public void feuilleAction(ActionEvent actionEvent) {
         try {
             this.action(1);
-            this.myRound1.setImage(imageFeuille);
+            Image img = new Image(String.valueOf(new File(Utils.getResourcesPath()+"img/feuille.png").toURI().toURL()));
+            this.myRound1.setImage(img);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -163,7 +152,8 @@ public class GameController implements Icontrolleur, Initializable {
     public void pierreAction(ActionEvent actionEvent) {
         try {
             this.action(2);
-            this.myRound1.setImage(imagePierre);
+            Image img = new Image(String.valueOf(new File(Utils.getResourcesPath()+"img/pierre.png").toURI().toURL()));
+            this.myRound1.setImage(img);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -171,6 +161,7 @@ public class GameController implements Icontrolleur, Initializable {
     }
 
     private void action(Integer button){
+        this.cacherImage();
         this.myPierreButton.setDisable(true);
         this.myFeuilleButton.setDisable(true);
         this.myCiseauxButton.setDisable(true);
@@ -178,20 +169,36 @@ public class GameController implements Icontrolleur, Initializable {
         this.client.sendToServer(new ObjectSend(choixChifoumi,Action.CHOIX_JEUX));
     }
 
-    private Image selectImageByAction(Integer choix){
-        try{
-            if(choix == 1){
-                return imageFeuille;
-            }else if(choix == 2){
-                return imagePierre;
+    private void selectImageByAction(Integer choix,boolean currentUser){
+            if(currentUser){
+                if(choix == 1){
+                    this.imgFeuilleMoiPlateau.setVisible(true);
+                }else if(choix == 2){
+                    this.imgPierreMoiPlateau.setVisible(true);
+                }else{
+                    this.imgCisceauxMoiPlateau.setVisible(true);
+                }
             }else{
-                return imageCisceaux;
+                if(choix == 1){
+                    this.imgFeuilleAmi.setVisible(true);
+                }else if(choix == 2){
+                    this.imgPierreAmi.setVisible(true);
+                }else{
+                    this.imgCisceauxAmi.setVisible(true);
+                }
             }
-        }catch (Exception e){
-            e.printStackTrace();
 
-        }
-        return null;
+
+    }
+
+    private void cacherImage(){
+        this.imgPierreAmi.setVisible(false);
+        this.imgFeuilleAmi.setVisible(false);
+        this.imgCisceauxAmi.setVisible(false);
+        this.imgPierreMoiPlateau.setVisible(false);
+        this.imgFeuilleMoiPlateau.setVisible(false);
+        this.imgCisceauxMoiPlateau.setVisible(false);
+
     }
 
 }

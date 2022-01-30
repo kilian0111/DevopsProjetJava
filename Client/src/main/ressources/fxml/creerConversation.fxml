@@ -37,7 +37,7 @@
         </font>
     </Label>
     <TextArea fx:id="conversationName" layoutX="16.0" layoutY="82.0" prefHeight="39.0" prefWidth="272.0" />
-    <Button alignment="CENTER" layoutX="179.0" layoutY="460.0" mnemonicParsing="false" onMouseClicked="#closeNewConversation" prefHeight="25.0" prefWidth="47.0" style="-fx-background-color: rgb(220,53,59);" text="Annuler" textFill="WHITE">
+    <Button alignment="CENTER" layoutX="179.0" layoutY="460.0" mnemonicParsing="false" onAction="#retourApplicationsAction"  prefHeight="25.0" prefWidth="47.0" style="-fx-background-color: rgb(220,53,59);" text="Annuler" textFill="WHITE">
         <font>
             <Font size="9.0" />
         </font>

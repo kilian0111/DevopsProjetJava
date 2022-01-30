@@ -35,7 +35,7 @@ public class ConversationJpaRepository {
         return query.getSingleResult();
     }
 
-    public static void saveUtilisateursConversations(Conversations conversations) {
+    public static void saveConversations(Conversations conversations) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
         em.persist(conversations);

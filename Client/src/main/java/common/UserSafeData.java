@@ -14,6 +14,7 @@ public class UserSafeData implements Serializable {
     private String nom;
     private Date dateNaissance;
     private Integer sexe;
+    private Boolean actif;
 
     @Serial
     private static final long serialVersionUID =  1350092881346723535L;
@@ -39,5 +40,6 @@ public class UserSafeData implements Serializable {
     public Integer getSexe() {return sexe;}
     public void setSexe(Integer sexe) {this.sexe = sexe;}
 
-
+    public Boolean getActif() {return actif;}
+    public void setActif(Boolean actif) {this.actif = actif;}
 }

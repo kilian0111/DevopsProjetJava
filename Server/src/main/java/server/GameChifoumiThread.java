@@ -69,17 +69,13 @@ public class GameChifoumiThread implements Runnable{
                     while(!fermer && this.clientJ2 != null && this.clientJ1 != null){
                         this.mancheEnCours = new GameMancheChifoumi();
                         this.mancheEnCours.setGameId(this.game.getId());
-                        while(this.mancheEnCours.getChoixJ1() == null || this.mancheEnCours.getChoixJ2() == null) {
+                        while( (this.mancheEnCours.getChoixJ1() == null || this.mancheEnCours.getChoixJ2() == null) && !fermer ) {
                             try {
                                 Thread.sleep(1000);
                             } catch (InterruptedException ignored) {
                             }
                         }
-                          /* public GameChifoumi(Long conversationId, UserSafeData idUtilisateurJ1, UserSafeData idUtilisateurJ2) {
-                            this.conversationId = conversationId;
-                            this.idUtilisateurJ1 = idUtilisateurJ1;
-                            this.idUtilisateurJ2 = idUtilisateurJ2;
-                        }*/
+
                         this.traitementJeux();
                         GameMancheChifomiJpaRepository.saveMancheGame(this.mancheEnCours);
 
@@ -103,7 +99,7 @@ public class GameChifoumiThread implements Runnable{
 
                     GameChifoumiJpaRepository.updateGame(this.game);
                     if (this.clientJ2 != null && this.clientJ1 != null) {
-                        this.server.sendMessageToConv(this.clientJ1.getUser().getPseudo() + "a " + this.game.getScoreJ1() + " point \n " + this.clientJ2.getUser().getPseudo() + "a " + this.game.getScoreJ2() + " point ",this.game.getConversationId());
+                        this.server.sendMessageToConv("Fin de partie un utilisateur a quitter \n" + this.clientJ1.getUser().getPseudo() + " a " + this.game.getScoreJ1() + " point \n " + this.clientJ2.getUser().getPseudo() + " a " + this.game.getScoreJ2() + " point ",this.game.getConversationId());
                     }
                 } else {
                     this.clientJ1.sendToClient(new ObjectSend("l'adversaire à refusé le chifoumi ou n'a pas répondu dans les temps", Action.LANCER_JEUX));
@@ -126,23 +122,25 @@ public class GameChifoumiThread implements Runnable{
     }
 // 1 == feuille 2 == pierre 3== ciseaux
     private void traitementJeux() {
-        if(this.mancheEnCours.getChoixJ1().equals(1)){
-            if(this.mancheEnCours.getChoixJ2().equals(2)){
-                this.game.setScoreJ1(this.game.getScoreJ1() + 1);
-            }else if(this.mancheEnCours.getChoixJ2().equals(3)){
-                this.game.setScoreJ2(this.game.getScoreJ2() + 1);
-            }
-        }else if(this.mancheEnCours.getChoixJ1().equals(2)){
-            if(this.mancheEnCours.getChoixJ2().equals(1)){
-                this.game.setScoreJ2(this.game.getScoreJ2() + 1);
-            }else if(this.mancheEnCours.getChoixJ2().equals(3)){
-                this.game.setScoreJ1(this.game.getScoreJ1() + 1);
-            }
-        }else if(this.mancheEnCours.getChoixJ1().equals(3)){
-            if(this.mancheEnCours.getChoixJ2().equals(1)){
-                this.game.setScoreJ1(this.game.getScoreJ1() + 1);
-            }else if(this.mancheEnCours.getChoixJ2().equals(2)){
-                this.game.setScoreJ2(this.game.getScoreJ2() + 1);
+        if(this.mancheEnCours != null && this.mancheEnCours.getChoixJ1() != null && this.mancheEnCours.getChoixJ2() != null ){
+            if(this.mancheEnCours.getChoixJ1().equals(1)){
+                if(this.mancheEnCours.getChoixJ2().equals(2)){
+                    this.game.setScoreJ1(this.game.getScoreJ1() + 1);
+                }else if(this.mancheEnCours.getChoixJ2().equals(3)){
+                    this.game.setScoreJ2(this.game.getScoreJ2() + 1);
+                }
+            }else if(this.mancheEnCours.getChoixJ1().equals(2)){
+                if(this.mancheEnCours.getChoixJ2().equals(1)){
+                    this.game.setScoreJ2(this.game.getScoreJ2() + 1);
+                }else if(this.mancheEnCours.getChoixJ2().equals(3)){
+                    this.game.setScoreJ1(this.game.getScoreJ1() + 1);
+                }
+            }else if(this.mancheEnCours.getChoixJ1().equals(3)){
+                if(this.mancheEnCours.getChoixJ2().equals(1)){
+                    this.game.setScoreJ1(this.game.getScoreJ1() + 1);
+                }else if(this.mancheEnCours.getChoixJ2().equals(2)){
+                    this.game.setScoreJ2(this.game.getScoreJ2() + 1);
+                }
             }
         }
 

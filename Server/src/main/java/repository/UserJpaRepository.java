@@ -81,7 +81,7 @@ public class UserJpaRepository {
 
     public static List<UserSafeData> getAllUser() {
         EntityManager em = entityManagerFactory.createEntityManager();
-        TypedQuery<UserSafeData> query = em.createQuery("SELECT e FROM UserSafeData e", UserSafeData.class);
+        TypedQuery<UserSafeData> query = em.createQuery("SELECT e FROM UserSafeData e where e.actif = true ", UserSafeData.class);
         return query.getResultList();
     }
 }

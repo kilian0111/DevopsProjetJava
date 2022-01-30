@@ -15,6 +15,7 @@ import main.java.common.Utils;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.ResourceBundle;
@@ -84,21 +85,26 @@ public class InscriptionControlleur implements Initializable,Icontrolleur{
                 if(conditionInscription.isSelected()){
                     if(Utils.isEmailAdress(this.email.getText())){
                         if(motDePasse.getText().equals(motDePasseConfirm.getText())){
-                            String salt =Utils.generateChaine();
-                            User user = new User();
-                            user.setSexe(genreCombo.getSelectionModel().getSelectedIndex());
-                            user.setMail(email.getText());
-                            user.setPseudo(pseudo.getText());
-                            user.setMdp(Utils.convertMdpWithSalt(motDePasse.getText(), salt));
-                            user.setSalt(salt);
-                            user.setDateNaissance(new SimpleDateFormat("yyyy-MM-dd").parse(this.dateNaissance.getValue().toString()));
-                            user.setNom(nom.getText());
-                            user.setPrenom(prenom.getText());
-                            user.setActif(true);
-                            if(this.client.estConnecter()){
-                                this.client.sendToServer(new ObjectSend(user, Action.INSCRIPTION));
+                            LocalDate date = LocalDate.now();
+                            if(Period.between(this.dateNaissance.getValue(), date).getYears() >= 13){
+                                String salt =Utils.generateChaine();
+                                User user = new User();
+                                user.setSexe(genreCombo.getSelectionModel().getSelectedIndex());
+                                user.setMail(email.getText());
+                                user.setPseudo(pseudo.getText());
+                                user.setMdp(Utils.convertMdpWithSalt(motDePasse.getText(), salt));
+                                user.setSalt(salt);
+                                user.setDateNaissance(new SimpleDateFormat("yyyy-MM-dd").parse(this.dateNaissance.getValue().toString()));
+                                user.setNom(nom.getText());
+                                user.setPrenom(prenom.getText());
+                                user.setActif(true);
+                                if(this.client.estConnecter()){
+                                    this.client.sendToServer(new ObjectSend(user, Action.INSCRIPTION));
+                                }else{
+                                    message = "erreur interne impossible de se connecter au serveur";
+                                }
                             }else{
-                                message = "erreur interne impossible de se connecter au serveur";
+                                message = "Vous devez avoir 13 ans pour vous isncrire";
                             }
                         }else{
                             message = "les mots de passes tapés ne coressponde pas";
