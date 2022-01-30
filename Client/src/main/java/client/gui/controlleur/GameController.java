@@ -68,8 +68,19 @@ public class GameController implements Icontrolleur, Initializable {
     @FXML
     private Label scoreCurrentUser;
 
+    private Image imageFeuille;
+    private Image imageCisceaux;
+    private Image imagePierre;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        try{
+            imageFeuille = new Image(String.valueOf(new File(Utils.getResourcesPath()+"img/feuille.png").toURI().toURL()));
+            imageCisceaux = new Image(String.valueOf(new File(Utils.getResourcesPath()+"img/ciseaux.png").toURI().toURL()));
+            imagePierre = new Image(String.valueOf(new File(Utils.getResourcesPath()+"img/ciseaux.png").toURI().toURL()));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
     }
 
@@ -89,8 +100,8 @@ public class GameController implements Icontrolleur, Initializable {
     public void showResult(){
         if(!this.game.getLesManches().isEmpty()){
             GameMancheChifoumi gameMancheChifoumi = this.game.getLesManches().get(this.game.getLesManches().size() -1);
-            Image imgJ1 = new Image(Utils.getResourcesPath() + this.selectImageByAction(gameMancheChifoumi.getChoixJ1()));
-            Image imgJ2 = new Image(Utils.getResourcesPath() + this.selectImageByAction(gameMancheChifoumi.getChoixJ2()));
+            Image imgJ1 = this.selectImageByAction(gameMancheChifoumi.getChoixJ1());
+            Image imgJ2 =  this.selectImageByAction(gameMancheChifoumi.getChoixJ2());
             if(this.client.getUser().getId().equals(this.game.getIdUtilisateurJ1().getId())){
                 this.imgJouerParMoi.setImage(imgJ1);
                 this.yourRound3.setImage(imgJ2);
@@ -131,8 +142,7 @@ public class GameController implements Icontrolleur, Initializable {
     public void cisceauxAction(ActionEvent actionEvent) {
         try{
             this.action(3);
-            Image img = new Image(String.valueOf(new File(Utils.getResourcesPath()+"img/ciseaux.png").toURI().toURL()));
-            this.myRound1.setImage(img);
+            this.myRound1.setImage(imageCisceaux);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -143,8 +153,7 @@ public class GameController implements Icontrolleur, Initializable {
     public void feuilleAction(ActionEvent actionEvent) {
         try {
             this.action(1);
-            Image img = new Image(String.valueOf(new File(Utils.getResourcesPath()+"img/feuille.png").toURI().toURL()));
-            this.myRound1.setImage(img);
+            this.myRound1.setImage(imageFeuille);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -154,8 +163,7 @@ public class GameController implements Icontrolleur, Initializable {
     public void pierreAction(ActionEvent actionEvent) {
         try {
             this.action(2);
-            Image img = new Image(String.valueOf(new File(Utils.getResourcesPath()+"img/pierre.png").toURI().toURL()));
-            this.myRound1.setImage(img);
+            this.myRound1.setImage(imagePierre);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -170,20 +178,20 @@ public class GameController implements Icontrolleur, Initializable {
         this.client.sendToServer(new ObjectSend(choixChifoumi,Action.CHOIX_JEUX));
     }
 
-    private String selectImageByAction(Integer choix){
+    private Image selectImageByAction(Integer choix){
         try{
             if(choix == 1){
-                return String.valueOf(new File(Utils.getResourcesPath()+"img/feuille.png").toURI().toURL());
+                return imageFeuille;
             }else if(choix == 2){
-                return String.valueOf(new File(Utils.getResourcesPath()+"img/pierre.png").toURI().toURL());
+                return imagePierre;
             }else{
-                return String.valueOf(new File(Utils.getResourcesPath()+"img/ciseaux.png").toURI().toURL());
+                return imageCisceaux;
             }
         }catch (Exception e){
             e.printStackTrace();
 
         }
-        return "";
+        return null;
     }
 
 }

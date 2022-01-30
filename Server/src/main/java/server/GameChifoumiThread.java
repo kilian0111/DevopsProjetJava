@@ -75,14 +75,29 @@ public class GameChifoumiThread implements Runnable{
                             } catch (InterruptedException ignored) {
                             }
                         }
+                          /* public GameChifoumi(Long conversationId, UserSafeData idUtilisateurJ1, UserSafeData idUtilisateurJ2) {
+                            this.conversationId = conversationId;
+                            this.idUtilisateurJ1 = idUtilisateurJ1;
+                            this.idUtilisateurJ2 = idUtilisateurJ2;
+                        }*/
                         this.traitementJeux();
-                        this.game.addManche(this.mancheEnCours);
                         GameMancheChifomiJpaRepository.saveMancheGame(this.mancheEnCours);
+
+                        GameChifoumi gameChifoumi = new GameChifoumi(this.game.getConversationId(),this.game.getIdUtilisateurJ1(),this.game.getIdUtilisateurJ2());
+                        gameChifoumi.setDateGame(this.game.getDateGame());
+                        gameChifoumi.setScoreJ1(this.game.getScoreJ1());
+                        gameChifoumi.setScoreJ2(this.game.getScoreJ2());
+                        gameChifoumi.setId(this.game.getId());
+                        gameChifoumi.setLesManches(new ArrayList<>());
+                        gameChifoumi.setAccepter(true);
+                        gameChifoumi.addManche(this.mancheEnCours);
+                        this.game = gameChifoumi;
+
                         if (this.clientJ2 != null) {
-                            this.clientJ2.sendToClient(new ObjectSend(this.game,Action.RESULTAT_JEUX));
+                            this.clientJ2.sendToClient(new ObjectSend(gameChifoumi,Action.RESULTAT_JEUX));
                         }
                         if(this.clientJ1 != null){
-                            this.clientJ1.sendToClient(new ObjectSend(this.game,Action.RESULTAT_JEUX));
+                            this.clientJ1.sendToClient(new ObjectSend(gameChifoumi,Action.RESULTAT_JEUX));
                         }
                     }
 
@@ -130,6 +145,7 @@ public class GameChifoumiThread implements Runnable{
                 this.game.setScoreJ2(this.game.getScoreJ2() + 1);
             }
         }
+
     }
 
 
