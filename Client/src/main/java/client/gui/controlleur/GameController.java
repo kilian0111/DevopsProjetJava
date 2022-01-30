@@ -4,30 +4,29 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import main.java.client.Client;
-import main.java.common.GameChifoumi;
-import main.java.common.User;
-import main.java.common.Utils;
+import main.java.common.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class GameController implements Icontrolleur, Initializable {
 
+
+
     private Client client;
 
     private GameChifoumi game;
 
-    //Tout ceux qui concerne l'Ami
-    @FXML //fx:id="imgPierreAmi"
-    private ImageView imgPierreAmi;
-    @FXML //fx:id="imgFeuilleAmi"
-    private ImageView imgFeuilleAmi;
-    @FXML //fx:id="imgCiseauxAmi"
-    private ImageView imgCiseauxAmi;
+    private Stage stage;
+
+
     //Ces rounds
     @FXML //fx:id="yourRound1"
     private ImageView yourRound1;
@@ -39,12 +38,15 @@ public class GameController implements Icontrolleur, Initializable {
     //Tout ceux qui concerne Moi
     @FXML //fx:id="imgPierreMoi"
     private ImageView imgPierreMoi;
+    @FXML
     private Button myPierreButton;
     @FXML //fx:id="imgFeuilleMoi"
     private ImageView imgFeuilleMoi;
+    @FXML
     private Button myFeuilleButton;
     @FXML //fx:id="imgCiseauxMoi"
     private ImageView imgCiseauxMoi;
+    @FXML
     private Button myCiseauxButton;
     //Mes rounds
     @FXML //fx:id="myRound1"
@@ -60,6 +62,12 @@ public class GameController implements Icontrolleur, Initializable {
     @FXML //fx:id="imgJouerParAmi"
     private ImageView imgJouerParAmi;
 
+    @FXML
+    private Label scoreJ2;
+
+    @FXML
+    private Label scoreCurrentUser;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -69,35 +77,113 @@ public class GameController implements Icontrolleur, Initializable {
     public Client getClient() {
         return this.client;
     }
-
     @Override
     public void setClient(Client client) { this.client = client;}
 
     public GameChifoumi getGame() {return game;}
-
     public void setGame(GameChifoumi game) {this.game = game;}
 
-    @FXML
-    public void JouerAction(ActionEvent e) throws IOException {
+    public Stage getStage() { return stage;}
+    public void setStage(Stage stage) {  this.stage = stage;}
 
-        User user = this.client.getUser();
+    public void showResult(){
+        if(!this.game.getLesManches().isEmpty()){
+            GameMancheChifoumi gameMancheChifoumi = this.game.getLesManches().get(this.game.getLesManches().size() -1);
+            Image imgJ1 = new Image(Utils.getResourcesPath() + this.selectImageByAction(gameMancheChifoumi.getChoixJ1()));
+            Image imgJ2 = new Image(Utils.getResourcesPath() + this.selectImageByAction(gameMancheChifoumi.getChoixJ2()));
+            if(this.client.getUser().getId().equals(this.game.getIdUtilisateurJ1().getId())){
+                this.imgJouerParMoi.setImage(imgJ1);
+                this.yourRound3.setImage(imgJ2);
+                this.imgJouerParAmi.setImage(imgJ2);
+                this.scoreCurrentUser.setText(this.game.getScoreJ1().toString());
+                this.scoreJ2.setText(this.game.getScoreJ2().toString());
+            }else{
+                this.imgJouerParMoi.setImage(imgJ2);
+                this.yourRound3.setImage(imgJ1);
+                this.imgJouerParAmi.setImage(imgJ1);
+                this.scoreCurrentUser.setText(this.game.getScoreJ2().toString());
+                this.scoreJ2.setText(this.game.getScoreJ1().toString());
+            }
 
-        //Si le user choisit la pierre
-        if (myPierreButton.isPressed()) {
-            imgPierreMoi.setVisible(false);
-            Image test = new Image(Utils.getResourcesPath() + "img/pierre.png");
-            imgJouerParMoi.setImage(test);
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            this.imgJouerParMoi.setImage(null);
+            this.yourRound3.setImage(null);
+            this.imgJouerParAmi.setImage(null);
+            this.myPierreButton.setDisable(false);
+            this.myFeuilleButton.setDisable(false);
+            this.myCiseauxButton.setDisable(false);
         }
-        //Si le user choisit la feuille
-        if (myPierreButton.isPressed()) {
-            imgFeuilleAmi.setVisible(false);
 
-        }
-        //Si le user choisit le ciseaux
-        if (myPierreButton.isPressed()) {
-            imgCiseauxMoi.setVisible(false);
 
+    }
+
+
+    public void fermerStageAction(ActionEvent actionEvent) {
+        this.client.removeGame(game.getId());
+        this.stage.close();
+    }
+
+    //3
+    public void cisceauxAction(ActionEvent actionEvent) {
+        try{
+            this.action(3);
+            Image img = new Image(String.valueOf(new File(Utils.getResourcesPath()+"img/ciseaux.png").toURI().toURL()));
+            this.myRound1.setImage(img);
+        }catch (Exception e){
+            e.printStackTrace();
         }
 
     }
+
+    //1
+    public void feuilleAction(ActionEvent actionEvent) {
+        try {
+            this.action(1);
+            Image img = new Image(String.valueOf(new File(Utils.getResourcesPath()+"img/feuille.png").toURI().toURL()));
+            this.myRound1.setImage(img);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    //2
+    public void pierreAction(ActionEvent actionEvent) {
+        try {
+            this.action(2);
+            Image img = new Image(String.valueOf(new File(Utils.getResourcesPath()+"img/pierre.png").toURI().toURL()));
+            this.myRound1.setImage(img);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
+    private void action(Integer button){
+        this.myPierreButton.setDisable(true);
+        this.myFeuilleButton.setDisable(true);
+        this.myCiseauxButton.setDisable(true);
+        ChoixChifoumi choixChifoumi = new ChoixChifoumi(button,this.client.getUser().getId(),this.game.getId());
+        this.client.sendToServer(new ObjectSend(choixChifoumi,Action.CHOIX_JEUX));
+    }
+
+    private String selectImageByAction(Integer choix){
+        try{
+            if(choix == 1){
+                return String.valueOf(new File(Utils.getResourcesPath()+"img/feuille.png").toURI().toURL());
+            }else if(choix == 2){
+                return String.valueOf(new File(Utils.getResourcesPath()+"img/pierre.png").toURI().toURL());
+            }else{
+                return String.valueOf(new File(Utils.getResourcesPath()+"img/ciseaux.png").toURI().toURL());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+
+        }
+        return "";
+    }
+
 }

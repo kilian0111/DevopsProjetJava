@@ -4,6 +4,7 @@ package main.java.client;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import main.java.client.gui.controlleur.ApplicationController;
+import main.java.client.gui.controlleur.GameController;
 import main.java.common.*;
 
 
@@ -12,6 +13,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -26,7 +28,8 @@ public class Client {
     private MainGui mainGui;
     private List<UtilisateursConversations> lesConversations;
     private ApplicationController applicationController;
-    private GameChifoumi LaGame;
+    private HashMap<Long, GameController> lesGames;
+    private GameChifoumi laGame;
 
 
     public Client(int port, String address, MainGui mainGui) throws IOException {
@@ -34,6 +37,7 @@ public class Client {
         this.address = address;
         this.user = new User();
         this.mainGui = mainGui;
+        this.lesGames = new HashMap<>();
         Thread threadConnection = new Thread(new ClientReceive(this));
         threadConnection.start();
     }
@@ -149,6 +153,23 @@ public class Client {
             }
         }
     }
-    public GameChifoumi getLaGame() {return LaGame;}
-    public void setLaGame(GameChifoumi laGame) {LaGame = laGame;}
+
+    public GameChifoumi getLaGame() {return laGame;}
+    public void setLaGame(GameChifoumi laGame) {this.laGame = laGame;}
+
+    public void addGame(Long idGame, GameController gameController){
+        this.lesGames.put(idGame,gameController);
+    }
+
+    public void removeGame(Long idGame){
+        this.lesGames.remove(idGame);
+    }
+
+    public HashMap<Long, GameController> getLesGames() {
+        return lesGames;
+    }
+
+    public void setLesGames(HashMap<Long, GameController> lesGames) {
+        this.lesGames = lesGames;
+    }
 }

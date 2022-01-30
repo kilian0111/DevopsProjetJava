@@ -3,6 +3,8 @@ package main.java.server;
 
 
 import main.java.common.*;
+import main.java.repository.ConversationJpaRepository;
+import main.java.repository.MessageJpaRepository;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -67,5 +69,26 @@ public class Server {
 
     public List<GameChifoumiThread> getLesGames() {
         return lesGames;
+    }
+
+    public void sendMessageToConv(String content, Long convID){
+        UserSafeData serveur = new UserSafeData();
+        serveur.setPseudo("Bot");
+        serveur.setId(0L);
+        Message message = new Message();
+        message.setVisible(true);
+        message.setConversationId(convID);
+        message.setContent(content);
+        message.setUtilisateurSender(serveur);
+        Conversations conv = ConversationJpaRepository.getConversationById(convID);
+        List<Long> userId = new ArrayList<>();
+        for(UserSafeData user : conv.getLesUsers()){
+            userId.add(user.getId());
+        }
+        for(ConnectedClient connectedClient : this.lesClients){
+            if(connectedClient.getUser() != null && userId.contains(connectedClient.getUser().getId())){
+                connectedClient.sendToClient(new ObjectSend(message,Action.MESSAGE));
+            }
+        }
     }
 }

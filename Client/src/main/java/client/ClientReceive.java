@@ -8,6 +8,7 @@ import javafx.scene.control.Alert.*;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import main.java.client.gui.controlleur.GameController;
 import main.java.common.*;
 
 import java.io.IOException;
@@ -117,6 +118,8 @@ public class ClientReceive implements Runnable {
                                // si a demander de jouer recois la reponse
                            }else if(objectReceive.getAction() == Action.LANCER_JEUX){
                                this.reponseDemandeJeux(objectReceive.getObject());
+                           }else if(objectReceive.getAction() == Action.RESULTAT_JEUX &&  objectReceive.getObject() instanceof GameChifoumi){
+                               this.envoyerResultat((GameChifoumi) objectReceive.getObject() );
                            }
                        }
                    }else{
@@ -131,8 +134,14 @@ public class ClientReceive implements Runnable {
            Platform.runLater(() -> client.getMainGui().erreurPopUp("ATTENTION", "Erreur de connection au serveur", AlertType.ERROR));
            Platform.runLater(() ->this.client.getMainGui().changeScene("connection.fxml"));
 
-
        }
+
+    }
+
+    private void envoyerResultat(GameChifoumi gameChifoumi) {
+        GameController gameController = this.client.getLesGames().get(gameChifoumi.getId());
+        Platform.runLater(()-> gameController.setGame(gameChifoumi));
+        Platform.runLater(gameController::showResult);
 
     }
 

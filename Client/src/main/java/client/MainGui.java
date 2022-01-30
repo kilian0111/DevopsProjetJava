@@ -11,6 +11,7 @@ import javafx.scene.control.Alert.*;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import main.java.client.gui.controlleur.ApplicationController;
 import main.java.client.gui.controlleur.GameController;
 import main.java.client.gui.controlleur.Icontrolleur;
@@ -63,13 +64,12 @@ public class MainGui extends Application {
             Scene scene = new Scene(fxmlLoader.load());
             Icontrolleur controlleur = fxmlLoader.getController();
             controlleur.setClient(client);
-            if(controlleur instanceof ApplicationController){
-               ApplicationController app =  (ApplicationController) controlleur;
-               this.client.setApplicationController(app);
-               app.chargerData();
-            }else if(controlleur instanceof GameController){
-                GameController app =  (GameController) controlleur;
-                app.setGame(this.client.getLaGame());
+            if(controlleur instanceof ApplicationController applicationController){
+                this.client.setApplicationController(applicationController);
+                applicationController.chargerData();
+            }else if(controlleur instanceof GameController gameController){
+                gameController.setGame(this.client.getLaGame());
+                this.client.addGame(this.client.getLaGame().getId(),gameController);
             }
             primaryStage.setScene(scene);
         }catch (Exception e){
@@ -123,6 +123,15 @@ public class MainGui extends Application {
             stage.setScene(scene);
             Icontrolleur controlleur = fxmlLoader.getController();
             controlleur.setClient(client);
+            if(controlleur instanceof ApplicationController applicationController){
+                this.client.setApplicationController(applicationController);
+                applicationController.chargerData();
+            }else if(controlleur instanceof GameController gameController){
+                gameController.setGame(this.client.getLaGame());
+                gameController.setStage(stage);
+                this.client.addGame(this.client.getLaGame().getId(),gameController);
+
+            }
             stage.setTitle("Kijoki");
             stage.getIcons().add(new Image("file:" + Utils.getResourcesPath() + "img/favicon.png"));
             stage.setResizable(false);
@@ -138,6 +147,8 @@ public class MainGui extends Application {
         //arrete les threads
         System.exit(0);
     }
+
+
 
 }
 

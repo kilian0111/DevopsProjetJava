@@ -1,10 +1,8 @@
 package main.java.server;
 
-import main.java.common.Action;
-import main.java.common.Conversations;
-import main.java.common.GameChifoumi;
-import main.java.common.ObjectSend;
+import main.java.common.*;
 import main.java.repository.GameChifoumiJpaRepository;
+import main.java.repository.GameMancheChifomiJpaRepository;
 import main.java.repository.UserJpaRepository;
 
 import java.util.ArrayList;
@@ -22,6 +20,11 @@ public class GameChifoumiThread implements Runnable{
 
     private Boolean accepter;
 
+    private Boolean fermer;
+
+    private GameMancheChifoumi mancheEnCours;
+
+
     public GameChifoumiThread(){}
 
     public GameChifoumiThread(Server server, GameChifoumi game, ConnectedClient clientJ1) {
@@ -32,6 +35,7 @@ public class GameChifoumiThread implements Runnable{
 
     @Override
     public void run() {
+        this.fermer = false;
         game.setScoreJ1(0);
         game.setScoreJ2(0);
         game.setLesManches(new ArrayList<>());
@@ -62,9 +66,32 @@ public class GameChifoumiThread implements Runnable{
                 if(accepter != null && accepter){
                     this.clientJ1.sendToClient(new ObjectSend(this.game, Action.LANCER_JEUX));
 
+                    while(!fermer && this.clientJ2 != null && this.clientJ1 != null){
+                        this.mancheEnCours = new GameMancheChifoumi();
+                        this.mancheEnCours.setGameId(this.game.getId());
+                        while(this.mancheEnCours.getChoixJ1() == null || this.mancheEnCours.getChoixJ2() == null) {
+                            try {
+                                Thread.sleep(1000);
+                            } catch (InterruptedException ignored) {
+                            }
+                        }
+                        this.traitementJeux();
+                        this.game.addManche(this.mancheEnCours);
+                        GameMancheChifomiJpaRepository.saveMancheGame(this.mancheEnCours);
+                        if (this.clientJ2 != null) {
+                            this.clientJ2.sendToClient(new ObjectSend(this.game,Action.RESULTAT_JEUX));
+                        }
+                        if(this.clientJ1 != null){
+                            this.clientJ1.sendToClient(new ObjectSend(this.game,Action.RESULTAT_JEUX));
+                        }
+                    }
 
+                    GameChifoumiJpaRepository.updateGame(this.game);
+                    if (this.clientJ2 != null && this.clientJ1 != null) {
+                        this.server.sendMessageToConv(this.clientJ1.getUser().getPseudo() + "a " + this.game.getScoreJ1() + " point \n " + this.clientJ2.getUser().getPseudo() + "a " + this.game.getScoreJ2() + " point ",this.game.getConversationId());
+                    }
                 } else {
-                    this.clientJ1.sendToClient(new ObjectSend("l'adversaire a refusé ou n'est pas connecter ", Action.LANCER_JEUX));
+                    this.clientJ1.sendToClient(new ObjectSend("l'adversaire à refusé le chifoumi ou n'a pas répondu dans les temps", Action.LANCER_JEUX));
                 }
             }else{
                 this.clientJ1.sendToClient(new ObjectSend("l'adversaire n'est pas connécté", Action.LANCER_JEUX));
@@ -82,10 +109,40 @@ public class GameChifoumiThread implements Runnable{
         this.server.removeGame(this);
         Thread.currentThread().interrupt();
     }
+// 1 == feuille 2 == pierre 3== ciseaux
+    private void traitementJeux() {
+        if(this.mancheEnCours.getChoixJ1().equals(1)){
+            if(this.mancheEnCours.getChoixJ2().equals(2)){
+                this.game.setScoreJ1(this.game.getScoreJ1() + 1);
+            }else if(this.mancheEnCours.getChoixJ2().equals(3)){
+                this.game.setScoreJ2(this.game.getScoreJ2() + 1);
+            }
+        }else if(this.mancheEnCours.getChoixJ1().equals(2)){
+            if(this.mancheEnCours.getChoixJ2().equals(1)){
+                this.game.setScoreJ2(this.game.getScoreJ2() + 1);
+            }else if(this.mancheEnCours.getChoixJ2().equals(3)){
+                this.game.setScoreJ1(this.game.getScoreJ1() + 1);
+            }
+        }else if(this.mancheEnCours.getChoixJ1().equals(3)){
+            if(this.mancheEnCours.getChoixJ2().equals(1)){
+                this.game.setScoreJ1(this.game.getScoreJ1() + 1);
+            }else if(this.mancheEnCours.getChoixJ2().equals(2)){
+                this.game.setScoreJ2(this.game.getScoreJ2() + 1);
+            }
+        }
+    }
+
+
 
     public GameChifoumi getGame() {return game;}
     public void setGame(GameChifoumi game) { this.game = game;}
 
     public Boolean getAccepter() {return accepter;}
     public void setAccepter(Boolean accepter) {this.accepter = accepter;}
+
+    public Boolean getFermer() {return fermer;}
+    public void setFermer(Boolean fermer) {this.fermer = fermer;}
+
+    public GameMancheChifoumi getMancheEnCours() {return mancheEnCours;}
+    public void setMancheEnCours(GameMancheChifoumi mancheEnCours) {this.mancheEnCours = mancheEnCours;}
 }

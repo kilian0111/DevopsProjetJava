@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="450.0" stylesheets="@../style/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.client.gui.controlleur.ConnectionControlleur">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="450.0" style="-fx-background-color: rgb(162,162,162);" stylesheets="@../style/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.client.gui.controlleur.GameController">
    <children>
+      <Button mnemonicParsing="false" onAction="#fermerStageAction" text="Fermer">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="370.0" top="5.0" />
+         </VBox.margin>
+      </Button>
       <!--AnchorPane concerne ici le joueur Ami-->
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -34,7 +45,7 @@
                </cursor>
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a3a3a3" height="86.0" layoutX="74.0" layoutY="103.0" stroke="BLACK" strokeType="INSIDE" width="77.0" />
-            <ImageView fx:id="imgPierreAmi" fitHeight="93.0" fitWidth="86.0" layoutX="72.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="93.0" fitWidth="86.0" layoutX="72.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/pierre.png" />
                </image>
@@ -43,7 +54,7 @@
                </cursor>
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a3a3a3" height="86.0" layoutX="294.0" layoutY="103.0" stroke="BLACK" strokeType="INSIDE" width="77.0" />
-            <ImageView fx:id="imgCiseauxAmi" fitHeight="93.0" fitWidth="86.0" layoutX="290.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="93.0" fitWidth="86.0" layoutX="290.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/ciseaux.png" />
                </image>
@@ -52,7 +63,7 @@
                </cursor>
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a3a3a3" height="86.0" layoutX="182.0" layoutY="103.0" stroke="BLACK" strokeType="INSIDE" width="77.0" />
-            <ImageView fx:id="imgFeuilleAmi" fitHeight="93.0" fitWidth="86.0" layoutX="182.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="93.0" fitWidth="86.0" layoutX="182.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/feuille.png" />
                </image>
@@ -82,12 +93,32 @@
          <children>
             <ImageView fx:id="imgJouerParMoi" fitHeight="93.0" fitWidth="86.0" layoutX="71.0" layoutY="39.0" />
             <ImageView fx:id="imgJouerParAmi" fitHeight="93.0" fitWidth="86.0" layoutX="291.0" layoutY="39.0" />
+            <Label layoutX="16.0" layoutY="54.0" text="Vous">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="408.0" layoutY="54.0" text="J2">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="scoreJ2" layoutX="410.0" layoutY="86.0" text="0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="scoreCurrentUser" layoutX="28.0" layoutY="86.0" text="0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
          </children></Pane>
       <!--AnchorPane concerne ici Moi-->
       <AnchorPane prefHeight="200.0" prefWidth="200.0" rotate="180.0">
          <children>
             <Pane prefHeight="86.0" prefWidth="450.0" style="-fx-background-color: rgb(162,162,162);" />
-            <ImageView fitHeight="126.0" fitWidth="127.0" layoutX="162.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="0.0">
+            <ImageView fitHeight="126.0" fitWidth="126.0" layoutX="162.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@../img/man.png" />
                </image>
@@ -121,7 +152,7 @@
                   <Cursor fx:constant="CROSSHAIR" />
                </cursor>
             </ImageView>
-            <Button fx:id="myPierreButton" layoutX="74.0" layoutY="103.0" mnemonicParsing="false" opacity="0.0" prefHeight="86.0" prefWidth="77.0" text="Button" />
+            <Button fx:id="myPierreButton" layoutX="74.0" layoutY="103.0" mnemonicParsing="false" onAction="#pierreAction" opacity="0.0" prefHeight="86.0" prefWidth="77.0" text="Button" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a3a3a3" height="86.0" layoutX="182.0" layoutY="103.0" stroke="BLACK" strokeType="INSIDE" width="77.0" />
             <ImageView fx:id="imgFeuilleMoi" fitHeight="93.0" fitWidth="86.0" layoutX="175.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
                <image>
@@ -131,8 +162,8 @@
                   <Cursor fx:constant="CROSSHAIR" />
                </cursor>
             </ImageView>
-            <Button fx:id="myCiseauxButton" layoutX="294.0" layoutY="104.0" mnemonicParsing="false" opacity="0.0" prefHeight="86.0" prefWidth="77.0" rotate="180.0" text="Button" />
-            <Button fx:id="myFeuilleButton" layoutX="182.0" layoutY="102.0" mnemonicParsing="false" opacity="0.0" prefHeight="86.0" prefWidth="77.0" text="Button" />
+            <Button fx:id="myCiseauxButton" layoutX="294.0" layoutY="104.0" mnemonicParsing="false" onAction="#cisceauxAction" opacity="0.0" prefHeight="86.0" prefWidth="77.0" rotate="180.0" text="Button" />
+            <Button fx:id="myFeuilleButton" layoutX="182.0" layoutY="102.0" mnemonicParsing="false" onAction="#feuilleAction" opacity="0.0" prefHeight="86.0" prefWidth="77.0" text="Button" />
             <ImageView fx:id="myRound1" fitHeight="39.0" fitWidth="49.0" layoutX="16.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
                <cursor>
                   <Cursor fx:constant="CROSSHAIR" />

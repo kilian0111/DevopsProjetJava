@@ -86,6 +86,8 @@ public class ConnectedClient implements Runnable {
                            this.lancerJeux((GameChifoumi) objectSend.getObject() );
                        }else if(objectSend.getAction() == Action.REPONSEJ2_JEUX && objectSend.getObject() instanceof GameChifoumi){
                            this.reponseChifoumiJ2((GameChifoumi) objectSend.getObject());
+                       } else if(objectSend.getAction() == Action.CHOIX_JEUX && objectSend.getObject() instanceof ChoixChifoumi){
+                           this.addChoixToPartie((ChoixChifoumi) objectSend.getObject()  );
                        }
                    }
                 }else{
@@ -99,6 +101,25 @@ public class ConnectedClient implements Runnable {
            Thread.currentThread().interrupt();
         } catch(Exception e ){
             e.printStackTrace();
+        }
+    }
+
+    private void addChoixToPartie(ChoixChifoumi choixChifoumi) {
+        GameChifoumiThread leJeux = null ;
+        for(GameChifoumiThread gameChifoumiThread : this.server.getLesGames()){
+            if(gameChifoumiThread.getGame().getId().equals(choixChifoumi.getGameId())){
+                leJeux = gameChifoumiThread;
+                break;
+            }
+        }
+        if(leJeux != null){
+            GameMancheChifoumi gameMancheChifoumi = leJeux.getMancheEnCours();
+            if( leJeux.getGame().getIdUtilisateurJ1().getId().equals(choixChifoumi.getUserId())){
+               gameMancheChifoumi.setChoixJ1(choixChifoumi.getChoix());
+            }else{
+                gameMancheChifoumi.setChoixJ2(choixChifoumi.getChoix());
+            }
+            leJeux.setMancheEnCours(gameMancheChifoumi);
         }
     }
 
