@@ -5,7 +5,10 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-
+/**
+ * Comporte toutes les informations liées à une conversation
+ * Utilisateurs, Messages, nom, date de création
+ */
 public class Conversations implements Serializable {
 
     private Long conversationId;

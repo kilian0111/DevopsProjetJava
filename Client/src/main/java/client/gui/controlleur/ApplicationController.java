@@ -18,30 +18,52 @@ import java.util.*;
 public class ApplicationController implements Initializable,Icontrolleur {
 
 
-
+    /**
+     * Client courant
+     */
     private Client client;
-
+    /**
+     * Conversation séléctionnée par l'utilisateur
+     */
     private UtilisateursConversations currentConv;
 
-
+    /**
+     * Liste des messages
+     */
     @FXML
     private TextFlow messagesList;
 
+    /**
+     * Conversations de l'utilisateur
+     */
     @FXML
     private ListView<UtilisateursConversations> lesConversations;
 
+    /**
+     * Zone d'envoi de message
+     */
     @FXML
     private TextArea textAreaMessage;
 
+    /**
+     * Nom de l'utilisateur
+     */
     @FXML
     private Label accountName;
 
+    /**
+     * Bouton de jeu
+     */
     @FXML
     private Button playButton;
 
     @FXML
     private ScrollPane scrollMessage;
 
+    /**
+     * Envoi un message aux autres utilisateurs
+     * @param event Raison de l'appel de la méthode
+     */
     public void sendMessage(ActionEvent event) {
         if(!this.textAreaMessage.getText().isBlank()){
             List<Message> lesMessages = this.currentConv.getId().getConversations().getLesMessages();
@@ -65,6 +87,11 @@ public class ApplicationController implements Initializable,Icontrolleur {
         }
     }
 
+    /**
+     * Appelé lors de l'initialisation de la vue Application
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.lesConversations.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
@@ -79,6 +106,9 @@ public class ApplicationController implements Initializable,Icontrolleur {
         });
     }
 
+    /**
+     * Récupère les données et les affiche
+     */
     public void chargerData(){
         this.lesConversations.setCellFactory(uc -> new ConversationListCell());
         this.lesConversations.getItems().setAll(this.client.getLesConversations());
@@ -88,16 +118,28 @@ public class ApplicationController implements Initializable,Icontrolleur {
         setPlayButtonState();
     }
 
+    /**
+     * Retourne l'instance du client connecté
+     * @return Client instance du client connecté
+     */
     @Override
     public Client getClient() {
         return client;
     }
 
+    /**
+     * Définis l'instance du client connecté
+     * @param client
+     */
     @Override
     public void setClient(Client client) {
         this.client = client;
     }
 
+    /**
+     * Définis l'état du bouton "Jouer" selon la conversation
+     * Le bouton est accessible uniquement si ce n'est pas un groupe
+     */
     private void setPlayButtonState() {
         if (currentConv.getId().getConversations().getLesUsers() != null &&  currentConv.getId().getConversations().getLesUsers().size() == 2) {
             this.playButton.setDisable(false);
@@ -106,6 +148,10 @@ public class ApplicationController implements Initializable,Icontrolleur {
         }
     }
 
+    /**
+     * Affiche un message à l'utilisateur
+     * @param message
+     */
     private void addMessage(Message message) {
         List<Message> lesMessages = this.currentConv.getId().getConversations().getLesMessages();
 
@@ -123,7 +169,10 @@ public class ApplicationController implements Initializable,Icontrolleur {
         scrollMessage.vvalueProperty().bind(messagesList.heightProperty());
     }
 
-
+    /**
+     * Affiche un message reçu à l'utilisateur
+     * @param message Message reçu
+     */
     public void addMessageRecu(Message message) {
         for(UtilisateursConversations userConv : this.client.getLesConversations()){
             if(userConv.getId().getConversations().getConversationId().equals(message.getConversationId())){
@@ -143,10 +192,18 @@ public class ApplicationController implements Initializable,Icontrolleur {
         }
     }
 
+    /**
+     * Demande au serveur d'envoyer tous les utilisateurs existants
+     * @param actionEvent Raison de l'appel de la méthode
+     */
     public void addNewConvAction(ActionEvent actionEvent) {
         this.client.sendToServer(new ObjectSend(null , Action.LIST_USER));
     }
 
+    /**
+     * Deconnecte l'utilisateur courant
+     * @param actionEvent Raison de l'appel de la méthode
+     */
     public void deconexionAction(ActionEvent actionEvent) {
         this.client.setUser(new User());
         this.client.setLesConversations(null);
@@ -154,6 +211,10 @@ public class ApplicationController implements Initializable,Icontrolleur {
         this.client.getMainGui().changeScene("connection.fxml");
     }
 
+    /**
+     * Appelé lorsque l'utilisateur décide de lancer une partie
+     * @param actionEvent Raison de l'appel de la méthode
+     */
     public void playAction(ActionEvent actionEvent) {
         if(this.currentConv.getId().getConversations().getLesUsers() != null && this.currentConv.getId().getConversations().getLesUsers().size() == 2 ){
             UserSafeData userConnected = new UserSafeData();
@@ -170,6 +231,10 @@ public class ApplicationController implements Initializable,Icontrolleur {
         }
     }
 
+    /**
+     * Affiche les paramètres
+     * @param actionEvent Raison de l'appel de la méthode
+     */
     public void settingAction(ActionEvent actionEvent) {
         this.client.getMainGui().changeScene("options.fxml");
     }

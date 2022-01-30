@@ -7,6 +7,9 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * Informations liées à une manche de jeu
+ */
 @Entity
 @Table(name = "T_MANCHE_CHIFOUMI")
 public class GameMancheChifoumi  implements Serializable{

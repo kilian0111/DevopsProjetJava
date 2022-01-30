@@ -3,7 +3,9 @@ package main.java.common;
 import java.io.Serial;
 import java.io.Serializable;
 
-
+/**
+ * Informations liées à une manche de jeu
+ */
 public class GameMancheChifoumi  implements Serializable{
 
 

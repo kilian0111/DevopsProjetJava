@@ -16,24 +16,42 @@ import java.util.stream.Collectors;
 
 public class ConditionsDUtilisationControlleur implements Initializable,Icontrolleur {
 
-
+    /**
+     * Client courant
+     */
     private Client client;
 
+    /**
+     * Contient les conditions d'utilisations
+     */
     @FXML
     public TextFlow txtConditionUtils;
 
 
-
+    /**
+     * Retourne l'instance du client connecté
+     * @return Client instance du client connecté
+     */
     @Override
     public Client getClient() {
         return client;
     }
 
+    /**
+     * Définis l'instance du client connecté
+     * @param client
+     */
     @Override
     public void setClient(Client client) {
         this.client = client;
     }
 
+    /**
+     * Appelé lors de l'initialisation de la vue Application
+     * Affiche les conditions à l'utilisateur
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         File file = new File(Utils.getResourcesPath() + "file/conditionsUtilisations");

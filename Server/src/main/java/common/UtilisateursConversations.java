@@ -5,6 +5,10 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
+/**
+ * Contient les données d'une conversation liées à un utilisateur
+ * Date de dernière lecture
+ */
 @Entity
 @Table(name = "T_UTILISATEUR_CONVERSATION")
 public class UtilisateursConversations implements Serializable{

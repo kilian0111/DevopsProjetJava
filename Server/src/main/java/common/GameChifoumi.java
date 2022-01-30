@@ -10,6 +10,10 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Toutes les informations liées à une partie de jeu
+ * Joueurs, scores, manches
+ */
 @Entity
 @Table(name = "T_GAME_CHIFOUMI")
 public class GameChifoumi implements Serializable {

@@ -3,6 +3,9 @@ package main.java.common;
 import java.io.Serial;
 import java.io.Serializable;
 
+/**
+ * Choix de l'utilisateur lors du Chi Fou Mi
+ */
 public class ChoixChifoumi implements Serializable {
 
     private Integer choix;

@@ -7,6 +7,9 @@ import javax.persistence.OneToOne;
 import java.io.Serial;
 import java.io.Serializable;
 
+/**
+ * Retourne les conversations d'un utilisateur
+ */
 @Embeddable
 public class UtilisateursConversationsId implements Serializable {
 

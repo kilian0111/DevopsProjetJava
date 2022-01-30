@@ -56,7 +56,10 @@ public class OptionsController implements Icontrolleur, Initializable {
     }
 
 
-
+    /**
+     * L'utilisateur change ses paramètres
+     * @param actionEvent
+     */
     public void validerChangeAction(ActionEvent actionEvent) {
         User user = this.client.getUser();
         boolean modif = false;
@@ -139,6 +142,10 @@ public class OptionsController implements Icontrolleur, Initializable {
         //On attend que le serveur répond et nous dis que les changements ont bien été faits
     }
 
+    /**
+     * Retour sur l'application
+     * @param actionEvent
+     */
     public void annulerChangeAction(ActionEvent actionEvent) {
         this.client.getMainGui().changeScene("application.fxml");
     }

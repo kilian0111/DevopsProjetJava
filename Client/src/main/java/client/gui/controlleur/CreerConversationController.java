@@ -16,31 +16,57 @@ import java.util.ResourceBundle;
 
 public class CreerConversationController implements Initializable,Icontrolleur {
 
-
+    /**
+     * Client courant
+     */
     private Client client;
+    /**
+     * Tous les utilisateurs existants
+     */
     private List<UserSafeData> lesUsers;
 
+    /**
+     * Input du nom de la conversation
+     */
     @FXML
     private TextArea conversationName;
 
+    /**
+     * Selection des utilisateurs
+     */
     @FXML
     private ListView<UserSafeData> lesUtilisateurs;
-
+    /**
+     * Retourne l'instance du client connecté
+     * @return Client instance du client connecté
+     */
     @Override
     public main.java.client.Client getClient() {
         return client;
     }
-
+    /**
+     * Définis l'instance du client connecté
+     * @param client
+     */
     @Override
     public void setClient(main.java.client.Client client) {
         this.client = client;
     }
 
+    /**
+     * Appelé lors de l'initialisation de la Vue
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         lesUtilisateurs.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
+    /**
+     * Charge tous les utilisateurs et les affiche
+     * @param lesUsers
+     */
     public void chargerData(List<UserSafeData> lesUsers){
         this.lesUsers =  lesUsers;
 
@@ -48,6 +74,10 @@ public class CreerConversationController implements Initializable,Icontrolleur {
         this.lesUtilisateurs.getItems().setAll(lesUsers);
     }
 
+    /**
+     * Appelé lors de l'appui sur le bouton de création de conversation
+     * @param actionEvent
+     */
     public void addNewConvAction(ActionEvent actionEvent) {
         String name = this.conversationName.getText();
 
@@ -94,8 +124,10 @@ public class CreerConversationController implements Initializable,Icontrolleur {
 
 
     }
-
-
+    /**
+     * Appelé lors de l'appui sur le bouton d'annulation
+     * @param actionEvent
+     */
     public void retourApplicationsAction(ActionEvent actionEvent) {
         this.client.getMainGui().changeScene("application.fxml");
     }

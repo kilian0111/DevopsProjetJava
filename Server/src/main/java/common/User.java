@@ -10,6 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
+/**
+ * Informations liées à l'utilisateur
+ * Pseudo, Nom, Email, date de naissance, ..
+ */
 @Entity
 @Table(name = "T_UTILISATEUR")
 public class User implements Serializable {

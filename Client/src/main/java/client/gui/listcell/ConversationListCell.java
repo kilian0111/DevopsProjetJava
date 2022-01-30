@@ -16,6 +16,9 @@ public class ConversationListCell extends ListCell<UtilisateursConversations> {
     private final Label lastMessage = new Label();
     private final AnchorPane content = new AnchorPane();
 
+    /**
+     * Organise les informations sur une GridPane
+     */
     public ConversationListCell() {
         conversationName.setStyle("-fx-font-weight: bold;");
         GridPane.setConstraints(conversationName, 1, 0);
@@ -24,6 +27,11 @@ public class ConversationListCell extends ListCell<UtilisateursConversations> {
         content.getChildren().add(gridPane);
     }
 
+    /**
+     * Met à jour les informations selon la conversation et l'organisation définie
+     * @param item
+     * @param empty
+     */
     @Override
     protected void updateItem(UtilisateursConversations item, boolean empty) {
         super.updateItem(item, empty);

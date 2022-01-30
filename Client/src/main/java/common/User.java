@@ -4,6 +4,10 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * Informations liées à l'utilisateur
+ * Pseudo, Nom, Email, date de naissance, ..
+ */
 public class User implements Serializable {
 
 

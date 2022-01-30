@@ -6,7 +6,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 
-
+/**
+ * Contient les informations d'un message
+ * Envoyeur, contenu
+ */
 public class Message implements Serializable {
 
     private Long id;

@@ -4,7 +4,10 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
-
+/**
+ * Contient les données d'une conversation liées à un utilisateur
+ * Date de dernière lecture
+ */
 public class UtilisateursConversations implements Serializable{
 
     private UtilisateursConversationsId id;
