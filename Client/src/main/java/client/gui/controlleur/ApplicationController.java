@@ -9,7 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import main.java.client.Client;
-import main.java.client.gui.ConversationListCell;
+import main.java.client.gui.listcell.ConversationListCell;
 import main.java.common.*;
 
 import java.net.URL;
@@ -78,7 +78,6 @@ public class ApplicationController implements Initializable,Icontrolleur {
             }
         });
     }
-
 
     public void chargerData(){
         this.lesConversations.setCellFactory(uc -> new ConversationListCell());
