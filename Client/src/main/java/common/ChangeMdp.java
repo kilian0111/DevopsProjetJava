@@ -4,6 +4,9 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * Changement de mot de passe
+ */
 public class ChangeMdp implements Serializable {
 
     private Long idUser;

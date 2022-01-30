@@ -4,7 +4,9 @@ package main.java.common;
 import java.io.Serial;
 import java.io.Serializable;
 
-
+/**
+ * Retourne les conversations d'un utilisateur
+ */
 public class UtilisateursConversationsId implements Serializable {
 
     private UserSafeData utilisateur;

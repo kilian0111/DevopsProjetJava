@@ -4,7 +4,9 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
-
+/**
+ * Contient toutes les informations liées à un utilisateur sans le mot de passe et le salt
+ */
 public class UserSafeData implements Serializable {
 
     private Long id;

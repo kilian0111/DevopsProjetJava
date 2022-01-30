@@ -3,6 +3,9 @@ package main.java.common;
 import java.io.Serial;
 import java.io.Serializable;
 
+/**
+ * Objet envoyé au serveur
+ */
 public class ObjectSend implements Serializable {
 
     private Object object;

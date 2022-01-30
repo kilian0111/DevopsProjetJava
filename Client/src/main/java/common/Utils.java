@@ -9,6 +9,12 @@ import java.util.regex.Pattern;
 
 public class Utils {
 
+    /**
+     * Converti le mot de passe avec le sel
+     * @param passwordToHash Mot de passe
+     * @param salt Sel
+     * @return Mot de passe avec le sel appliqué
+     */
     public static String convertMdpWithSalt(String passwordToHash, String salt){
         String generatedPassword = null;
         try {
@@ -27,16 +33,29 @@ public class Utils {
         return generatedPassword;
     }
 
+    /**
+     * Chemin des ressources
+     * @return Chemin vers les ressources
+     */
     public static String getResourcesPath(){
         return "src/main/ressources/";
     }
 
+    /**
+     * Vérifie si une adresse mail en est vraiment une
+     * @param email Adresse à vérifier
+     * @return true si l'adresse fournie est valide
+     */
     public static boolean isEmailAdress(String email){
         Pattern p = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$");
         Matcher m = p.matcher(email.toUpperCase());
         return m.matches();
     }
 
+    /**
+     *
+     * @return Chaine aléatoire de 10 caractères
+     */
     public static String generateChaine(){
         Random rand = new Random();
         String alphabet = "abcdefghijklmnopqrstuvwxyz@$12356789";
