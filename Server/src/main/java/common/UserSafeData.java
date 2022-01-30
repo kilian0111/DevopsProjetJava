@@ -8,6 +8,9 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * Contient toutes les informations liées à un utilisateur sans le mot de passe et le salt
+ */
 @Entity
 @Table(name = "T_UTILISATEUR")
 public class UserSafeData implements Serializable {

@@ -7,6 +7,10 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * Contient les informations d'un message
+ * Envoyeur, contenu
+ */
 @Entity
 @Table(name = "T_MESSAGE")
 public class Message implements Serializable {

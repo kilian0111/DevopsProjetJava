@@ -11,6 +11,10 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Comporte toutes les informations liées à une conversation
+ * Utilisateurs, Messages, nom, date de création
+ */
 @Entity
 @Table(name = "T_CONVERSATION")
 public class Conversations implements Serializable {

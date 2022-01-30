@@ -1,5 +1,8 @@
 package main.java.common;
 
+/**
+ * Différentes actions d'échanges entre le serveur et le client
+ */
 public enum Action {
     CONNECTION,INSCRIPTION,MDP_OUBLIEE,REPONSE_MDP_OUBLIEE,CHANGEMENT_MDP,REPONSE_CHANGEMENT_MDP,
     MODIF_USER,REPONSE_MODIFUSER,LIST_CONVERSATION,MESSAGE,LANCER_JEUX,DEMANDE_JEUX,REPONSEJ2_JEUX,
