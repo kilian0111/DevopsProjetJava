@@ -19,16 +19,32 @@ import java.util.ResourceBundle;
 
 public class ConnectionControlleur implements Initializable,Icontrolleur {
 
-
+    /**
+     * Client courant
+     */
     private Client client;
 
+    /**
+     * Champ demandant l'identifiant
+     */
     @FXML
     private TextField identifiant;
+    /**
+     * Champ demandant le mot de passe
+     */
     @FXML
     private PasswordField mdp;
+    /**
+     * Texte affiché lors d'erreur
+     */
     @FXML
     private Label labelErreur;
 
+    /**
+     * Appelé lorsque l'utilisateur veut se connecter
+     * @param e
+     * @throws IOException
+     */
     @FXML
     public void connectionAction(ActionEvent e) throws IOException {
         if(!identifiant.getText().isBlank() && !mdp.getText().isBlank()){
@@ -48,11 +64,20 @@ public class ConnectionControlleur implements Initializable,Icontrolleur {
         mdp.setStyle(mdp.getText().isBlank() ? "-fx-border-color: red" : "-fx-border-color: transparent");
     }
 
+    /**
+     * Affiche la fenêtre d'inscription
+     * @param e
+     * @throws IOException
+     */
     @FXML
     public void inscriptionAction(ActionEvent e) throws IOException {
         this.client.getMainGui().changeScene("inscription.fxml");
     }
 
+    /**
+     * Gère l'oubli de mot de passe
+     * @param e
+     */
     @FXML
     public void forgotPassword(ActionEvent e){
         if(!identifiant.getText().isBlank() && Utils.isEmailAdress(identifiant.getText())){
@@ -73,10 +98,20 @@ public class ConnectionControlleur implements Initializable,Icontrolleur {
     }
 
 
+    /**
+     * Retourne l'instance du client connecté
+     * @return Client instance du client connecté
+     */
+    @Override
     public Client getClient() {
         return client;
     }
 
+    /**
+     * Définis l'instance du client connecté
+     * @param client
+     */
+    @Override
     public void setClient(Client client) {
         this.client = client;
     }

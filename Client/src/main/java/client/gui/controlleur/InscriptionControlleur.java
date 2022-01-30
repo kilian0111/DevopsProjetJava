@@ -45,6 +45,11 @@ public class InscriptionControlleur implements Initializable,Icontrolleur{
     @FXML
     private Label erreurLabel;
 
+    /**
+     * Appelé lors de l'initialisation de la vue Inscription
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         genreCombo.getItems().setAll("Non précisé","Homme","Femme");
@@ -61,19 +66,34 @@ public class InscriptionControlleur implements Initializable,Icontrolleur{
         this.client = client;
     }
 
-
+    /**
+     * Affiche les conditions d'utilisation
+     * @param actionEvent
+     */
     public void showConditionsUtilisationAction(ActionEvent actionEvent) {
          this.client.getMainGui().showSecondNewStage("conditionsDUtilisation.fxml");
     }
 
+    /**
+     * Affiche la politique de confidentialité
+     * @param actionEvent
+     */
     public void showPolitiqueConfiAction(ActionEvent actionEvent) {
         this.client.getMainGui().showSecondNewStage("politiquesConfidentialite.fxml");
     }
 
+    /**
+     * Affichage la page de connexion
+     * @param actionEvent
+     */
     public void retourPageConnexion(ActionEvent actionEvent) {
         this.client.getMainGui().changeScene("connection.fxml");
     }
 
+    /**
+     * Utilisateur clique sur Inscription
+     * @param actionEvent
+     */
     public void inscriptionAction(ActionEvent actionEvent) {
 
         String message = "";

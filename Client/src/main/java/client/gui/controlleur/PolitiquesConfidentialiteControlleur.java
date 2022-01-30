@@ -33,6 +33,12 @@ public class PolitiquesConfidentialiteControlleur implements Initializable,Icont
         this.client = client;
     }
 
+    /**
+     * Appelé lors de l'initialisation de la politique de confidentialité
+     * Affiche à l'utilisateur la politique
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         File file = new File(Utils.getResourcesPath() + "file/politiqueConf");
