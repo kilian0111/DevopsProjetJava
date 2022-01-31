@@ -199,6 +199,7 @@ public class GameController implements Icontrolleur, Initializable {
      * @return L'image concernée
      */
     private void selectImageByAction(Integer choix,boolean currentUser){
+        if(choix != null){
             if(currentUser){
                 if(choix == 1){
                     this.imgFeuilleMoiPlateau.setVisible(true);
@@ -216,6 +217,7 @@ public class GameController implements Icontrolleur, Initializable {
                     this.imgCisceauxAmi.setVisible(true);
                 }
             }
+        }
 
 
     }

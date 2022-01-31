@@ -1,11 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="DevopsProjetJava2:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e94660bc-7d73-4a3d-8f55-8ddb14e94c0b" name="Changes" comment="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription">
+      <change beforePath="$PROJECT_DIR$/../Client/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ApplicationController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ApplicationController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ApplicationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ApplicationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ConditionsDUtilisationControlleur.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ConditionsDUtilisationControlleur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ConnectionControlleur.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ConnectionControlleur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/CreerConversationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/CreerConversationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/InscriptionControlleur.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/InscriptionControlleur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/MdpOublierControlleur.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/MdpOublierControlleur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/OptionsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/OptionsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/PolitiquesConfidentialiteControlleur.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/PolitiquesConfidentialiteControlleur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/listcell/ConversationListCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/listcell/ConversationListCell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/listcell/UserListCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/listcell/UserListCell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/Action.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/Action.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/ChangeMdp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/ChangeMdp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/ChoixChifoumi.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/ChoixChifoumi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/Conversations.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/Conversations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/GameChifoumi.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/GameChifoumi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/GameMancheChifoumi.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/GameMancheChifoumi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/Message.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/ObjectSend.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/ObjectSend.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/UserSafeData.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/UserSafeData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/UtilisateursConversations.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/UtilisateursConversations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/UtilisateursConversationsId.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/UtilisateursConversationsId.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/Utils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/ClientReceive.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/ClientReceive.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/Action.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/Action.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/ChangeMdp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/ChangeMdp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/ChoixChifoumi.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/ChoixChifoumi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/Conversations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/Conversations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/GameChifoumi.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/GameChifoumi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/GameMancheChifoumi.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/GameMancheChifoumi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/Message.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/ObjectSend.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/ObjectSend.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/UserSafeData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/UserSafeData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/UtilisateursConversations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/UtilisateursConversations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/UtilisateursConversationsId.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/UtilisateursConversationsId.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/Utils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/database/DataBaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/database/DataBaseConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/database/DataBaseConnectionRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/database/DataBaseConnectionRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/ConnectedClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/ConnectedClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/GameChifoumiThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/GameChifoumiThread.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,9 +85,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/ressources/lib/mail/activation.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../DevopsProjetJava - Copie" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -93,6 +144,9 @@
       <workItem from="1643400927412" duration="8448000" />
       <workItem from="1643457066823" duration="10029000" />
       <workItem from="1643539982923" duration="23133000" />
+      <workItem from="1643617239721" duration="315000" />
+      <workItem from="1643617623427" duration="254000" />
+      <workItem from="1643619279247" duration="690000" />
     </task>
     <task id="LOCAL-00001" summary="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription">
       <created>1642257550779</created>
@@ -117,6 +171,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription" />

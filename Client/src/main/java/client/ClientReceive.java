@@ -147,8 +147,10 @@ public class ClientReceive implements Runnable {
 
     private void envoyerResultat(GameChifoumi gameChifoumi) {
         GameController gameController = this.client.getLesGames().get(gameChifoumi.getId());
-        Platform.runLater(()-> gameController.setGame(gameChifoumi));
-        Platform.runLater(gameController::showResult);
+        if(gameController != null){
+            Platform.runLater(()-> gameController.setGame(gameChifoumi));
+            Platform.runLater(gameController::showResult);
+        }
 
     }
 

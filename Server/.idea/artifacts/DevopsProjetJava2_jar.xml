@@ -1,0 +1,31 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DevopsProjetJava2:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DevopsProjetJava2_jar</output-path>
+    <root id="archive" name="DevopsProjetJava2.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/../../DevopsProjetJava - Copie/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="DevopsProjetJava2" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/main/ressources/lib/hibernate/required/hibernate-core-5.6.2.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/main/ressources/lib/hibernate/required/jaxb-api-2.3.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/main/ressources/lib/hibernate/required/stax-ex-1.8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/main/ressources/lib/mail/activation.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/main/ressources/lib/mail/javax.mail-1.6.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/main/ressources/lib/hibernate/required/istack-commons-runtime-3.0.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/main/ressources/lib/hibernate/required/javax.activation-api-1.2.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/main/ressources/lib/hibernate/required/jandex-2.2.3.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/main/ressources/lib/hibernate/required/txw2-2.3.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/main/ressources/lib/hibernate/required/classmate-1.5.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/main/ressources/lib/hibernate/required/FastInfoset-1.2.15.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/main/ressources/lib/hibernate/required/byte-buddy-1.11.20.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/main/ressources/lib/hibernate/required/antlr-2.7.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/main/ressources/lib/hibernate/required/hibernate-commons-annotations-5.1.2.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/main/ressources/lib/postgresql-42.3.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/main/ressources/lib/hibernate/required/jboss-logging-3.4.2.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/main/ressources/lib/hibernate/required/javax.persistence-api-2.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/main/ressources/lib/hibernate/required/jboss-transaction-api_1.2_spec-1.1.1.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/main/ressources/lib/hibernate/required/hibernate-jpamodelgen-5.6.2.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/main/ressources/lib/hibernate/required/jaxb-runtime-2.3.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
