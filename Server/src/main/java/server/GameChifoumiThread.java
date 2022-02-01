@@ -99,13 +99,16 @@ public class GameChifoumiThread implements Runnable{
 
                     GameChifoumiJpaRepository.updateGame(this.game);
                     if (this.clientJ2 != null && this.clientJ1 != null) {
-                        this.server.sendMessageToConv("Fin de partie un utilisateur a quitter \n" + this.clientJ1.getUser().getPseudo() + " a " + this.game.getScoreJ1() + " point \n " + this.clientJ2.getUser().getPseudo() + " a " + this.game.getScoreJ2() + " point ",this.game.getConversationId());
+                        this.server.sendMessageToConv("Fin de partie un utilisateur a quitté \n" +
+                                this.clientJ1.getUser().getPseudo() + " a " + this.game.getScoreJ1() + " point" + (this.game.getScoreJ1() > 1 ? "s" : "") +
+                                this.clientJ2.getUser().getPseudo() + " a " + this.game.getScoreJ2() + " point " + (this.game.getScoreJ2() > 1 ? "s" : ""),
+                                this.game.getConversationId());
                     }
                 } else {
-                    this.clientJ1.sendToClient(new ObjectSend("l'adversaire à refusé le chifoumi ou n'a pas répondu dans les temps", Action.LANCER_JEUX));
+                    this.clientJ1.sendToClient(new ObjectSend("l'adversaire a refusé le chifoumi ou n'a pas répondu dans les temps", Action.LANCER_JEUX));
                 }
             }else{
-                this.clientJ1.sendToClient(new ObjectSend("l'adversaire n'est pas connécté", Action.LANCER_JEUX));
+                this.clientJ1.sendToClient(new ObjectSend("l'adversaire n'est pas connecté", Action.LANCER_JEUX));
             }
         }else{
             this.clientJ1.sendToClient(new ObjectSend("Erreur adversaire non trouvée",Action.LANCER_JEUX));
