@@ -11,15 +11,19 @@ import java.util.List;
 
 public class ConversationListCell extends ListCell<UtilisateursConversations> {
 
-    private final GridPane gridPane = new GridPane();
-    private final Label conversationName = new Label();
-    private final Label lastMessage = new Label();
-    private final AnchorPane content = new AnchorPane();
+    private GridPane gridPane = new GridPane();
+    private Label conversationName = new Label();
+    private Label lastMessage = new Label();
+    private AnchorPane content = new AnchorPane();
 
     /**
      * Organise les informations sur une GridPane
      */
     public ConversationListCell() {
+        this.gridPane = new GridPane();
+        this.conversationName = new Label();
+        this.lastMessage = new Label();
+        this.content = new AnchorPane();
         conversationName.setStyle("-fx-font-weight: bold;");
         GridPane.setConstraints(conversationName, 1, 0);
         GridPane.setConstraints(lastMessage, 1, 1);
@@ -36,6 +40,7 @@ public class ConversationListCell extends ListCell<UtilisateursConversations> {
     protected void updateItem(UtilisateursConversations item, boolean empty) {
         super.updateItem(item, empty);
         setText(null);
+
         if (!empty && item != null) {
             List<Message> messages = item.getId().getConversations().getLesMessages();
             conversationName.setText(item.nomConv());
@@ -48,7 +53,9 @@ public class ConversationListCell extends ListCell<UtilisateursConversations> {
 
             setGraphic(content);
             setText(null);
+        }else{
+            setGraphic(null);
+            setText("");
         }
     }
-
 }

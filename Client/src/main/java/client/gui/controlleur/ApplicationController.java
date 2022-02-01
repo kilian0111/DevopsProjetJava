@@ -1,5 +1,6 @@
 package main.java.client.gui.controlleur;
 
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -118,20 +119,22 @@ public class ApplicationController implements Initializable,Icontrolleur {
             public void changed(ObservableValue observableValue, Object o, Object t1) {
                 currentConv = (UtilisateursConversations) t1;
                 messagesList.getChildren().clear();
-                currentConv.getId().getConversations().getLesMessages().forEach(message -> { addMessage(message); });
-                scrollMessage.vvalueProperty().bind(messagesList.heightProperty());
-                convName.setText(currentConv.nomConv());
-                setPlayButtonState();
+                    currentConv.getId().getConversations().getLesMessages().forEach(message -> { addMessage(message); });
+                    scrollMessage.vvalueProperty().bind(messagesList.heightProperty());
+                    convName.setText(currentConv.nomConv());
+                    setPlayButtonState();
 
-                if (currentConv.getId().getConversations().getConversationId() == 0) {
-                    convUsers.getItems().clear();
-                    convUsers.setDisable(true);
-                    return;
-                }
+                    if (currentConv.getId().getConversations().getConversationId() == 0) {
+                        convUsers.getItems().clear();
+                        convUsers.setDisable(true);
+                        return;
+                    }
 
                 convUsers.setDisable(false);
                 convUsers.setCellFactory(user -> new UserListCell());
                 convUsers.getItems().setAll(currentConv.getId().getConversations().getLesUsers());
+
+
             }
         });
 
@@ -142,12 +145,16 @@ public class ApplicationController implements Initializable,Icontrolleur {
      * Récupère les données et les affiche
      */
     public void chargerData(){
-        this.lesConversations.setCellFactory(uc -> new ConversationListCell());
-        this.lesConversations.getItems().setAll(this.client.getLesConversations());
-        this.lesConversations.getSelectionModel().select(0);
-        this.currentConv = this.lesConversations.getSelectionModel().getSelectedItem();
-        accountName.setText(this.client.getUser().getPseudo());
-        setPlayButtonState();
+        Platform.runLater(() -> {
+            this.lesConversations.getItems().clear();
+            this.lesConversations.getItems().setAll(this.client.getLesConversations());
+            this.lesConversations.setCellFactory(uc -> new ConversationListCell());
+
+            this.lesConversations.getSelectionModel().select(0);
+            this.currentConv = this.lesConversations.getSelectionModel().getSelectedItem();
+            accountName.setText(this.client.getUser().getPseudo());
+            setPlayButtonState();
+        });
     }
 
     /**
@@ -280,6 +287,20 @@ public class ApplicationController implements Initializable,Icontrolleur {
     }
 
     public void quitterConvAction(ActionEvent actionEvent){
+        //Si la conversation est la général
+        if(!this.currentConv.getId().getConversations().getConversationId().equals(0L))
+        {
+            this.client.sendToServer(new ObjectSend(this.currentConv, Action.QUITTER_CONV));
+            List<UtilisateursConversations> lesConvs = this.client.getLesConversations();
+            lesConvs.remove(this.currentConv);
+            this.client.setLesConversations(lesConvs);
+            this.lesConversations.getItems().remove(this.currentConv);
+            this.lesConversations.getSelectionModel().select(0);
+        }
+        else
+        {
+            this.client.getMainGui().erreurPopUp("Information","On ne peut pas quitter la conversation générale !", Alert.AlertType.INFORMATION);
+        }
     }
 
 }
