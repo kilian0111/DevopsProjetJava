@@ -8,6 +8,7 @@ import javafx.scene.control.Alert.*;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import main.java.client.gui.controlleur.ApplicationController;
 import main.java.client.gui.controlleur.GameController;
 import main.java.common.*;
 
@@ -128,6 +129,8 @@ public class ClientReceive implements Runnable {
                                this.addUserConnecter( (UserSafeData) objectReceive.getObject());
                            }else if(objectReceive.getAction() == Action.REMOVE_USER_CONNECTER &&  objectReceive.getObject() instanceof UserSafeData){
                                this.removeUserConnecter( (UserSafeData) objectReceive.getObject());
+                           }else if(objectReceive.getAction() == Action.SUPPRESSSION_USER_CONV &&  objectReceive.getObject() instanceof Conversations){
+                               this.removeUserConv((Conversations) objectReceive.getObject());
                            }
                        }
                    }else{
@@ -146,12 +149,30 @@ public class ClientReceive implements Runnable {
 
     }
 
+    private void removeUserConv(Conversations conversations) {
+       List<UtilisateursConversations> lesUtilisateurConv =  this.client.getLesConversations();
+       for(UtilisateursConversations userConv : lesUtilisateurConv){
+           if(userConv.getId().getConversations().getConversationId().equals(conversations.getConversationId())){
+               List<UserSafeData> lesUsers = userConv.getId().getConversations().getLesUsers();
+               lesUsers.remove(conversations.getLesUsers().get(0));
+               userConv.getId().getConversations().setLesUsers(lesUsers);
+               break;
+           }
+       }
+       this.client.setLesConversations(lesUtilisateurConv);
+        if(this.client.getApplicationController() != null){
+            ApplicationController app = this.client.getApplicationController();
+            Platform.runLater(() ->app.removeUserConv(conversations));
+        }
+    }
+
     private void removeUserConnecter(UserSafeData userSafeData) {
         List<UserSafeData> lesUsersCo = this.client.getLesUserConnecter();
         lesUsersCo.remove(userSafeData);
         this.client.setLesUserConnecter(lesUsersCo);
-        for(UserSafeData user : this.client.getLesUserConnecter()){
-            System.out.println(user.getPseudo());
+        if(this.client.getApplicationController() != null){
+            ApplicationController app = this.client.getApplicationController();
+            Platform.runLater(() ->app.removeUserCo(userSafeData));
         }
     }
 
@@ -159,15 +180,17 @@ public class ClientReceive implements Runnable {
         List<UserSafeData> lesUsersCo = this.client.getLesUserConnecter();
         lesUsersCo.add(userSafeData);
         this.client.setLesUserConnecter(lesUsersCo);
-        for(UserSafeData user : this.client.getLesUserConnecter()){
-            System.out.println(user.getPseudo());
+        if(this.client.getApplicationController() != null){
+            ApplicationController app = this.client.getApplicationController();
+            Platform.runLater(() ->app.addNewUserCo(userSafeData));
         }
     }
 
     private void allUserConnecter(List<UserSafeData> lesUserCo) {
         this.client.setLesUserConnecter(lesUserCo);
-        for(UserSafeData user : this.client.getLesUserConnecter()){
-            System.out.println(user.getPseudo());
+        if(this.client.getApplicationController() != null){
+            ApplicationController app = this.client.getApplicationController();
+            Platform.runLater(app::addAllUserCo);
         }
     }
 

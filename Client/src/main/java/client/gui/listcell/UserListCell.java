@@ -18,6 +18,9 @@ public class UserListCell extends ListCell<UserSafeData> {
             final String text = String.format("%s", item.getPseudo());
             setText(text);
         }
+        if(item == null){
+            setText("");
+        }
     }
 
 }

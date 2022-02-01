@@ -89,6 +89,7 @@ public class Server {
         message.setUtilisateurSender(serveur);
         Conversations conv = ConversationJpaRepository.getConversationById(convID);
         List<Long> userId = new ArrayList<>();
+        MessageJpaRepository.saveMessage(message);
         for(UserSafeData user : conv.getLesUsers()){
             userId.add(user.getId());
         }
