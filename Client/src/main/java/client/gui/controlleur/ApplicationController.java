@@ -279,4 +279,7 @@ public class ApplicationController implements Initializable,Icontrolleur {
         this.client.getMainGui().changeScene("options.fxml");
     }
 
+    public void quitterConvAction(ActionEvent actionEvent){
+    }
+
 }
