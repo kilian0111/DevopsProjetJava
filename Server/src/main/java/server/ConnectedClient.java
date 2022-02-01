@@ -13,6 +13,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -27,8 +28,10 @@ public class ConnectedClient implements Runnable {
     private ObjectInputStream in;
     private Server server;
     private User user;
+    private UserSafeData UserSafeData;
     private ChangeMdp chaineMdpOubliee;
     private List<GameChifoumiThread> lesGamesChifoumi;
+
 
     public ConnectedClient(Socket socket, Server server) throws IOException {
         this.socket = socket;
@@ -101,7 +104,6 @@ public class ConnectedClient implements Runnable {
                            this.createUtilisateurConv((List<UtilisateursConversations>) objectSend.getObject());
                        }else if(objectSend.getAction() == Action.FERMER_JEUX && objectSend.getObject() instanceof GameChifoumi){
                            this.jeuxFermer((GameChifoumi) objectSend.getObject());
-
                        }
                    }
                 }else{
@@ -116,6 +118,16 @@ public class ConnectedClient implements Runnable {
         } catch(Exception e ){
             e.printStackTrace();
         }
+    }
+
+    private void sendAllUserConnecter() {
+        List<UserSafeData> lesUserCo = new ArrayList<>();
+        for(ConnectedClient connectedClient : this.server.getLesClients()){
+            if(connectedClient.getUserSafeData() != null ){
+                lesUserCo.add(connectedClient.getUserSafeData());
+            }
+        }
+        this.sendToClient(new ObjectSend(lesUserCo,Action.LIST_USER));
     }
 
 
@@ -208,6 +220,8 @@ public class ConnectedClient implements Runnable {
                 User userInscrit =  UserJpaRepository.saveUser(user);
                 this.sendToClient(new ObjectSend(userInscrit,Action.INSCRIPTION));
                 this.user = userInscrit;
+                this.UserSafeData = UserJpaRepository.getUserSafeDataById(userInscrit.getId());
+                this.envoyerAllUserConnecter();
                 this.sendToClient(new ObjectSend(UtilisateursConversationJpaRepository.getUtilisateurConversationByUserId(this.user.getId()),Action.LIST_CONVERSATION));
                 this.server.sendToAll(this.user.getPseudo() + " vient d'arriver sur KIJOKI (comment a t-il pu faire sans kijoki)");
             }else{
@@ -297,6 +311,18 @@ public class ConnectedClient implements Runnable {
         }
     }
 
+    private void envoyerAllUserConnecter(){
+        List<UserSafeData> lesUserConnecter = new ArrayList<>();
+        for(ConnectedClient connectedClient : this.server.getLesClients()){
+            if(connectedClient.getUserSafeData() != null){
+                lesUserConnecter.add(connectedClient.getUserSafeData());
+            }
+        }
+        this.sendToClient(new ObjectSend(lesUserConnecter,Action.USER_CONNECTER));
+    }
+
+
+
     /**
      * Connexion d'un utilisateur
      * @param user
@@ -306,7 +332,17 @@ public class ConnectedClient implements Runnable {
         ObjectSend actionSend = new ObjectSend(userConnecete, Action.CONNECTION);
         this.user = userConnecete;
         this.sendToClient(actionSend);
+
         if(userConnecete != null && userConnecete.getId() != null && userConnecete.getActif()){
+            if(this.getUserSafeData() != null ){
+                for(ConnectedClient connectedClient : this.server.getLesClients()){
+                    if(connectedClient.getUser() != null && connectedClient.getUserSafeData() != null){
+                        connectedClient.sendToClient(new ObjectSend(this.getUserSafeData(),Action.ADD_USER_CONNECTER));
+                    }
+                }
+            }
+            this.envoyerAllUserConnecter();
+            this.UserSafeData = UserJpaRepository.getUserSafeDataById(userConnecete.getId());
             List<UtilisateursConversations> utilisateursConvList = UtilisateursConversationJpaRepository.getUtilisateurConversationByUserId(this.user.getId());
             this.sendToClient(new ObjectSend(utilisateursConvList,Action.LIST_CONVERSATION));
             this.server.sendToAll(this.user.getPseudo() + " est de retour sur KIJOKI ");
@@ -392,4 +428,7 @@ public class ConnectedClient implements Runnable {
         this.lesGamesChifoumi.remove(gameChifoumi);
     }
 
+    public main.java.common.UserSafeData getUserSafeData() {return UserSafeData;}
+
+    public void setUserSafeData(main.java.common.UserSafeData userSafeData) {UserSafeData = userSafeData;}
 }

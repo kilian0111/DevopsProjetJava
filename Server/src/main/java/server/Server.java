@@ -38,6 +38,13 @@ public class Server {
         }
         this.lesClients.remove(client);
         if(client.getUser() != null && client.getUser().getPseudo() != null){
+           if(client.getUserSafeData() != null ){
+               for(ConnectedClient connectedClient : this.getLesClients()){
+                   if(connectedClient.getUser() != null){
+                       connectedClient.sendToClient(new ObjectSend(client.getUserSafeData(),Action.REMOVE_USER_CONNECTER));
+                   }
+               }
+           }
             this.sendToAll(client.getUser().getPseudo() + " Vient de se déconnecter (Quelle Indignité) ");
         }
 

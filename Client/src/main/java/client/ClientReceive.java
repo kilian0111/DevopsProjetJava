@@ -122,6 +122,12 @@ public class ClientReceive implements Runnable {
                                this.envoyerResultat((GameChifoumi) objectReceive.getObject() );
                            }else if(objectReceive.getAction() == Action.LIST_USER &&  objectReceive.getObject() instanceof List){
                                this.createConv( (List<UserSafeData> ) objectReceive.getObject());
+                           }else if(objectReceive.getAction() == Action.USER_CONNECTER &&  objectReceive.getObject() instanceof List){
+                               this.allUserConnecter( (List<UserSafeData> ) objectReceive.getObject());
+                           }else if(objectReceive.getAction() == Action.ADD_USER_CONNECTER &&  objectReceive.getObject() instanceof UserSafeData){
+                               this.addUserConnecter( (UserSafeData) objectReceive.getObject());
+                           }else if(objectReceive.getAction() == Action.REMOVE_USER_CONNECTER &&  objectReceive.getObject() instanceof UserSafeData){
+                               this.removeUserConnecter( (UserSafeData) objectReceive.getObject());
                            }
                        }
                    }else{
@@ -138,6 +144,31 @@ public class ClientReceive implements Runnable {
 
        }
 
+    }
+
+    private void removeUserConnecter(UserSafeData userSafeData) {
+        List<UserSafeData> lesUsersCo = this.client.getLesUserConnecter();
+        lesUsersCo.remove(userSafeData);
+        this.client.setLesUserConnecter(lesUsersCo);
+        for(UserSafeData user : this.client.getLesUserConnecter()){
+            System.out.println(user.getPseudo());
+        }
+    }
+
+    private void addUserConnecter(UserSafeData userSafeData) {
+        List<UserSafeData> lesUsersCo = this.client.getLesUserConnecter();
+        lesUsersCo.add(userSafeData);
+        this.client.setLesUserConnecter(lesUsersCo);
+        for(UserSafeData user : this.client.getLesUserConnecter()){
+            System.out.println(user.getPseudo());
+        }
+    }
+
+    private void allUserConnecter(List<UserSafeData> lesUserCo) {
+        this.client.setLesUserConnecter(lesUserCo);
+        for(UserSafeData user : this.client.getLesUserConnecter()){
+            System.out.println(user.getPseudo());
+        }
     }
 
     private void createConv(List<UserSafeData> listUser) {

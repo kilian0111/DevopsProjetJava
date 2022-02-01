@@ -84,6 +84,13 @@ public class UserJpaRepository {
         TypedQuery<UserSafeData> query = em.createQuery("SELECT e FROM UserSafeData e where e.actif = true ", UserSafeData.class);
         return query.getResultList();
     }
+
+    public static UserSafeData getUserSafeDataById(Long userId) {
+        EntityManager em = entityManagerFactory.createEntityManager();
+        TypedQuery<UserSafeData> query = em.createQuery("SELECT e FROM UserSafeData e WHERE e.id = :id", UserSafeData.class);
+        query.setParameter("id", userId);
+        return query.getSingleResult();
+    }
 }
 
 

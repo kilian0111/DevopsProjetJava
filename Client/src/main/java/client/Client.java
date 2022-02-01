@@ -31,6 +31,7 @@ public class Client {
     private HashMap<Long, GameController> lesGames;
     private GameChifoumi laGame;
     private List<UserSafeData> lesUser;
+    private List<UserSafeData> lesUserConnecter;
 
 
     public Client(int port, String address, MainGui mainGui) throws IOException {
@@ -39,6 +40,7 @@ public class Client {
         this.user = new User();
         this.mainGui = mainGui;
         this.lesGames = new HashMap<>();
+        this.lesUserConnecter = new ArrayList<>();
         Thread threadConnection = new Thread(new ClientReceive(this));
         threadConnection.start();
     }
@@ -177,4 +179,7 @@ public class Client {
 
     public List<UserSafeData> getLesUser() { return lesUser;}
     public void setLesUser(List<UserSafeData> lesUser) { this.lesUser = lesUser;}
+
+    public List<UserSafeData> getLesUserConnecter() {return lesUserConnecter;}
+    public void setLesUserConnecter(List<UserSafeData> lesUserConnecter) {this.lesUserConnecter = lesUserConnecter;}
 }
