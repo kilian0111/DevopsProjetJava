@@ -10,9 +10,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane prefHeight="630.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.client.gui.controlleur.ApplicationController">
+<AnchorPane prefHeight="630.0" prefWidth="1043.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.client.gui.controlleur.ApplicationController">
    <children>
-      <ScrollPane hbarPolicy="NEVER" layoutX="14.0" layoutY="41.0" prefHeight="575.0" prefWidth="199.0" styleClass="conversationsList" stylesheets="@../style/main.css">
+      <ScrollPane hbarPolicy="NEVER" layoutX="155.0" layoutY="39.0" prefHeight="575.0" prefWidth="199.0" styleClass="conversationsList" stylesheets="@../style/main.css">
           <padding>
               <Insets left="5.0" top="5.0" />
           </padding>
@@ -23,9 +23,9 @@
             <ListView fx:id="lesConversations" prefHeight="564.0" prefWidth="193.0" />
          </content>
       </ScrollPane>
-      <TextArea fx:id="textAreaMessage" layoutX="223.0" layoutY="543.0" prefHeight="73.0" prefWidth="601.0" />
-      <Button id="sendMessage" layoutX="827.0" layoutY="543.0" mnemonicParsing="false" onAction="#sendMessage" prefHeight="42.0" prefWidth="63.0" text="Envoyer" />
-       <ScrollPane fx:id="scrollMessage" hbarPolicy="NEVER" layoutX="224.0" layoutY="46.0" prefHeight="478.0" prefViewportWidth="139.0" prefWidth="666.0" AnchorPane.bottomAnchor="106.0" AnchorPane.leftAnchor="224.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="46.0">
+      <TextArea fx:id="textAreaMessage" layoutX="362.0" layoutY="543.0" prefHeight="73.0" prefWidth="601.0" />
+      <Button id="sendMessage" layoutX="966.0" layoutY="543.0" mnemonicParsing="false" onAction="#sendMessage" prefHeight="42.0" prefWidth="63.0" text="Envoyer" />
+       <ScrollPane fx:id="scrollMessage" hbarPolicy="NEVER" layoutX="362.0" layoutY="45.0" prefHeight="490.0" prefViewportWidth="139.0" prefWidth="670.0" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="362.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="45.0">
            <content>
                <TextFlow fx:id="messagesList" layoutX="223.0" layoutY="14.0" maxWidth="-Infinity" prefHeight="467.0" prefWidth="647.0" stylesheets="@../style/main.css">
                <padding>
@@ -33,19 +33,28 @@
                </padding></TextFlow>
            </content>
        </ScrollPane>
-      <Button alignment="CENTER" layoutX="19.0" layoutY="18.0" mnemonicParsing="false" onAction="#addNewConvAction" prefHeight="25.0" prefWidth="110.0" text="Nouvelle conversation">
+      <Button alignment="CENTER" layoutX="161.0" layoutY="16.0" mnemonicParsing="false" onAction="#addNewConvAction" prefHeight="25.0" prefWidth="110.0" text="Nouvelle conversation">
          <font>
             <Font name="System Bold" size="9.0" />
          </font>
       </Button>
-      <Button layoutX="134.0" layoutY="18.0" mnemonicParsing="false" onAction="#deconexionAction" prefHeight="25.0" prefWidth="83.0" text="Déconnexion">
+      <Button layoutX="273.0" layoutY="16.0" mnemonicParsing="false" onAction="#deconexionAction" prefHeight="25.0" prefWidth="83.0" text="Déconnexion">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
-      <Button fx:id="playButton" layoutX="827.0" layoutY="591.0" mnemonicParsing="false" onAction="#playAction" prefHeight="25.0" prefWidth="63.0" text="Jouer" />
-      <Button layoutX="757.0" layoutY="18.0" mnemonicParsing="false" onAction="#settingAction" prefHeight="25.0" prefWidth="133.0" text="Paramètres" />
-      <Label fx:id="accountName" alignment="CENTER_RIGHT" layoutX="668.0" layoutY="18.0" prefHeight="25.0" prefWidth="83.0" textAlignment="RIGHT">
+      <Button fx:id="playButton" layoutX="966.0" layoutY="591.0" mnemonicParsing="false" onAction="#playAction" prefHeight="25.0" prefWidth="63.0" text="Jouer" />
+      <Button layoutX="900.0" layoutY="14.0" mnemonicParsing="false" onAction="#settingAction" prefHeight="25.0" prefWidth="133.0" text="Paramètres" />
+      <Label fx:id="accountName" alignment="CENTER_RIGHT" layoutX="810.0" layoutY="15.0" prefHeight="25.0" prefWidth="83.0" textAlignment="RIGHT">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <ListView fx:id="connectedUsers" layoutX="6.0" layoutY="44.0" prefHeight="255.0" prefWidth="148.0" />
+      <Label layoutX="9.0" layoutY="27.0" text="Utilisateurs connectés" />
+      <ListView fx:id="convUsers" layoutX="6.0" layoutY="353.0" prefHeight="255.0" prefWidth="148.0" />
+      <Label layoutX="7.0" layoutY="333.0" prefHeight="17.0" prefWidth="83.0" text="Utilisateurs de " />
+      <Label fx:id="convName" layoutX="85.0" layoutY="333.0" prefHeight="17.0" prefWidth="69.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

@@ -10,6 +10,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import main.java.client.Client;
 import main.java.client.gui.listcell.ConversationListCell;
+import main.java.client.gui.listcell.UserListCell;
 import main.java.common.*;
 
 import java.net.URL;
@@ -52,6 +53,18 @@ public class ApplicationController implements Initializable,Icontrolleur {
     private Label accountName;
 
     /**
+     * Utilisateurs de la conversation courante
+     */
+    @FXML
+    private ListView convUsers;
+
+    /**
+     * Utilisateurs connectés
+     */
+    @FXML
+    private ListView<UserSafeData> connectedUsers;
+
+    /**
      * Bouton de jeu
      */
     @FXML
@@ -59,6 +72,12 @@ public class ApplicationController implements Initializable,Icontrolleur {
 
     @FXML
     private ScrollPane scrollMessage;
+
+    /**
+     * Nom de la conversation courante
+     */
+    @FXML
+    private Label convName;
 
     /**
      * Envoi un message aux autres utilisateurs
@@ -101,9 +120,22 @@ public class ApplicationController implements Initializable,Icontrolleur {
                 messagesList.getChildren().clear();
                 currentConv.getId().getConversations().getLesMessages().forEach(message -> { addMessage(message); });
                 scrollMessage.vvalueProperty().bind(messagesList.heightProperty());
+                convName.setText(currentConv.nomConv());
                 setPlayButtonState();
+
+                if (currentConv.getId().getConversations().getConversationId() == 0) {
+                    convUsers.getItems().clear();
+                    convUsers.setDisable(true);
+                    return;
+                }
+
+                convUsers.setDisable(false);
+                convUsers.setCellFactory(user -> new UserListCell());
+                convUsers.getItems().setAll(currentConv.getId().getConversations().getLesUsers());
             }
         });
+
+        this.updateConnectedUsers();
     }
 
     /**
@@ -229,6 +261,14 @@ public class ApplicationController implements Initializable,Icontrolleur {
             GameChifoumi game = new GameChifoumi(this.currentConv.getId().getConversations().getConversationId(),userConnected,userJ2);
             this.client.sendToServer(new ObjectSend(game,Action.LANCER_JEUX));
         }
+    }
+
+    /**
+     * Met à jour la liste d'utilisateurs connectés
+     */
+    public void updateConnectedUsers() {
+        this.connectedUsers.setCellFactory(user -> new UserListCell());
+        // TODO : Mettre les utilisateurs connectés dans la liste
     }
 
     /**
