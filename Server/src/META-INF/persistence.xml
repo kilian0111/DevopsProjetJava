@@ -16,6 +16,8 @@
     <class>main.java.common.UserSafeData</class>
     <class>main.java.common.GameChifoumi</class>
     <class>main.java.common.GameMancheChifoumi</class>
+    <class>main.java.common.UtilisateurConvSimple</class>
+    <class>main.java.common.UtilisateurConvIdSimple</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
 
@@ -28,7 +30,12 @@
         <property name="hibernate.connection.username" value="javaApp"/>
         <property name="hibernate.connection.password" value="Jekpkm0402@"/>
         <property name="hibernate.connection.url" value="jdbc:postgresql://maintenance-sdr.fr:5432/KIJOKI"/>
-
+        <property name="connection.pool_size" value="100000"/>
+        <property name="hibernate.c3p0.min_size" value="1"/>
+        <property name="hibernate.c3p0.max_size" value="5000"/>
+        <property name="hibernate.c3p0.timeout" value="6000"/>
+        <property name="hibernate.c3p0.max_statements" value="9000"/>
+        <property name="hibernate.c3p0.idle_test_period" value="90000"/>
     <!--<property name="net.sf.ehcache.configurationResourceName" value="/META-INF/ehcache-config.xml".
         <property name="hibernate.cache.use_second_level_cache" value="true"/>
     <property name="hibernate.cache.use_query_cache" value="true"/>

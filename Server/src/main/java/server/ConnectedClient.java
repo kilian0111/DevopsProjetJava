@@ -12,10 +12,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * Client connecté au Socket
@@ -88,22 +85,33 @@ public class ConnectedClient implements Runnable {
                            //code reçu par mail + nouveau mdp
                        }else if(objectSend.getAction() == Action.MODIF_USER && objectSend.getObject() instanceof User ) {
                            this.modifUser((User) objectSend.getObject());
+                           //message envoyé
                        }else if(objectSend.getAction() == Action.MESSAGE && objectSend.getObject() instanceof Message ){
                            this.addMessage((Message) objectSend.getObject());
+                           //demande de jeux lance un thread
                        } else if(objectSend.getAction() == Action.LANCER_JEUX && objectSend.getObject() instanceof GameChifoumi){
                            this.lancerJeux((GameChifoumi) objectSend.getObject() );
+                           //reponse du j2
                        }else if(objectSend.getAction() == Action.REPONSEJ2_JEUX && objectSend.getObject() instanceof GameChifoumi){
                            this.reponseChifoumiJ2((GameChifoumi) objectSend.getObject());
+                           //choix pierre feuille cisceau
                        } else if(objectSend.getAction() == Action.CHOIX_JEUX && objectSend.getObject() instanceof ChoixChifoumi){
                            this.addChoixToPartie((ChoixChifoumi) objectSend.getObject()  );
+                           //la liste de tout les utilisateur actif utiles pour créer des conversations
                        } else if(objectSend.getAction() == Action.LIST_USER ){
                            this.envoyerListUser();
+                           // créer une conv
                        }else if(objectSend.getAction() == Action.CREATE_CONV && objectSend.getObject() instanceof Conversations ){
                            this.createConv((Conversations) objectSend.getObject());
+                           // aajouter des utilisateur a la conv créer
                        }else if(objectSend.getAction() == Action.AJOUT_USER_CONV && objectSend.getObject() instanceof List ){
                            this.createUtilisateurConv((List<UtilisateursConversations>) objectSend.getObject());
+                           // si un utilisateur ferme le jeux
                        }else if(objectSend.getAction() == Action.FERMER_JEUX && objectSend.getObject() instanceof GameChifoumi){
                            this.jeuxFermer((GameChifoumi) objectSend.getObject());
+                           // quitter conv
+                       }else if(objectSend.getAction() == Action.QUITTER_CONV && objectSend.getObject() instanceof UtilisateursConversations){
+                           this.quitterConv((UtilisateursConversations) objectSend.getObject());
                        }
                    }
                 }else{
@@ -117,6 +125,37 @@ public class ConnectedClient implements Runnable {
            Thread.currentThread().interrupt();
         } catch(Exception e ){
             e.printStackTrace();
+        }
+    }
+
+    private void quitterConv(UtilisateursConversations utilisateursConversations) {
+        UserSafeData userQuitteConv = UserJpaRepository.getUserSafeDataById(utilisateursConversations.getId().getUtilisateur().getId());
+
+        //trouver la ligne sans supprimer les autres lignes ou la conv
+        UtilisateurConvSimple userConvToDel = UtilisateursConversationJpaRepository.getUtilisateurConvByUserIdAndConvId( utilisateursConversations.getId().getUtilisateur().getId(),
+                utilisateursConversations.getId().getConversations().getConversationId());
+
+        if(utilisateursConversations.getId().getUtilisateur().getId().equals(this.getUser().getId())){
+            UtilisateursConversationJpaRepository.deleteUtilisateursConversation(userConvToDel);
+        }
+        //recupère la conv que l'user a quitter
+        Conversations conv = ConversationJpaRepository.getConversationById(utilisateursConversations.getId().getConversations().getConversationId());
+         // recupère les id des utilisateurs dans la conv
+        List<Long> lesIdUsersConvs = new ArrayList<>();
+        for(UserSafeData userSafeData : conv.getLesUsers()){
+            lesIdUsersConvs.add(userSafeData.getId());
+        }
+        //on formatte la conv pour avoir qu'un user et pas de message pour savoir qui a quitter la conv et quelle conv
+        List<UserSafeData> userListQuitteConv = new ArrayList<>();
+        userListQuitteConv.add(userQuitteConv);
+        conv.setLesUsers(userListQuitteConv);
+        conv.setLesMessages(new ArrayList<>());
+
+        // on envoie a tous les utilisateurs de la conv
+        for(ConnectedClient connectedClient : this.server.getLesClients()){
+            if(lesIdUsersConvs.contains(connectedClient.getUser().getId())){
+                connectedClient.sendToClient(new ObjectSend(conv,Action.SUPPRESSSION_USER_CONV));
+            }
         }
     }
 
@@ -148,10 +187,12 @@ public class ConnectedClient implements Runnable {
     private void createUtilisateurConv(List<UtilisateursConversations> lesUtilisateursConv) {
         for(UtilisateursConversations userConv : lesUtilisateursConv){
             UtilisateursConversationJpaRepository.saveUtilisateursConversations(userConv);
-            for(ConnectedClient connectedClient : this.server.getLesClients()){
-                if(connectedClient.getUser() != null && userConv.getId().getUtilisateur().getId().equals(connectedClient.getUser().getId())){
+        }
+        for(UtilisateursConversations userConv : lesUtilisateursConv) {
+            for (ConnectedClient connectedClient : this.server.getLesClients()) {
+                if (connectedClient.getUser() != null && userConv.getId().getUtilisateur().getId().equals(connectedClient.getUser().getId())) {
                     List<UtilisateursConversations> utilisateursConvList = UtilisateursConversationJpaRepository.getUtilisateurConversationByUserId(connectedClient.getUser().getId());
-                    connectedClient.sendToClient(new ObjectSend(utilisateursConvList,Action.LIST_CONVERSATION));
+                    connectedClient.sendToClient(new ObjectSend(utilisateursConvList, Action.LIST_CONVERSATION));
                 }
             }
         }
@@ -166,6 +207,7 @@ public class ConnectedClient implements Runnable {
      */
     private void envoyerListUser() {
         List<UserSafeData> lesUsers = UserJpaRepository.getAllUser();
+        lesUsers.remove(this.UserSafeData);
         this.sendToClient(new ObjectSend(lesUsers,Action.LIST_USER));
     }
 
@@ -220,8 +262,7 @@ public class ConnectedClient implements Runnable {
                 User userInscrit =  UserJpaRepository.saveUser(user);
                 this.sendToClient(new ObjectSend(userInscrit,Action.INSCRIPTION));
                 this.user = userInscrit;
-                this.UserSafeData = UserJpaRepository.getUserSafeDataById(userInscrit.getId());
-                this.envoyerAllUserConnecter();
+                this.sendUserconnecter(userInscrit);
                 this.sendToClient(new ObjectSend(UtilisateursConversationJpaRepository.getUtilisateurConversationByUserId(this.user.getId()),Action.LIST_CONVERSATION));
                 this.server.sendToAll(this.user.getPseudo() + " vient d'arriver sur KIJOKI (comment a t-il pu faire sans kijoki)");
             }else{
@@ -229,6 +270,21 @@ public class ConnectedClient implements Runnable {
             }
         }else{
             this.sendToClient(new ObjectSend("E-mail déjà utiliser",Action.INSCRIPTION));
+        }
+
+    }
+
+    private void sendUserconnecter(User user){
+
+        this.UserSafeData = UserJpaRepository.getUserSafeDataById(user.getId());
+        this.envoyerAllUserConnecter();
+
+        if(this.getUserSafeData() != null ){
+            for(ConnectedClient connectedClient : this.server.getLesClients()){
+                if(connectedClient.getUser() != null && connectedClient.getUserSafeData() != null && !connectedClient.getUser().getId().equals(this.user.getId())){
+                    connectedClient.sendToClient(new ObjectSend(this.getUserSafeData(),Action.ADD_USER_CONNECTER));
+                }
+            }
         }
 
     }
@@ -314,7 +370,7 @@ public class ConnectedClient implements Runnable {
     private void envoyerAllUserConnecter(){
         List<UserSafeData> lesUserConnecter = new ArrayList<>();
         for(ConnectedClient connectedClient : this.server.getLesClients()){
-            if(connectedClient.getUserSafeData() != null){
+            if(connectedClient.getUserSafeData() != null && !this.user.getId().equals(connectedClient.getUser().getId())){
                 lesUserConnecter.add(connectedClient.getUserSafeData());
             }
         }
@@ -334,18 +390,12 @@ public class ConnectedClient implements Runnable {
         this.sendToClient(actionSend);
 
         if(userConnecete != null && userConnecete.getId() != null && userConnecete.getActif()){
-            if(this.getUserSafeData() != null ){
-                for(ConnectedClient connectedClient : this.server.getLesClients()){
-                    if(connectedClient.getUser() != null && connectedClient.getUserSafeData() != null){
-                        connectedClient.sendToClient(new ObjectSend(this.getUserSafeData(),Action.ADD_USER_CONNECTER));
-                    }
-                }
-            }
-            this.envoyerAllUserConnecter();
-            this.UserSafeData = UserJpaRepository.getUserSafeDataById(userConnecete.getId());
+            this.sendUserconnecter(userConnecete);
             List<UtilisateursConversations> utilisateursConvList = UtilisateursConversationJpaRepository.getUtilisateurConversationByUserId(this.user.getId());
             this.sendToClient(new ObjectSend(utilisateursConvList,Action.LIST_CONVERSATION));
             this.server.sendToAll(this.user.getPseudo() + " est de retour sur KIJOKI ");
+
+
         }
 
     }

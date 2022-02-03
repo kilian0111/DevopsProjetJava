@@ -10,18 +10,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e94660bc-7d73-4a3d-8f55-8ddb14e94c0b" name="Changes" comment="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription">
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/ClientReceive.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/ClientReceive.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ApplicationController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ApplicationController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ApplicationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ApplicationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/listcell/ConversationListCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/listcell/ConversationListCell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/listcell/UserListCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/listcell/UserListCell.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/Action.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/common/Action.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/ressources/fxml/application.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/ressources/fxml/application.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/ClientReceive.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/ClientReceive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/ApplicationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/gui/listcell/UserListCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/gui/listcell/UserListCell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/src/main/java/common/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/common/Action.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/Action.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/common/Action.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/ConnectedClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/ConnectedClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/GameChifoumiThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DevopsProjetJava2/main/java/server/GameChifoumiThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/persistence.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Action.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repository/UserJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/UserJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/UtilisateursConversationJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/UtilisateursConversationJpaRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/ConnectedClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ConnectedClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/Server.java" afterDir="false" />
     </list>
@@ -114,7 +119,9 @@
       <workItem from="1643617239721" duration="315000" />
       <workItem from="1643617623427" duration="254000" />
       <workItem from="1643619279247" duration="690000" />
-      <workItem from="1643707245316" duration="4325000" />
+      <workItem from="1643707245316" duration="6647000" />
+      <workItem from="1643723121573" duration="2000" />
+      <workItem from="1643744057320" duration="6541000" />
     </task>
     <task id="LOCAL-00001" summary="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription">
       <created>1642257550779</created>

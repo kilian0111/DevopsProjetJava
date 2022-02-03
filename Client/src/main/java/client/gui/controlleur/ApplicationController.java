@@ -135,26 +135,24 @@ public class ApplicationController implements Initializable,Icontrolleur {
                 convUsers.getItems().setAll(currentConv.getId().getConversations().getLesUsers());
 
 
+
             }
         });
 
-        this.updateConnectedUsers();
+
     }
 
     /**
      * Récupère les données et les affiche
      */
     public void chargerData(){
-        Platform.runLater(() -> {
-            this.lesConversations.getItems().clear();
-            this.lesConversations.getItems().setAll(this.client.getLesConversations());
-            this.lesConversations.setCellFactory(uc -> new ConversationListCell());
-
-            this.lesConversations.getSelectionModel().select(0);
-            this.currentConv = this.lesConversations.getSelectionModel().getSelectedItem();
-            accountName.setText(this.client.getUser().getPseudo());
-            setPlayButtonState();
-        });
+        this.lesConversations.setCellFactory(uc -> new ConversationListCell());
+        this.lesConversations.getItems().setAll(this.client.getLesConversations());
+        this.lesConversations.getSelectionModel().select(0);
+        this.currentConv = this.lesConversations.getSelectionModel().getSelectedItem();
+        accountName.setText(this.client.getUser().getPseudo());
+        this.setPlayButtonState();
+        this.addAllUserCo();
     }
 
     /**
@@ -270,14 +268,27 @@ public class ApplicationController implements Initializable,Icontrolleur {
         }
     }
 
+    public void addAllUserCo(){
+        this.connectedUsers.setCellFactory(user -> new UserListCell());
+        this.connectedUsers.getItems().setAll(this.client.getLesUserConnecter());
+    }
+
     /**
      * Met à jour la liste d'utilisateurs connectés
      */
-    public void updateConnectedUsers() {
-        this.connectedUsers.setCellFactory(user -> new UserListCell());
-        // TODO : Mettre les utilisateurs connectés dans la liste
+    public void addNewUserCo(UserSafeData userSafeData) {
+        this.connectedUsers.getItems().add(userSafeData);
+    }
+    public void removeUserCo(UserSafeData userSafeData) {
+        this.connectedUsers.getItems().remove(userSafeData);
     }
 
+    public void removeUserConv(Conversations conv) {
+        if(this.currentConv.getId().getConversations().getConversationId().equals(conv.getConversationId())){
+            this.convUsers.getItems().remove(conv.getLesUsers().get(0));
+        }
+
+    }
     /**
      * Affiche les paramètres
      * @param actionEvent Raison de l'appel de la méthode
