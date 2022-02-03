@@ -33,8 +33,14 @@
                <image>
                   <Image url="@../img/send.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
-         </graphic></Button>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
        <ScrollPane fx:id="scrollMessage" hbarPolicy="NEVER" layoutX="362.0" layoutY="45.0" prefHeight="490.0" prefViewportWidth="139.0" prefWidth="670.0" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="362.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="45.0">
            <content>
                <TextFlow fx:id="messagesList" layoutX="223.0" layoutY="14.0" maxWidth="-Infinity" prefHeight="467.0" prefWidth="647.0" stylesheets="@../style/main.css">
@@ -52,10 +58,16 @@
                <image>
                   <Image url="@../img/new_conv.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
          </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
-      <Button layoutX="278.0" layoutY="4.0" mnemonicParsing="false" onAction="#deconexionAction" prefHeight="42.0" prefWidth="48.0" style="-fx-background-color: transparant;;">
+      <Button layoutX="933.0" layoutY="4.0" mnemonicParsing="false" onAction="#deconexionAction" prefHeight="42.0" prefWidth="48.0" style="-fx-background-color: transparant;;">
          <font>
             <Font size="10.0" />
          </font>
@@ -64,10 +76,13 @@
                <image>
                   <Image url="@../img/deco.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
          </graphic>
          <cursor>
-            <Cursor fx:constant="CROSSHAIR" />
+            <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
       <Button fx:id="playButton" layoutX="966.0" layoutY="586.0" mnemonicParsing="false" onAction="#playAction" prefHeight="25.0" prefWidth="63.0" style="-fx-background-color: transparant;;">
@@ -76,16 +91,28 @@
                <image>
                   <Image url="@../img/jeu.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
-         </graphic></Button>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <Button layoutX="981.0" layoutY="3.0" mnemonicParsing="false" onAction="#settingAction" prefHeight="39.0" prefWidth="39.0" style="-fx-background-color: transparant;;">
          <graphic>
             <ImageView fitHeight="43.0" fitWidth="36.0" preserveRatio="true">
                <image>
                   <Image url="@../img/parametres.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
          </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <Label fx:id="accountName" alignment="CENTER_RIGHT" layoutX="810.0" layoutY="15.0" prefHeight="25.0" prefWidth="83.0" textAlignment="RIGHT">
          <font>
@@ -101,14 +128,20 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Button layoutX="940.0" layoutY="7.0" mnemonicParsing="false" onAction="#quitterConvAction" prefHeight="39.0" prefWidth="39.0" style="-fx-background-color: transparant;;">
+      <Button layoutX="277.0" layoutY="6.0" mnemonicParsing="false" onAction="#quitterConvAction" prefHeight="39.0" prefWidth="39.0" style="-fx-background-color: transparant;;">
          <graphic>
             <ImageView fitHeight="29.0" fitWidth="25.0" preserveRatio="true">
                <image>
                   <Image url="@../img/quitter_conv.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
          </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
    </children>
 </AnchorPane>

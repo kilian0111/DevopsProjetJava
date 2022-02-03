@@ -242,6 +242,7 @@ public class ApplicationController implements Initializable,Icontrolleur {
      * @param actionEvent Raison de l'appel de la méthode
      */
     public void deconexionAction(ActionEvent actionEvent) {
+        this.client.sendToServer(new ObjectSend(null,Action.DECONNEXION_USER));
         this.client.setUser(new User());
         this.client.setLesConversations(null);
         this.client.setApplicationController(null);
@@ -280,12 +281,33 @@ public class ApplicationController implements Initializable,Icontrolleur {
         this.connectedUsers.getItems().add(userSafeData);
     }
     public void removeUserCo(UserSafeData userSafeData) {
-        this.connectedUsers.getItems().remove(userSafeData);
+        List<UserSafeData> lesUsersSafe = this.connectedUsers.getItems();
+        UserSafeData userToDelete = new UserSafeData();
+        for(UserSafeData user : lesUsersSafe){
+            if(user.getId().equals(userSafeData.getId())){
+                userToDelete = user;
+                break;
+            }
+        }
+        this.connectedUsers.getItems().remove(userToDelete);
     }
 
     public void removeUserConv(Conversations conv) {
+        List<UtilisateursConversations> lesConvs = this.lesConversations.getItems();
+        UserSafeData userToDelete = new UserSafeData();
+        for(UtilisateursConversations userConv : lesConvs){
+            if(userConv.getId().getConversations().getConversationId().equals(conv.getConversationId())){
+                for(UserSafeData user : userConv.getId().getConversations().getLesUsers()){
+                    if(user.getId().equals(conv.getLesUsers().get(0).getId())){
+                        userToDelete = user;
+                        break;
+                    }
+                }
+                userConv.getId().getConversations().getLesUsers().remove(userToDelete);
+            }
+        }
         if(this.currentConv.getId().getConversations().getConversationId().equals(conv.getConversationId())){
-            this.convUsers.getItems().remove(conv.getLesUsers().get(0));
+            this.convUsers.getItems().remove(userToDelete);
         }
 
     }

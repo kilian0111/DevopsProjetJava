@@ -22,6 +22,12 @@ public class UtilisateursConversationJpaRepository {
         em.remove(em.contains(utilisateursConversations) ? utilisateursConversations : em.merge(utilisateursConversations));
         em.getTransaction().commit();
     }
+    public static void deleteUtilisateursConversation(UtilisateursConversations utilisateursConversations) {
+        EntityManager em = entityManagerFactory.createEntityManager();
+        em.getTransaction().begin();
+        em.remove(em.contains(utilisateursConversations) ? utilisateursConversations : em.merge(utilisateursConversations));
+        em.getTransaction().commit();
+    }
     public static void updateMessage(UtilisateursConversations utilisateursConversations) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();

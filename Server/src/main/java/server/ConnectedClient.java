@@ -112,6 +112,8 @@ public class ConnectedClient implements Runnable {
                            // quitter conv
                        }else if(objectSend.getAction() == Action.QUITTER_CONV && objectSend.getObject() instanceof UtilisateursConversations){
                            this.quitterConv((UtilisateursConversations) objectSend.getObject());
+                       }else if(objectSend.getAction() == Action.DECONNEXION_USER ){
+                           this.decoUser();
                        }
                    }
                 }else{
@@ -128,6 +130,12 @@ public class ConnectedClient implements Runnable {
         }
     }
 
+    private void decoUser() {
+        this.server.clientDeco(this);
+        this.user = new User();
+        this.UserSafeData = new UserSafeData();
+    }
+
     private void quitterConv(UtilisateursConversations utilisateursConversations) {
         UserSafeData userQuitteConv = UserJpaRepository.getUserSafeDataById(utilisateursConversations.getId().getUtilisateur().getId());
 
@@ -136,7 +144,7 @@ public class ConnectedClient implements Runnable {
                 utilisateursConversations.getId().getConversations().getConversationId());
 
         if(utilisateursConversations.getId().getUtilisateur().getId().equals(this.getUser().getId())){
-            UtilisateursConversationJpaRepository.deleteUtilisateursConversation(userConvToDel);
+            UtilisateursConversationJpaRepository.deleteUtilisateursConversation(utilisateursConversations);
         }
         //recupère la conv que l'user a quitter
         Conversations conv = ConversationJpaRepository.getConversationById(utilisateursConversations.getId().getConversations().getConversationId());

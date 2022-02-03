@@ -36,18 +36,22 @@ public class Server {
         }catch (Exception e){
             e.printStackTrace();
         }
+        this.clientDeco(client);
+
+    }
+
+    public void clientDeco(ConnectedClient client){
         this.lesClients.remove(client);
         if(client.getUser() != null && client.getUser().getPseudo() != null){
-           if(client.getUserSafeData() != null ){
-               for(ConnectedClient connectedClient : this.getLesClients()){
-                   if(connectedClient.getUser() != null){
-                       connectedClient.sendToClient(new ObjectSend(client.getUserSafeData(),Action.REMOVE_USER_CONNECTER));
-                   }
-               }
-           }
+            if(client.getUserSafeData() != null ){
+                for(ConnectedClient connectedClient : this.getLesClients()){
+                    if(connectedClient.getUser() != null){
+                        connectedClient.sendToClient(new ObjectSend(client.getUserSafeData(),Action.REMOVE_USER_CONNECTER));
+                    }
+                }
+            }
             this.sendToAll(client.getUser().getPseudo() + " Vient de se déconnecter (Quelle Indignité) ");
         }
-
     }
 
     public void addGame(GameChifoumiThread gameChifoumiThread){
