@@ -16,8 +16,6 @@
     <class>main.java.common.UserSafeData</class>
     <class>main.java.common.GameChifoumi</class>
     <class>main.java.common.GameMancheChifoumi</class>
-    <class>main.java.common.UtilisateurConvSimple</class>
-    <class>main.java.common.UtilisateurConvIdSimple</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
 

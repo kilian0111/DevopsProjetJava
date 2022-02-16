@@ -10,17 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e94660bc-7d73-4a3d-8f55-8ddb14e94c0b" name="Changes" comment="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription">
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ApplicationController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ApplicationController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ApplicationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/out/production/Client/main/java/client/gui/controlleur/ApplicationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/client/gui/controlleur/ApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/common/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/common/Action.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/ressources/fxml/application.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/ressources/fxml/application.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_01_2022_20_20_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_01_2022_20_20__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/UtilisateurConvIdSimple.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/UtilisateurConvSimple.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repository/UtilisateursConversationJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/UtilisateursConversationJpaRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/ConnectedClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ConnectedClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ressources/conf.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ressources/conf.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +113,10 @@
       <workItem from="1643723121573" duration="2000" />
       <workItem from="1643744057320" duration="6541000" />
       <workItem from="1643785201803" duration="273000" />
-      <workItem from="1643887532049" duration="1948000" />
+      <workItem from="1643887532049" duration="2313000" />
+      <workItem from="1643890709258" duration="11000" />
+      <workItem from="1643920095994" duration="1283000" />
+      <workItem from="1645033950757" duration="36000" />
     </task>
     <task id="LOCAL-00001" summary="restructuration projet + add politiques conf et conditions d'uitlisation + mdp oubliée + début inscription">
       <created>1642257550779</created>

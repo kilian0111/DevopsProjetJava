@@ -139,9 +139,7 @@ public class ConnectedClient implements Runnable {
     private void quitterConv(UtilisateursConversations utilisateursConversations) {
         UserSafeData userQuitteConv = UserJpaRepository.getUserSafeDataById(utilisateursConversations.getId().getUtilisateur().getId());
 
-        //trouver la ligne sans supprimer les autres lignes ou la conv
-        UtilisateurConvSimple userConvToDel = UtilisateursConversationJpaRepository.getUtilisateurConvByUserIdAndConvId( utilisateursConversations.getId().getUtilisateur().getId(),
-                utilisateursConversations.getId().getConversations().getConversationId());
+
 
         if(utilisateursConversations.getId().getUtilisateur().getId().equals(this.getUser().getId())){
             UtilisateursConversationJpaRepository.deleteUtilisateursConversation(utilisateursConversations);
